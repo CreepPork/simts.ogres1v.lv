@@ -1,0 +1,1 @@
+# Simts - Ogres 1. vidusskola
