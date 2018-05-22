@@ -12,6 +12,10 @@
 */
 
 Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/colors', function () {
     return view('color-palette');
 });
 
