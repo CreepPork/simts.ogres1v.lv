@@ -13,11 +13,71 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-// ul.navbar-nav > li {
-//     padding-left: 1rem;
-//     padding-right: 1rem;
+ul.navbar-nav {
+    li {
+        a {
+            font-size: $font-size-base + 0.1;
+        }
+    }
+}
+
+.parallax {
+    background-image: url('../images/placeholder.gif');
+    height: 35em;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 1rem;
+
+    .card {
+        padding: 0.8rem;
+        width: 25%;
+
+        .card-buttons {
+            display: flex;
+            justify-content: center;
+            
+            button.btn {
+                margin-left: 3px;
+                margin-right: 3px;
+
+                border-radius: 0;
+            }
+        }
+    }
+}
+
+// .container-tables {
+//     display: flex;
+//     justify-content: center;
+    
+//     .container-table-completed {
+//         width: 75%;
+//     }
+
+//     .container-tables-active-planned {
+//         flex-grow: 1;
+//     }
 // }
 
-ul.navbar-nav > li > a {
-    font-size: $font-size-base + 0.1;
+button.btn {
+    border-radius: 0;
+}
+
+.no-padding-left {
+    padding-left: 0;
+}
+
+.no-padding-right {
+    padding-right: 0;
+}
+
+.container-primary {
+    // background-color: lighten(map-get($theme-colors, "primary"), 25%);
 }
