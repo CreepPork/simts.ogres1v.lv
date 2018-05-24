@@ -26,7 +26,7 @@
     {{-- Tables --}}
     <div class="row">
 
-        <div class="col-8 no-padding-right">
+        <div class="col-8">
             <h3 class="text-center">Paveiktie darbi</h3>
 
             <table class="table table-bordered table-striped table-hover">
