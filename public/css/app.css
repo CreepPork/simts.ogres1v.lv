@@ -10422,7 +10422,7 @@ ul.navbar-nav li a {
 }
 
 .parallax {
-  background-image: url(/images/placeholder.gif?230d2f8b9308d1c5b5f9f6e6c67215a8);
+  background-image: url(/images/parallax.jpg?41469b0fabb77c70c47bb55cf80c5e6d);
   height: 44em;
   background-attachment: fixed;
   background-position: center;
@@ -10441,6 +10441,7 @@ ul.navbar-nav li a {
 }
 
 .parallax .card {
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 0.8rem;
   width: 25%;
 }
@@ -10464,11 +10465,7 @@ button.btn {
   border-radius: 0;
 }
 
-.no-padding-left {
-  padding-left: 0;
-}
-
-.no-padding-right {
-  padding-right: 0;
+.calendar div.row div.col {
+  padding: 0;
 }
 

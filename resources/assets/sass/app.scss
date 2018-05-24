@@ -22,7 +22,7 @@ ul.navbar-nav {
 }
 
 .parallax {
-    background-image: url('../images/placeholder.gif');
+    background-image: url('../images/parallax.jpg');
     height: 44em;
     background-attachment: fixed;
     background-position: center;
@@ -36,6 +36,8 @@ ul.navbar-nav {
     margin-bottom: 1rem;
 
     .card {
+        background-color: rgba(255, 255, 255, 0.8);
+
         padding: 0.8rem;
         width: 25%;
 
@@ -53,31 +55,14 @@ ul.navbar-nav {
     }
 }
 
-// .container-tables {
-//     display: flex;
-//     justify-content: center;
-    
-//     .container-table-completed {
-//         width: 75%;
-//     }
-
-//     .container-tables-active-planned {
-//         flex-grow: 1;
-//     }
-// }
-
 button.btn {
     border-radius: 0;
 }
 
-.no-padding-left {
-    padding-left: 0;
-}
-
-.no-padding-right {
-    padding-right: 0;
-}
-
-.container-primary {
-    // background-color: lighten(map-get($theme-colors, "primary"), 25%);
+.calendar {
+    div.row {
+        div.col {
+            padding: 0;
+        }
+    }
 }
