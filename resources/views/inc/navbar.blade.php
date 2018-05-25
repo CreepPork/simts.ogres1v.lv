@@ -13,16 +13,18 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li><a href="/" class="nav-link active">Sākums</a></li>
-                <li><a href="#" class="nav-link">Labie Darbi</a></li>
-                <li><a href="#" class="nav-link">Pasākumi</a></li>
+                <li><a href="#greatWorks" class="nav-link">Labie Darbi</a></li>
+                <li><a href="#events" class="nav-link">Pasākumi</a></li>
                 <li><a href="#" class="nav-link">Iesaisties!</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                <button class="btn btn-lg btn-primary" style="padding: 0.5rem 2rem">Iesūti</button>
+
                 <!-- Authentication Links -->
                 @guest
-                    <li><a class="nav-link" href="{{ route('login') }}">{{ __('Ieiet') }}</a></li>
+                    {{-- <li><a class="nav-link" href="{{ route('login') }}">{{ __('Ieiet') }}</a></li> --}}
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

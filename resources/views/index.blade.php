@@ -19,7 +19,7 @@
 </div>
 
 <div class="container mb-5">
-    <h1 class="text-center">100 labie darbi</h1>
+    <h1 id="greatWorks" class="text-center">100 labie darbi</h1>
 
     <hr>
 
@@ -136,7 +136,7 @@
 </div>
 
 <div class="container">
-    <h1 class="text-center">Pasākumi</h1>
+    <h1 id="events" class="text-center">Pasākumi</h1>
 
     <hr>
 
