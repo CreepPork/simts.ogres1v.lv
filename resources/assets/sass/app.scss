@@ -23,7 +23,14 @@ ul.navbar-nav {
 
 .parallax {
     background-image: url('../images/parallax.jpg');
+
     height: 44em;
+
+    // For larger screens make the image fill the screen
+    @include media-breakpoint-up(xl) {
+        height: 59em;
+    }
+
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
