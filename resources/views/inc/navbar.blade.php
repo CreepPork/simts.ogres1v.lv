@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+<nav id="navbar" class="navbar navbar-expand-md navbar-light navbar-laravel sticky-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{-- TODO: Replace with WEBM --}}
@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                <li><a href="/" class="nav-link active">Sākums</a></li>
+                <li><a href="#app" class="nav-link active">Sākums</a></li>
                 <li><a href="#greatWorks" class="nav-link">Labie Darbi</a></li>
                 <li><a href="#events" class="nav-link">Pasākumi</a></li>
                 <li><a href="#getInvolved" class="nav-link">Iesaisties!</a></li>
