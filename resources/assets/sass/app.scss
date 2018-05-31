@@ -58,7 +58,7 @@ ul.navbar-nav {
             display: flex;
             justify-content: center;
             
-            button.btn {
+            .btn {
                 margin-left: 3px;
                 margin-right: 3px;
 
@@ -68,14 +68,10 @@ ul.navbar-nav {
     }
 }
 
-button.btn {
+.btn {
     border-radius: 0;
 }
 
-.calendar {
-    div.row {
-        div.col {
-            padding: 0;
-        }
-    }
+.justify-content-space-evenly {
+    justify-content: space-evenly;
 }

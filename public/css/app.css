@@ -10642,17 +10642,19 @@ ul.navbar-nav li a {
           justify-content: center;
 }
 
-.parallax .card .card-buttons button.btn {
+.parallax .card .card-buttons .btn {
   margin-left: 3px;
   margin-right: 3px;
   border-radius: 0;
 }
 
-button.btn {
+.btn {
   border-radius: 0;
 }
 
-.calendar div.row div.col {
-  padding: 0;
+.justify-content-space-evenly {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
