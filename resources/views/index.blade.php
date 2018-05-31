@@ -9,10 +9,12 @@
     <div class="parallax-container card">
         <div class="card-body text-center">
             <h4>Ogres 1. vidusskolas projekts</h4>
+            
             <h2>100 labie darbi</h2>
+
             <div class="card-buttons">
-                <button class="ml-4 btn btn-primary">Iesaistīties</button>
-                <button class="mr-4 btn btn-outline-secondary">Uzzināt vairāk</button>
+                <a href="#getInvolved" class="ml-4 btn btn-primary">Iesaistīties</a>
+                <a href="#greatWorks" class="mr-4 btn btn-outline-secondary">Uzzināt vairāk</a>
             </div>
         </div>
     </div>
@@ -176,10 +178,10 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ornare elementum neque eu eleifend. Duis in condimentum justo, id vestibulum lorem. Curabitur efficitur velit nunc, ac congue leo tincidunt molestie. Donec tempus eros id ipsum interdum ornare. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam convallis sapien ipsum, at ultricies libero dapibus id. Proin eget tellus non mauris dapibus scelerisque. Nunc eu quam tempor, luctus dolor in, venenatis erat. Suspendisse justo leo, laoreet in accumsan a, accumsan id ex.
             </p>
 
-            <div class="btn-group d-flex justify-content-center">
-                <button class="btn btn-primary">Dāvināt</button>
-                <button class="btn btn-primary">Ieteikt</button>
-                <button class="btn btn-primary">Ziedot</button>
+            <div class="d-flex justify-content-space-evenly align-items-end">
+                <button class="btn btn-outline-primary">Dāvināt</button>
+                <button class="btn btn-outline-primary">Ieteikt</button>
+                <button class="btn btn-outline-primary">Ziedot</button>
             </div>
         </div>
     </div>
