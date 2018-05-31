@@ -144,7 +144,9 @@
 
     <div class="row mb-5">
         <div class="col-9">
-            <img src="{{ asset('images/placeholder.gif') }}" style="width: 100%" class="mb-3" alt="placeholder">
+            <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-1">
+                <img src="{{ asset('images/placeholder.gif') }}" style="width: 100%" class="mb-3" alt="placeholder">
+            </a>
 
             <h2>Tuvākais pasākums</h2>
 
@@ -168,7 +170,9 @@
     
     <div class="row">
         <div class="col-8">
-            <img src="{{ asset('images/placeholder.gif') }}" style="width: 100%" alt="placeholder">
+            <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-2">
+                <img src="{{ asset('images/placeholder.gif') }}" style="width: 100%" alt="placeholder">
+            </a>
         </div>
 
         <div class="col-4">

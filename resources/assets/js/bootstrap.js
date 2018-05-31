@@ -58,3 +58,5 @@ if (token) {
 require('fullcalendar');
 
 require('fontawesome');
+
+require('lightbox2');
