@@ -7,7 +7,7 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+// window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,8 +15,39 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
-    el: '#app'
+// const app = new Vue({
+//     el: '#app'
+// });
+
+$('#calendar').fullCalendar({
+    defaultView: 'listYear',
+    locale: 'lv',
+    themeSystem: 'bootstrap4',
+    navLinks: true,
+
+    header: {
+        left: 'prev, next today',
+        center: 'title',
+        right: 'listYear, listMonth'
+    },
+    
+
+    events: [
+        {
+            title: 'Event 1',
+            start: '2018-06-05'
+        },
+
+        {
+            title: 'Event 2',
+            start: '2018-08-12'
+        },
+
+        {
+            title: 'Event 3',
+            start: '2019-12-31'
+        }
+    ]
 });
