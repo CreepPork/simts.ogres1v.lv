@@ -28,7 +28,7 @@
     {{-- Tables --}}
     <div class="row">
 
-        <div class="col-8">
+        <div class="col-lg-8">
             <h3 class="text-center">Paveiktie darbi</h3>
 
             <table class="table table-bordered table-striped table-hover">
@@ -68,7 +68,7 @@
             </table>
         </div>
 
-        <div class="col-4 no-padding-left">
+        <div class="col-lg-4 no-padding-left">
             <h3 class="text-center">Pašreizējie darbi</h3>
 
             <table class="table table-bordered table-striped table-hover">
@@ -133,8 +133,6 @@
             <button class="btn btn-outline-primary">Nolikums</button>
         </div>
     </div>
-    
-    {{-- @include('inc.lorem') --}}
 </div>
 
 <div class="container">
@@ -143,7 +141,7 @@
     <hr>
 
     <div class="row mb-5">
-        <div class="col-9">
+        <div class="col-lg-9">
             <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-1">
                 <img src="{{ asset('images/placeholder.gif') }}" style="width: 100%" class="mb-3" alt="placeholder">
             </a>
@@ -157,7 +155,7 @@
             <button class="btn btn-lg btn-outline-primary">Skatīt</button>
         </div>
 
-        <div class="col-3">
+        <div class="col-lg-3">
             <div id="calendar"></div>
         </div>
     </div>
@@ -169,13 +167,13 @@
     <hr>
     
     <div class="row">
-        <div class="col-8">
+        <div class="col-lg-8">
             <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-2">
                 <img src="{{ asset('images/placeholder.gif') }}" style="width: 100%" alt="placeholder">
             </a>
         </div>
 
-        <div class="col-4">
+        <div class="col-lg-4">
             <h2 class="text-center">Vidusskolai vajag tevi!</h2>
 
             <p>

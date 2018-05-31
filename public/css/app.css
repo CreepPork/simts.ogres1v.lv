@@ -10633,6 +10633,13 @@ ul.navbar-nav li a {
   width: 25%;
 }
 
+@media (max-width: 575.98px) {
+  .parallax .card {
+    height: 100%;
+    width: 100%;
+  }
+}
+
 .parallax .card .card-buttons {
   display: -webkit-box;
   display: -ms-flexbox;

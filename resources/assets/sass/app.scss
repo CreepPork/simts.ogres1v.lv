@@ -57,6 +57,11 @@ ul.navbar-nav {
         min-width: 25em;
         width: 25%;
 
+        @include media-breakpoint-down(xs) {
+            height: 100%;
+            width: 100%;
+        }
+
         .card-buttons {
             display: flex;
             justify-content: center;
