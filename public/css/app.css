@@ -10658,3 +10658,7 @@ ul.navbar-nav li a {
           justify-content: space-evenly;
 }
 
+.temp-padding {
+  padding-top: 40px;
+}
+
