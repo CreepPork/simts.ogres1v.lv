@@ -152,7 +152,7 @@
 
             <h4 class="text-muted">20. jūnijs 2018</h4>
 
-            <button class="btn btn-lg btn-primary">Skatīt</button>
+            <button class="btn btn-lg btn-outline-primary">Skatīt</button>
         </div>
 
         <div class="col-3">
