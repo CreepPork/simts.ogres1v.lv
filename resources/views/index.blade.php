@@ -8,14 +8,22 @@
 <div class="parallax">
     <div class="parallax-container card">
         <div class="card-body text-center">
-            <h4>Ogres 1. vidusskolas projekts</h4>
-            
-            <h2>100 labie darbi</h2>
-
-            <div class="card-buttons">
-                <a href="#getInvolved" class="ml-4 btn btn-primary">Iesaistīties</a>
-                <a href="#greatWorks" class="mr-4 btn btn-outline-secondary">Uzzināt vairāk</a>
+            <div class="row">
+                <div class="col-xs-4 col-md-12">
+                    <h4>Ogres 1. vidusskolas projekts</h4>
+                </div>
+                <div class="col-xs-4 col-md-12">
+                    <h2>100 labie darbi</h2>
+                </div>
+                <div class="col-xs-4 col-md-12">
+                    <div class="card-buttons">
+                        <a href="#getInvolved" class="ml-4 btn btn-primary">Iesaistīties</a>
+                        <a href="#greatWorks" class="mr-4 btn btn-outline-secondary">Uzzināt vairāk</a>
+                    </div>
+                </div>
             </div>
+            
+
         </div>
     </div>
 </div>
