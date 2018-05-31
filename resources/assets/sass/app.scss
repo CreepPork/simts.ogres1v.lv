@@ -8,6 +8,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// FullCalendar
+@import '~fullcalendar/dist/fullcalendar.min.css';
+@import '~fullcalendar/dist/fullcalendar.print.css';
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -46,6 +50,8 @@ ul.navbar-nav {
         background-color: rgba(255, 255, 255, 0.8);
 
         padding: 0.8rem;
+
+        min-width: 19em;
         width: 25%;
 
         .card-buttons {

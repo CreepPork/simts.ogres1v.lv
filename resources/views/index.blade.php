@@ -140,7 +140,7 @@
 
     <hr>
 
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-7">
             <img src="{{ asset('images/placeholder.gif') }}" style="width: 100%" class="mb-3" alt="placeholder">
 
@@ -153,71 +153,33 @@
             <button class="btn btn-lg btn-primary">Skatīt</button>
         </div>
 
-        <div class="col-5">
-            <div class="container calendar">
-                <div class="row">
-                    <h3 class="text-center">Maijs 2018</h3>
-                </div>
+        <div class="col-xs-5">
+            <div id="calendar"></div>
+        </div>
+    </div>
+</div>
 
-                <div class="row">
-                    <div class="col">Pr.</div>
-                    <div class="col">Ot.</div>
-                    <div class="col">Tr.</div>
-                    <div class="col">Ce.</div>
-                    <div class="col">Pk.</div>
-                    <div class="col">Se.</div>
-                    <div class="col">Sv.</div>
-                </div>
+<div class="container">
+    <h1 id="getInvolved" class="text-center">Iesaisties!</h1>
+    
+    <hr>
+    
+    <div class="row">
+        <div class="col-8">
+            <img src="{{ asset('images/placeholder.gif') }}" style="width: 100%" alt="placeholder">
+        </div>
 
-                <div class="row">
-                    <div class="col text-muted">29</div>
-                    <div class="col text-muted">30</div>
-                    <div class="col">1</div>
-                    <div class="col">2</div>
-                    <div class="col">3</div>
-                    <div class="col">4</div>
-                    <div class="col">5</div>
-                </div>
-                
-                <div class="row">
-                    <div class="col">6</div>
-                    <div class="col">7</div>
-                    <div class="col">8</div>
-                    <div class="col">9</div>
-                    <div class="col">10</div>
-                    <div class="col">11</div>
-                    <div class="col">12</div>
-                </div>
-                
-                <div class="row">
-                    <div class="col">13</div>
-                    <div class="col">14</div>
-                    <div class="col">15</div>
-                    <div class="col">16</div>
-                    <div class="col">17</div>
-                    <div class="col">18</div>
-                    <div class="col">19</div>
-                </div>
-                
-                <div class="row">
-                    <div class="col">20</div>
-                    <div class="col">21</div>
-                    <div class="col">22</div>
-                    <div class="col">23</div>
-                    <div class="col">24</div>
-                    <div class="col">25</div>
-                    <div class="col">26</div>
-                </div>
-                
-                <div class="row">
-                    <div class="col">27</div>
-                    <div class="col">28</div>
-                    <div class="col">29</div>
-                    <div class="col">30</div>
-                    <div class="col">31</div>
-                    <div class="col"></div>
-                    <div class="col"></div>
-                </div>
+        <div class="col-4">
+            <h2 class="text-center">Vidusskolai vajag tevi!</h2>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ornare elementum neque eu eleifend. Duis in condimentum justo, id vestibulum lorem. Curabitur efficitur velit nunc, ac congue leo tincidunt molestie. Donec tempus eros id ipsum interdum ornare. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam convallis sapien ipsum, at ultricies libero dapibus id. Proin eget tellus non mauris dapibus scelerisque. Nunc eu quam tempor, luctus dolor in, venenatis erat. Suspendisse justo leo, laoreet in accumsan a, accumsan id ex.
+            </p>
+
+            <div class="btn-group d-flex justify-content-center">
+                <button class="btn btn-primary">Dāvināt</button>
+                <button class="btn btn-primary">Ieteikt</button>
+                <button class="btn btn-primary">Ziedot</button>
             </div>
         </div>
     </div>

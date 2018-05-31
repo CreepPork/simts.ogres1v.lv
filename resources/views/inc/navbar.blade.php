@@ -15,12 +15,12 @@
                 <li><a href="/" class="nav-link active">Sākums</a></li>
                 <li><a href="#greatWorks" class="nav-link">Labie Darbi</a></li>
                 <li><a href="#events" class="nav-link">Pasākumi</a></li>
-                <li><a href="#" class="nav-link">Iesaisties!</a></li>
+                <li><a href="#getInvolved" class="nav-link">Iesaisties!</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <button class="btn btn-lg btn-primary" style="padding: 0.5rem 2rem">Iesūti</button>
+                {{-- <button class="btn btn-lg btn-primary">Iesūti</button> --}}
 
                 <!-- Authentication Links -->
                 @guest
