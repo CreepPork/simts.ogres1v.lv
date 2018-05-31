@@ -141,7 +141,7 @@
     <hr>
 
     <div class="row mb-5">
-        <div class="col-7">
+        <div class="col-9">
             <img src="{{ asset('images/placeholder.gif') }}" style="width: 100%" class="mb-3" alt="placeholder">
 
             <h2>Tuvākais pasākums</h2>
@@ -153,7 +153,7 @@
             <button class="btn btn-lg btn-primary">Skatīt</button>
         </div>
 
-        <div class="col-xs-5">
+        <div class="col-3">
             <div id="calendar"></div>
         </div>
     </div>
