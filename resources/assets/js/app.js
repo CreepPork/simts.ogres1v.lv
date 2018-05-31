@@ -21,6 +21,13 @@ require('./bootstrap');
 //     el: '#app'
 // });
 
+$('body').scrollspy({
+    target: '#navbar',
+    offset: 10
+});
+
+require('./extensions/smoothScrolling.js');
+
 $('#calendar').fullCalendar({
     defaultView: 'listYear',
     locale: 'lv',
