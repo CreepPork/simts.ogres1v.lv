@@ -1541,9 +1541,9 @@
 
             mom = createUTC([2000, 1]).day(i);
             if (strict && !this._fullWeekdaysParse[i]) {
-                this._fullWeekdaysParse[i] = new RegExp('^' + this.weekdays(mom, '').replace('.', '\.?') + '$', 'i');
-                this._shortWeekdaysParse[i] = new RegExp('^' + this.weekdaysShort(mom, '').replace('.', '\.?') + '$', 'i');
-                this._minWeekdaysParse[i] = new RegExp('^' + this.weekdaysMin(mom, '').replace('.', '\.?') + '$', 'i');
+                this._fullWeekdaysParse[i] = new RegExp('^' + this.weekdays(mom, '').replace('.', '\\.?') + '$', 'i');
+                this._shortWeekdaysParse[i] = new RegExp('^' + this.weekdaysShort(mom, '').replace('.', '\\.?') + '$', 'i');
+                this._minWeekdaysParse[i] = new RegExp('^' + this.weekdaysMin(mom, '').replace('.', '\\.?') + '$', 'i');
             }
             if (!this._weekdaysParse[i]) {
                 regex = '^' + this.weekdays(mom, '') + '|^' + this.weekdaysShort(mom, '') + '|^' + this.weekdaysMin(mom, '');
@@ -2346,7 +2346,7 @@
 
     function preprocessRFC2822(s) {
         // Remove comments and folding whitespace and replace multiple-spaces with a single space
-        return s.replace(/\([^)]*\)|[\n\t]/g, ' ').replace(/(\s\s+)/g, ' ').trim();
+        return s.replace(/\([^)]*\)|[\n\t]/g, ' ').replace(/(\s\s+)/g, ' ').replace(/^\s\s*/, '').replace(/\s\s*$/, '');
     }
 
     function checkWeekday(weekdayStr, parsedInput, config) {
@@ -4525,7 +4525,7 @@
     // Side effect imports
 
 
-    hooks.version = '2.22.1';
+    hooks.version = '2.22.2';
 
     setHookCallback(createLocal);
 
@@ -18975,7 +18975,7 @@ module.exports = Cancel;
         relativeTime : {
             future : '%s sonra',
             past : '%s əvvəl',
-            s : 'birneçə saniyyə',
+            s : 'birneçə saniyə',
             ss : '%d saniyə',
             m : 'bir dəqiqə',
             mm : '%d dəqiqə',
@@ -19070,7 +19070,7 @@ module.exports = Cancel;
         weekdays : {
             format: 'нядзелю_панядзелак_аўторак_сераду_чацвер_пятніцу_суботу'.split('_'),
             standalone: 'нядзеля_панядзелак_аўторак_серада_чацвер_пятніца_субота'.split('_'),
-            isFormat: /\[ ?[Вв] ?(?:мінулую|наступную)? ?\] ?dddd/
+            isFormat: /\[ ?[Ууў] ?(?:мінулую|наступную)? ?\] ?dddd/
         },
         weekdaysShort : 'нд_пн_ат_ср_чц_пт_сб'.split('_'),
         weekdaysMin : 'нд_пн_ат_ср_чц_пт_сб'.split('_'),
@@ -26301,7 +26301,7 @@ module.exports = Cancel;
         calendar : {
             sameDay : '[ਅਜ] LT',
             nextDay : '[ਕਲ] LT',
-            nextWeek : 'dddd, LT',
+            nextWeek : '[ਅਗਲਾ] dddd, LT',
             lastDay : '[ਕਲ] LT',
             lastWeek : '[ਪਿਛਲੇ] dddd, LT',
             sameElse : 'L'
@@ -30113,13 +30113,16 @@ $('#calendar').fullCalendar({
     },
 
     events: [{
-        title: 'Event 1',
-        start: '2018-06-05'
+        title: 'Pasākums 1',
+        start: '2018-06-20'
     }, {
-        title: 'Event 2',
+        title: 'Pasākums 2',
         start: '2018-08-12'
     }, {
-        title: 'Event 3',
+        title: 'Pasākums 3',
+        start: '2018-09-22'
+    }, {
+        title: 'Pasākums 4',
         start: '2019-12-31'
     }]
 });
@@ -68139,7 +68142,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 // Select all links with hashes
 $('a[href*="#"]')
 // Remove links that don't actually link to anything
-.not('[href="#"]').not('[href="#0"]').click(function (event) {
+.not('[href="#"]').click(function (event) {
     // On-page links
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         // Figure out element to scroll to
@@ -68154,18 +68157,21 @@ $('a[href*="#"]')
             $('html, body').animate({
                 scrollTop: target.offset().top
             }, 1000, function () {
-                // Callback after animation
-                // Must change focus!
-                var $target = $(target);
-                $target.focus();
+                // Set focus to parent element that is the container
+                var targetContainer = $(target.closest('.container'));
+                targetContainer.addClass('container-selected').focus();
 
-                if ($target.is(':focus')) {
-                    // Checking if the target was focused
-                    return false;
-                } else {
-                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
-                    $target.focus(); // Set focus again
-                }
+                setTimeout(function () {
+                    // Remove the focus from the container and set it to the actual target
+                    // for accessibility reasons
+                    targetContainer.blur();
+                    target.focus();
+
+                    // After the transition has completed then remove the class
+                    setTimeout(function () {
+                        targetContainer.removeClass('container-selected');
+                    }, 250);
+                }, 500);
             });
         }
     }

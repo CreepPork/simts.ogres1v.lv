@@ -39,21 +39,25 @@ $('#calendar').fullCalendar({
         center: 'title',
         right: 'listYear, listMonth'
     },
-    
 
     events: [
         {
-            title: 'Event 1',
-            start: '2018-06-05'
+            title: 'Pasākums 1',
+            start: '2018-06-20'
         },
 
         {
-            title: 'Event 2',
+            title: 'Pasākums 2',
             start: '2018-08-12'
         },
 
         {
-            title: 'Event 3',
+            title: 'Pasākums 3',
+            start: '2018-09-22'
+        },
+
+        {
+            title: 'Pasākums 4',
             start: '2019-12-31'
         }
     ]

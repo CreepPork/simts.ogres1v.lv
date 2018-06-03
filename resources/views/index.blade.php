@@ -22,13 +22,13 @@
                     </div>
                 </div>
             </div>
-            
+
 
         </div>
     </div>
 </div>
 
-<div class="container mb-5">
+<div tabindex="-1" class="container mb-5">
     <h1 id="greatWorks" class="text-center">100 labie darbi</h1>
 
     <hr>
@@ -46,7 +46,7 @@
                         <th>Skolotājs</th>
                     </tr>
                 </thead>
-    
+
                 <tbody>
                     <tr>
                         <td>Darbs 1</td>
@@ -86,7 +86,7 @@
                         <th>Skolotājs</th>
                     </tr>
                 </thead>
-    
+
                 <tbody>
                     <tr>
                         <td>Darbs 1</td>
@@ -112,7 +112,7 @@
                         <th>Skolotājs</th>
                     </tr>
                 </thead>
-    
+
                 <tbody>
                     <tr>
                         <td>Darbs 1</td>
@@ -143,13 +143,13 @@
     </div>
 </div>
 
-<div class="container">
+<div tabindex="-1" class="container">
     <h1 id="events" class="text-center">Pasākumi</h1>
 
     <hr>
 
     <div class="row mb-5">
-        <div class="col-lg-9">
+        <div class="col-lg-8">
             <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-1">
                 <img src="{{ asset('images/placeholder.gif') }}" style="width: 100%" class="mb-3" alt="placeholder">
             </a>
@@ -163,17 +163,17 @@
             <button class="btn btn-lg btn-outline-primary">Skatīt</button>
         </div>
 
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <div id="calendar"></div>
         </div>
     </div>
 </div>
 
-<div class="container">
+<div tabindex="-1" class="container">
     <h1 id="getInvolved" class="text-center">Iesaisties!</h1>
-    
+
     <hr>
-    
+
     <div class="row">
         <div class="col-lg-8">
             <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-2">
