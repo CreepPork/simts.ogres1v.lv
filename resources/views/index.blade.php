@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-{{-- Remove padding-top from main --}}
+{{-- Remove padding from main --}}
 @section('styling-main', '')
 
 @section('content')
@@ -12,9 +12,11 @@
                 <div class="col-xs-4 col-md-12">
                     <h4>Ogres 1. vidusskolas projekts</h4>
                 </div>
+
                 <div class="col-xs-4 col-md-12">
                     <h2>100 labie darbi</h2>
                 </div>
+
                 <div class="col-xs-4 col-md-12">
                     <div class="card-buttons">
                         <a href="#getInvolved" class="ml-4 btn btn-primary">Iesaistīties</a>
@@ -22,15 +24,14 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
 
 <div class="wrapper-gradient">
     <div class="container wrapper">
-        <div tabindex="-1" class="container mb-5">
+        {{-- Section - 100 Great Works --}}
+        <section tabindex="-1" class="container mb-5">
             <h1 id="greatWorks" class="text-center pt-3">100 labie darbi</h1>
 
             <hr>
@@ -41,6 +42,7 @@
                 <div class="col-lg-8">
                     <h3 class="text-center">Paveiktie darbi</h3>
 
+                    {{-- Completed works --}}
                     <table class="table table-bordered table-striped table-hover">
                         <thead class="table-primary">
                             <tr>
@@ -81,6 +83,7 @@
                 <div class="col-lg-4 no-padding-left">
                     <h3 class="text-center">Pašreizējie darbi</h3>
 
+                    {{-- Current works --}}
                     <table class="table table-bordered table-striped table-hover">
                         <thead class="table-primary">
                             <tr>
@@ -105,6 +108,7 @@
                         </tbody>
                     </table>
 
+                    {{-- Planned works --}}
                     <table class="table table-bordered table-striped table-hover">
                         <h3 class="text-center">Plānotie darbi</h3>
 
@@ -143,9 +147,10 @@
                     <button class="btn btn-outline-primary">Nolikums</button>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div tabindex="-1" class="container">
+        {{-- Section - Events --}}
+        <section tabindex="-1" class="container">
             <h1 id="events" class="text-center">Pasākumi</h1>
 
             <hr>
@@ -169,9 +174,10 @@
                     <div id="calendar"></div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div tabindex="-1" class="container pb-3">
+        {{-- Section - Involvement --}}
+        <section tabindex="-1" class="container pb-3">
             <h1 id="getInvolved" class="text-center">Iesaisties!</h1>
 
             <hr>
@@ -197,7 +203,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 </div>
 
@@ -214,7 +220,6 @@
                 <a href="#"><i class="ml-2 fab fa-github-square"></i></a>
             </div>
         </div>
-
     </div>
 </div>
 
