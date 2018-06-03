@@ -15,80 +15,185 @@
 // Lightbox 2
 @import '~lightbox2/dist/css/lightbox.min.css';
 
+main {
+    background: $body-bg;
+
+    @include media-breakpoint-only(xl) {
+        background: linear-gradient(to bottom right,
+            map-get($map: $theme-colors, $key: 'blue'),
+            map-get($map: $theme-colors, $key: 'middle-green-yellow'),
+            map-get($map: $theme-colors, $key: 'green'));
+    }
+}
+
 .navbar {
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
 
-ul.navbar-nav {
-    li {
-        a {
-            font-size: $font-size-base + 0.1;
+  ul.navbar-nav {
+        li {
+            a {
+                // Increase the anchor tag texts just a tiny bit due to the logo size
+                font-size: $font-size-base + 0.1;
+            }
         }
     }
+}
+
+// Make all the buttons have no rounding on them
+.btn {
+    border-radius: 0;
 }
 
 .parallax {
     background-image: url('../images/parallax.jpg');
 
+    // Make the image fully fit the screen (doesn't care about the actual screen size, will always fit)
     height: 91vh;
 
+    // Make it look parallaxy
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    @include media-breakpoint-up(sm) {
-        box-shadow: 0 3px 4px rgba(0, 0, 0, 0.08);
-    }
-
+    // Create a flex box for the card that is centered on the x and y axes
     display: flex;
     justify-content: center;
     align-items: center;
 
+    // To give some more breathing room between the image and the next section
     margin-bottom: 1rem;
 
+    // If the screen size > sm then show the shadow if not then we don't want to show it because it doesn't look good
+    @include media-breakpoint-up(sm) {
+        box-shadow: 0 3px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    // Styling for the card that goes in the center of the image
     .card {
+        // Make it transparent so it looks better
         background-color: rgba(255, 255, 255, 0.8);
 
-        padding: 0.8em;
-
-        min-width: 25em;
+        // Make it so it doesn't fill the whole image, we still want to see image, right?
         width: 25%;
 
-        @include media-breakpoint-down(xs) {
+        // As the device scales down don't squish the card
+        min-width: 25em;
+
+        // Add some padding around it to make it not so squished
+        padding: 0.8em;
+
+        // Styling for the two buttons inside the card
+        .card-buttons {
+            // Set a flex box for them to be centered inside that card
+            display: flex;
+            justify-content: center;
+
+            // Add some spacing between the buttons and the sides
+            .btn {
+                margin-left: 3px;
+                margin-right: 3px;
+            }
+        }
+
+        // If the screen size is the smallest
+        @include media-breakpoint-only(xs) {
+            // Set it to be the full size of the parallax parent so it looks better because there isn't any room left
+            //  for all the buttons and text in 25% of the screen size
             height: 100%;
             width: 100%;
 
+            // Set the card body to center all the text on the y axis in the middle (looks better, doesn't it?)
             .card-body {
                 display: flex;
                 align-items: center;
 
+                // Remove some padding around the colls because it looks weird
                 .col-xs-4 {
                     padding: 0;
                 }
             }
         }
+    }
+}
 
-        .card-buttons {
-            display: flex;
-            justify-content: center;
+// Wrapper inside the main element to be on top of the gradient so you can actually read something
+.wrapper {
+    background-color: $body-bg;
 
-            .btn {
-                margin-left: 3px;
-                margin-right: 3px;
+    @include media-breakpoint-up(sm) {
+        // Offset the wrapper to be on top of the parallax image but so only the text "100 labie darbi" is visible
+        margin-top: -7rem;
 
-                border-radius: 0;
-            }
+        // Add a shadow to the wrapper to give that feel that it's not a part of the gradient itself
+        box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.15);
+
+        // Add some margin bottom for the footer
+        margin-bottom: 3em;
+    }
+}
+
+// Class used to highlight selected container using the buttons.
+// Note: should not be applied constantly but only via JS for a moment otherwise the user can interact with it
+//  and it looks and feels weird to the user.
+.container-selected {
+    // Transition when the container is focused (in and out)
+    transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+
+    // Add a shadow to the container when it is focused
+    &:focus {
+        box-shadow: 0 0 0.8rem 0.2rem rgba(241, 92, 34, 0.5);
+    }
+}
+
+.footer {
+    // Make the footer text white so it actually can be read on the orange-y background
+    color: white;
+
+    // Set the background color to the primary key from theme-colors
+    background-color: map-get($map: $theme-colors, $key: 'primary');
+
+    // Add some padding to the top and bottom to make the footer look fatter so it isn't so tiny
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+
+    // Decrease the font size by a tiny fraction (default: 1.125em)
+    h5 {
+        font-size: 1.1rem;
+
+        // Whem the screen size is so low that the text and the social icons cannot be on the same line
+        //  then make it centered, same applies to the social icons.
+        @include media-breakpoint-only(xs) {
+            text-align: center !important;
+        }
+    }
+
+    // Set the SVG to a bigger size (fa-2x and fa-3x are not a good fit for this one).
+    // Note: using a selector for the i.fab doesn't work because it comments out the actual i element and replaces it
+    //  with an SVG element (probably using a different class would have worked, but I couldn't come up a good name for it).
+    svg.svg-inline--fa {
+        font-size: 2.7em;
+    }
+
+    // Set the anchor tags to white (default: primary, which you guessed, is invisible on the background)
+    a {
+        color: white;
+    }
+
+    // Align the footer icons maximum to the right incase there is some extra room between the col's
+    .footer-icons {
+        text-align: right;
+
+        // Aforementioned text centering for the smaller screen sizes
+        @include media-breakpoint-only(xs) {
+            text-align: center;
         }
     }
 }
 
-.btn {
-    border-radius: 0;
-}
-
-.justify-content-space-evenly {
+// For some reason BS4 doesn't include this class
+.justify-content-evenly {
     justify-content: space-evenly;
 }
 
@@ -96,65 +201,3 @@ ul.navbar-nav {
 .temp-padding {
     padding-top: 20px;
 }
-
-.container-selected {
-    transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, -webkit-box-shadow 0.25s ease-in-out;
-
-    &:focus {
-        box-shadow: 0 0 0.8rem 0.2rem rgba(241, 92, 34, 0.5);
-    }
-}
-
-.wrapper {
-    background-color: $body-bg;
-
-    @include media-breakpoint-up(sm) {
-        // Offset the whole wrapper up to create a better looking effect
-        margin-top: -7rem;
-
-        margin-bottom: 3em;
-
-        box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.15);
-    }
-}
-
-main {
-    background: $body-bg;
-
-    @include media-breakpoint-only(xl) {
-        background: linear-gradient(to bottom right, map-get($map: $building-colors, $key: 'blue'), #A5B452, map-get($map: $building-colors, $key: 'green'));
-    }
-}
-
-.footer {
-    color: white;
-    background-color: map-get($map: $theme-colors, $key: 'primary');
-
-    padding-top: 0.8em;
-    padding-bottom: 0.8em;
-
-    h5 {
-        font-size: 1.1rem;
-
-        @include media-breakpoint-only(xs) {
-            text-align: center !important;
-        }
-    }
-
-    svg.svg-inline--fa {
-        font-size: 2.7em;
-    }
-
-    a {
-        color: white;
-    }
-
-    .footer-icons {
-        text-align: right;
-
-        @include media-breakpoint-only(xs) {
-            text-align: center;
-        }
-    }
-}
-

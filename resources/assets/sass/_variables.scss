@@ -9,17 +9,19 @@ $line-height-base: 1.6;
 
 // Theme Colors
 $theme-colors: (
+    // Bootstrap 4 theme colors
     "primary": #F15C22,
     "info": #004777,
     "danger": #A30000,
     "warning": #EFD28D,
-    "success": #00AFB5
-);
+    "success": #00AFB5,
 
-// Colors taken from the school building
-$building-colors: (
+    // Custom colors taken from the actual school building
     "blue": #116CB7,
     "green": #A8CD87,
     "white": #DCDFD7,
-    "gray": #868B87
+    "gray": #868B87,
+
+    // Colors inspired from the school's building
+    "middle-green-yellow": #A5B452
 );
