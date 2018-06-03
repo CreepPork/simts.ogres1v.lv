@@ -10683,11 +10683,11 @@ ul.navbar-nav li a {
   padding-top: 20px;
 }
 
-.wrapper-selected {
+.container-selected {
   transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, -webkit-box-shadow 0.25s ease-in-out;
 }
 
-.wrapper-selected:focus {
+.container-selected:focus {
   -webkit-box-shadow: 0 0 0.8rem 0.2rem rgba(241, 92, 34, 0.5);
           box-shadow: 0 0 0.8rem 0.2rem rgba(241, 92, 34, 0.5);
 }
