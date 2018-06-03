@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar navbar-expand-md navbar-light navbar-laravel sticky-top">
+<nav id="navbar" class="navbar navbar-expand-md navbar-light sticky-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{-- TODO: Replace with WEBM --}}

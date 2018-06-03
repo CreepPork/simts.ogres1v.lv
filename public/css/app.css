@@ -10591,8 +10591,8 @@ a.text-dark:focus {
   }
 }
 
-.navbar-laravel {
-  background-color: #fff;
+.navbar {
+  background-color: white;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
@@ -10603,7 +10603,7 @@ ul.navbar-nav li a {
 
 .parallax {
   background-image: url(/images/parallax.jpg?41469b0fabb77c70c47bb55cf80c5e6d);
-  height: 44em;
+  height: 91vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -10620,9 +10620,10 @@ ul.navbar-nav li a {
   margin-bottom: 1rem;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 576px) {
   .parallax {
-    height: 59em;
+    -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -10679,15 +10680,74 @@ ul.navbar-nav li a {
 }
 
 .temp-padding {
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
-.container-selected {
+.wrapper-selected {
   transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, -webkit-box-shadow 0.25s ease-in-out;
 }
 
-.container-selected:focus {
+.wrapper-selected:focus {
   -webkit-box-shadow: 0 0 0.8rem 0.2rem rgba(241, 92, 34, 0.5);
           box-shadow: 0 0 0.8rem 0.2rem rgba(241, 92, 34, 0.5);
+}
+
+.wrapper {
+  background-color: #FCFCFC;
+}
+
+@media (min-width: 576px) {
+  .wrapper {
+    margin-top: -7rem;
+    margin-bottom: 3em;
+    -webkit-box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+main {
+  background: #FCFCFC;
+}
+
+@media (min-width: 1200px) {
+  main {
+    background: -webkit-gradient(linear, left top, right bottom, from(#116CB7), color-stop(#A5B452), to(#A8CD87));
+    background: linear-gradient(to bottom right, #116CB7, #A5B452, #A8CD87);
+  }
+}
+
+.footer {
+  color: white;
+  background-color: #F15C22;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+}
+
+.footer h5 {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 575.98px) {
+  .footer h5 {
+    text-align: center !important;
+  }
+}
+
+.footer svg.svg-inline--fa {
+  font-size: 2.7em;
+}
+
+.footer a {
+  color: white;
+}
+
+.footer .footer-icons {
+  text-align: right;
+}
+
+@media (max-width: 575.98px) {
+  .footer .footer-icons {
+    text-align: center;
+  }
 }
 

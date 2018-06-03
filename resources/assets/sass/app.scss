@@ -15,8 +15,8 @@
 // Lightbox 2
 @import '~lightbox2/dist/css/lightbox.min.css';
 
-.navbar-laravel {
-  background-color: #fff;
+.navbar {
+  background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
@@ -31,17 +31,16 @@ ul.navbar-nav {
 .parallax {
     background-image: url('../images/parallax.jpg');
 
-    height: 44em;
-
-    // For larger screens make the image fill the screen
-    @include media-breakpoint-up(xl) {
-        height: 59em;
-    }
+    height: 91vh;
 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @include media-breakpoint-up(sm) {
+        box-shadow: 0 3px 4px rgba(0, 0, 0, 0.08);
+    }
 
     display: flex;
     justify-content: center;
@@ -95,13 +94,67 @@ ul.navbar-nav {
 
 // TODO: Replace with proper flex box align
 .temp-padding {
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
-.container-selected {
+.wrapper-selected {
     transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, -webkit-box-shadow 0.25s ease-in-out;
 
     &:focus {
         box-shadow: 0 0 0.8rem 0.2rem rgba(241, 92, 34, 0.5);
     }
 }
+
+.wrapper {
+    background-color: $body-bg;
+
+    @include media-breakpoint-up(sm) {
+        // Offset the whole wrapper up to create a better looking effect
+        margin-top: -7rem;
+
+        margin-bottom: 3em;
+
+        box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+}
+
+main {
+    background: $body-bg;
+
+    @include media-breakpoint-only(xl) {
+        background: linear-gradient(to bottom right, map-get($map: $building-colors, $key: 'blue'), #A5B452, map-get($map: $building-colors, $key: 'green'));
+    }
+}
+
+.footer {
+    color: white;
+    background-color: map-get($map: $theme-colors, $key: 'primary');
+
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+
+    h5 {
+        font-size: 1.1rem;
+
+        @include media-breakpoint-only(xs) {
+            text-align: center !important;
+        }
+    }
+
+    svg.svg-inline--fa {
+        font-size: 2.7em;
+    }
+
+    a {
+        color: white;
+    }
+
+    .footer-icons {
+        text-align: right;
+
+        @include media-breakpoint-only(xs) {
+            text-align: center;
+        }
+    }
+}
+
