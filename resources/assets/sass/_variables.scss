@@ -26,3 +26,9 @@ $theme-colors: (
     "middle-green-yellow": #A5B452,
     "dark-imperial-blue": #0B4F6C
 );
+
+// Respective footer sizes for xs and >=sm breakpoints
+$footer-sizes: (
+    "xs": 93.05px,
+    "sm": 63.05px
+);

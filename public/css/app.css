@@ -11569,8 +11569,14 @@ a.text-dark-imperial-blue:focus {
   }
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background: #FCFCFC;
+  margin-bottom: 63.05px;
 }
 
 @media (min-width: 576px) {
@@ -11588,6 +11594,11 @@ body {
 
 .navbar ul.navbar-nav li a {
   font-size: 1rem;
+}
+
+.navbar .breadcrumb {
+  background-color: inherit;
+  margin-bottom: 0;
 }
 
 .btn {
@@ -11666,13 +11677,13 @@ body {
   padding-top: 1em;
   padding-bottom: 1em;
   min-height: 100%;
+  margin-bottom: 8em;
 }
 
 @media (min-width: 576px) {
   .wrapper {
     -webkit-box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.15);
             box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.15);
-    margin-bottom: 3em;
   }
 }
 
@@ -11695,6 +11706,10 @@ body {
 }
 
 .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 63.05px;
   color: white;
   background-color: #F15C22;
   padding-top: 0.8em;
@@ -11726,6 +11741,16 @@ body {
 @media (max-width: 575.98px) {
   .footer .footer-icons {
     text-align: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .footer {
+    height: 93.05px;
+  }
+
+  body {
+    margin-bottom: 93.05px;
   }
 }
 

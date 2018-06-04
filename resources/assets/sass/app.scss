@@ -15,8 +15,16 @@
 // Lightbox 2
 @import '~lightbox2/dist/css/lightbox.min.css';
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     background: $body-bg;
+
+    // Height of the footer
+    margin-bottom: map-get($map: $footer-sizes, $key: 'sm');
 
     @include media-breakpoint-up(sm) {
         background: linear-gradient(
@@ -38,6 +46,11 @@ body {
                 font-size: $font-size-base + 0.1;
             }
         }
+    }
+
+    .breadcrumb {
+        background-color: inherit;
+        margin-bottom: 0;
     }
 }
 
@@ -123,15 +136,25 @@ body {
 .wrapper {
     background-color: $body-bg;
 
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+    min-height: 100%;
+
+    // Give some room because the footer is on top of the content
+    margin-bottom: 8em;
+
+    @include media-breakpoint-up(sm) {
+        // Add a shadow to the wrapper to give that feel that it's not a part of the gradient itself
+        box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+}
+
+// Additional class for .wrapper for the index page that moves the wrapper up into the parallax image
+.wrapper-index {
     @include media-breakpoint-up(sm) {
         // Offset the wrapper to be on top of the parallax image but so only the text "100 labie darbi" is visible
         margin-top: -7rem;
-
-        // Add a shadow to the wrapper to give that feel that it's not a part of the gradient itself
-        box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.15);
-
-        // Add some margin bottom for the footer
-        margin-bottom: 3em;
     }
 }
 
@@ -149,6 +172,12 @@ body {
 }
 
 .footer {
+    // Make the footer stick to the end of the page
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: map-get($map: $footer-sizes, $key: 'sm');
+
     // Make the footer text white so it actually can be read on the orange-y background
     color: white;
 
@@ -192,6 +221,17 @@ body {
         @include media-breakpoint-only(xs) {
             text-align: center;
         }
+    }
+}
+
+// When the footer goes in to xs mode, make the footer the actual height it is and move all other elements according to it's new height
+@include media-breakpoint-only(xs) {
+    .footer {
+        height: map-get($map: $footer-sizes, $key: 'xs');
+    }
+
+    body {
+        margin-bottom: map-get($map: $footer-sizes, $key: 'xs');
     }
 }
 
