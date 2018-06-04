@@ -15,6 +15,8 @@
 
         <hr>
 
+        @include('inc.messages')
+
         <form action="/recommend" method="post">
             @csrf
 
