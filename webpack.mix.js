@@ -12,6 +12,8 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
+    .js('resources/assets/js/pages/index.js', 'public/js/pages')
+    .js('resources/assets/js/pages/recommend.js', 'public/js/pages')
     .sass('resources/assets/sass/app.scss', 'public/css')
     .copyDirectory('resources/assets/images/', 'public/images')
     .browserSync('simts.test');

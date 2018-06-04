@@ -215,3 +215,7 @@
 </div>
 
 @endsection
+
+@section('scripts')
+    <script defer src="{{ asset('js/pages/index.js') }}"></script>
+@endsection
