@@ -11406,14 +11406,14 @@ a.text-middle-green-yellow:focus {
   }
 }
 
-main {
+body {
   background: #FCFCFC;
 }
 
 @media (min-width: 576px) {
-  main {
-    background: -webkit-gradient(linear, left top, right bottom, from(#116CB7), color-stop(#A5B452), to(#A8CD87));
-    background: linear-gradient(to bottom right, #116CB7, #A5B452, #A8CD87);
+  body {
+    background: -webkit-gradient(linear, left top, right bottom, from(#116CB7), color-stop(#A5B452), to(#A8CD87)) fixed;
+    background: linear-gradient(to bottom right, #116CB7, #A5B452, #A8CD87) fixed;
   }
 }
 
