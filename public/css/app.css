@@ -11764,6 +11764,11 @@ tr.clickable {
   cursor: pointer;
 }
 
+textarea.body-disabled {
+  overflow: hidden;
+  resize: none;
+}
+
 .temp-padding {
   padding-top: 20px;
 }

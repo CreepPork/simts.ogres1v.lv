@@ -244,6 +244,11 @@ tr.clickable {
     cursor: pointer;
 }
 
+textarea.body-disabled {
+    overflow: hidden;
+    resize: none;
+}
+
 // TODO: Replace with proper flex box align
 .temp-padding {
     padding-top: 20px;

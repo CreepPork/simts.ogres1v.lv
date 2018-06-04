@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Recommendation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class RecommendationController extends Controller
 {
@@ -69,7 +70,9 @@ class RecommendationController extends Controller
      */
     public function show($id)
     {
-        abort(501, 'Not implemented.');
+        $recommendation = Recommendation::find($id);
+
+        return view('pages.recommend.show', compact('recommendation'));
     }
 
     /**
@@ -103,6 +106,10 @@ class RecommendationController extends Controller
      */
     public function destroy($id)
     {
-        abort(501, 'Not implemented.');
+        $recommendation = Recommendation::find($id);
+
+        $recommendation->delete();
+
+        return Session::flash('success', 'Ieteikums izdzēsts.');
     }
 }
