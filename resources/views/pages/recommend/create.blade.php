@@ -51,7 +51,7 @@
             </div>
 
             <div class="form-group text-center">
-                <p class="form-text text-muted">Lai mēs varētu ar jums sazināties.</p>
+                <p class="form-text text-muted">Lai mēs varētu ar jums sazināties vajadzības gadījumā.</p>
             </div>
 
             <div class="form-group">
