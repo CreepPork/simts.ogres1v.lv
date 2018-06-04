@@ -16,6 +16,8 @@
 
         <hr>
 
+        @include('inc.messages')
+
         @if (count($recommendations) > 0)
             <table class="table table-striped table-hover">
                 <thead>
