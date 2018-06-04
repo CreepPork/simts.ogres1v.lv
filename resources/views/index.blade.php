@@ -156,11 +156,11 @@
 
         <div class="row mb-5">
             <div class="col-lg-8">
-                <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-1">
-                    <img src="{{ asset('images/placeholder.gif') }}" class="img-fluid pb-2" class="mb-3" alt="placeholder">
+                <a href="{{ asset('images/event-1.jpg') }}" data-lightbox="image-1">
+                    <img src="{{ asset('images/event-1.jpg') }}" class="img-fluid img-thumbnail mb-2" class="mb-3" alt="placeholder">
                 </a>
-                <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-1"></a>
-                <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-1"></a>
+                <a href="{{ asset('images/event-2.jpg') }}" data-lightbox="image-1"></a>
+                <a href="{{ asset('images/event-3.jpg') }}" data-lightbox="image-1"></a>
 
                 <h2>Tuvākais pasākums</h2>
 
@@ -186,7 +186,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-2">
-                    <img src="{{ asset('images/placeholder.gif') }}" class="img-fluid" alt="placeholder">
+                    <img src="{{ asset('images/placeholder.gif') }}" class="img-fluid img-thumbnail" alt="placeholder">
                 </a>
             </div>
 
@@ -198,9 +198,9 @@
                 </p>
 
                 <div class="d-flex justify-content-evenly align-items-end temp-padding">
-                    <button class="btn btn-outline-primary">Dāvināt</button>
-                    <button class="btn btn-outline-primary">Ieteikt</button>
-                    <button class="btn btn-outline-primary">Ziedot</button>
+                    <a href="#" class="btn btn-outline-primary">Dāvināt</a>
+                    <a href="#" class="btn btn-outline-primary">Ieteikt</a>
+                    <a href="#" class="btn btn-outline-primary">Ziedot</a>
                 </div>
             </div>
         </div>
