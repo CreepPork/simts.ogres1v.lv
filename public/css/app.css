@@ -11410,7 +11410,7 @@ main {
   background: #FCFCFC;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 576px) {
   main {
     background: -webkit-gradient(linear, left top, right bottom, from(#116CB7), color-stop(#A5B452), to(#A8CD87));
     background: linear-gradient(to bottom right, #116CB7, #A5B452, #A8CD87);
@@ -11530,14 +11530,14 @@ main {
   padding-bottom: 0.8em;
 }
 
-.footer h5 {
-  font-size: 1.1rem;
-}
-
 @media (max-width: 575.98px) {
-  .footer h5 {
+  .footer .col-copyright {
     text-align: center !important;
   }
+}
+
+.footer .col-copyright a.school-link {
+  font-size: 1.1rem;
 }
 
 .footer svg.svg-inline--fa {

@@ -18,7 +18,7 @@
 main {
     background: $body-bg;
 
-    @include media-breakpoint-only(xl) {
+    @include media-breakpoint-up(sm) {
         background: linear-gradient(to bottom right,
             map-get($map: $theme-colors, $key: 'blue'),
             map-get($map: $theme-colors, $key: 'middle-green-yellow'),
@@ -158,14 +158,16 @@ main {
     padding-top: 0.8em;
     padding-bottom: 0.8em;
 
-    // Decrease the font size by a tiny fraction (default: 1.125em)
-    h5 {
-        font-size: 1.1rem;
-
-        // Whem the screen size is so low that the text and the social icons cannot be on the same line
-        //  then make it centered, same applies to the social icons.
+    .col-copyright {
         @include media-breakpoint-only(xs) {
+            // Whem the screen size is so low that the text and the social icons cannot be on the same line
+            //  then make it centered, same applies to the social icons.
             text-align: center !important;
+        }
+
+        // Increase the font size so it is more visible
+        a.school-link {
+            font-size: 1.1rem;
         }
     }
 
