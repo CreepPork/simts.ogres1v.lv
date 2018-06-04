@@ -15,6 +15,6 @@
 
         <hr>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quia, voluptatibus dolorum ad dolores consectetur rerum delectus eligendi quis fugit nam, at aspernatur provident deleniti reprehenderit aliquid, nulla molestias non.</p>
+        <form action="/recommend" method="post"></form>
     </div>
 @endsection

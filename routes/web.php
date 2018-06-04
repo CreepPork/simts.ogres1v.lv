@@ -23,6 +23,8 @@ Route::get('/colors', function () {
     return view('color-palette');
 });
 
+Route::resource('/recommend', 'RecommendationController');
+
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
