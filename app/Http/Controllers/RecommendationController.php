@@ -19,7 +19,9 @@ class RecommendationController extends Controller
      */
     public function index()
     {
-        return view('pages.recommend.index');
+        $recommendations = Recommendation::all();
+
+        return view('pages.recommend.index', compact('recommendations'));
     }
 
     /**

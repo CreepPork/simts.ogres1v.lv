@@ -11760,6 +11760,10 @@ body {
           justify-content: space-evenly;
 }
 
+tr.clickable {
+  cursor: pointer;
+}
+
 .temp-padding {
   padding-top: 20px;
 }

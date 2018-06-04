@@ -240,6 +240,10 @@ body {
     justify-content: space-evenly;
 }
 
+tr.clickable {
+    cursor: pointer;
+}
+
 // TODO: Replace with proper flex box align
 .temp-padding {
     padding-top: 20px;
