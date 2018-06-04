@@ -44,7 +44,7 @@ class RecommendationController extends Controller
             'title' => 'required|max:255',
             'body' => 'required',
             'email' => 'required_without:telephone|email',
-            'telephone' => 'required_without:email|max:8'
+            'telephone' => 'required_without:email|max:12'
         ]);
 
         $recommendation = new Recommendation;
