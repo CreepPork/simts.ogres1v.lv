@@ -159,6 +159,8 @@
                 <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-1">
                     <img src="{{ asset('images/placeholder.gif') }}" class="img-fluid pb-2" class="mb-3" alt="placeholder">
                 </a>
+                <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-1"></a>
+                <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-1"></a>
 
                 <h2>Tuvākais pasākums</h2>
 
