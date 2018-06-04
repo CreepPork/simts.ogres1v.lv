@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Recommendation;
 use Illuminate\Http\Request;
 
 class RecommendationController extends Controller
@@ -39,7 +40,23 @@ class RecommendationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+            'email' => 'required_without:telephone|email',
+            'telephone' => 'required_without:email|max:8'
+        ]);
+
+        $recommendation = new Recommendation;
+
+        $recommendation->title = $request->title;
+        $recommendation->body = $request->body;
+        $recommendation->email = $request->email;
+        $recommendation->telephone = $request->telephone;
+
+        $recommendation->save();
+
+        return redirect('/recommend/create')->with('success', 'Paldies par jūsu ieteikumu, noteikti ņemsim vērā!');
     }
 
     /**
