@@ -12,7 +12,11 @@
  */
 
 Route::get('/', function () {
-    return view('index');
+    return view('pages.index');
+});
+
+Route::get('/recommend', function () {
+    return view('pages.recommend');
 });
 
 Route::get('/colors', function () {
