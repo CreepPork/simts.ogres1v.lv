@@ -24,8 +24,10 @@
     <div id="app">
         @include('inc.navbar')
 
-        <main class="@yield('styling-main', 'py-4')">
+        <main class="@yield('styling-main', 'pt-4')">
             @yield('content')
+
+            @include('inc.footer')
         </main>
     </div>
 
