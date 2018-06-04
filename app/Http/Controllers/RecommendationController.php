@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class RecommendationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['create', 'store']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +18,7 @@ class RecommendationController extends Controller
      */
     public function index()
     {
-        return view('pages.recommend');
+        return view('pages.recommend.index');
     }
 
     /**
@@ -23,7 +28,7 @@ class RecommendationController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.recommend.create');
     }
 
     /**

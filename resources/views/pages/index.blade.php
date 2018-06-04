@@ -206,7 +206,7 @@
 
                 <div class="d-flex justify-content-evenly align-items-end temp-padding">
                     <a href="#" class="btn btn-outline-primary">Dāvināt</a>
-                    <a href="/recommend" class="btn btn-outline-primary">Ieteikt</a>
+                    <a href="/recommend/create" class="btn btn-outline-primary">Ieteikt</a>
                     <a href="#" class="btn btn-outline-primary">Ziedot</a>
                 </div>
             </div>

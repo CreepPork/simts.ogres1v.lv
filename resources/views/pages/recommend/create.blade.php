@@ -20,7 +20,7 @@
 
             <div class="form-group">
                 <label for="title">Nosaukums</label>
-                <input type="text" name="title" id="title" required placeholder="Nosaukums" class="form-control">
+                <input type="text" name="title" id="title" required autofocus placeholder="Nosaukums" class="form-control">
             </div>
 
             <div class="form-group">
