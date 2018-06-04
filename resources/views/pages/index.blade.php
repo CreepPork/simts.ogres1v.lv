@@ -3,6 +3,13 @@
 {{-- Remove padding from main --}}
 @section('styling-main', '')
 
+@section('navbar-links')
+    <li><a href="#app" class="nav-link active">Sākums</a></li>
+    <li><a href="#greatWorks" class="nav-link">Labie Darbi</a></li>
+    <li><a href="#events" class="nav-link">Pasākumi</a></li>
+    <li><a href="#getInvolved" class="nav-link">Iesaisties!</a></li>
+@endsection
+
 @section('content')
 
 <div class="parallax">
@@ -28,10 +35,10 @@
     </div>
 </div>
 
-<div class="container wrapper">
+<div class="container wrapper wrapper-index">
     {{-- Section - 100 Great Works --}}
     <section tabindex="-1" class="container mb-5">
-        <h1 id="greatWorks" class="text-center pt-3">100 labie darbi</h1>
+        <h1 id="greatWorks" class="text-center">100 labie darbi</h1>
 
         <hr>
 
@@ -199,28 +206,12 @@
 
                 <div class="d-flex justify-content-evenly align-items-end temp-padding">
                     <a href="#" class="btn btn-outline-primary">Dāvināt</a>
-                    <a href="#" class="btn btn-outline-primary">Ieteikt</a>
+                    <a href="/recommend" class="btn btn-outline-primary">Ieteikt</a>
                     <a href="#" class="btn btn-outline-primary">Ziedot</a>
                 </div>
             </div>
         </div>
     </section>
-</div>
-
-<footer class="footer">
-    <div class="container">
-        <div class="row align-items-center justify-content-between">
-            <div class="col-sm-6 col-md-5 col-copyright">
-                <a class="school-link" href="http://ogres1v.lv/">Ogres 1. vidusskola &copy; 2018</a>
-            </div>
-
-            <div class="col-sm-4 col-md-3 justify-content-between footer-icons">
-                <a href="http://www.facebook.com/ogres1v.lv"><i class="fab fa-facebook-square"></i></a>
-                <a href="https://github.com/CreepPork/simts.ogres1v.lv"><i class="ml-2 fab fa-github-square"></i></a>
-                <a href="https://twitter.com/ogres1v"><i class="ml-2 fab fa-twitter-square"></i></a>
-            </div>
-        </div>
-    </div>
 </div>
 
 @endsection
