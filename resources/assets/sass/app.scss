@@ -19,10 +19,11 @@ body {
     background: $body-bg;
 
     @include media-breakpoint-up(sm) {
-        background: linear-gradient(to bottom right,
+        background: linear-gradient(
+            to bottom right,
             map-get($map: $theme-colors, $key: 'blue'),
-            map-get($map: $theme-colors, $key: 'middle-green-yellow'),
-            map-get($map: $theme-colors, $key: 'green')) fixed;
+            map-get($map: $theme-colors, $key: 'dark-imperial-blue')
+        ) fixed;
     }
 }
 
