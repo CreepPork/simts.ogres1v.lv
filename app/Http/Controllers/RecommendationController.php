@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Recommendation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class RecommendationController extends Controller
 {
@@ -43,12 +44,20 @@ class RecommendationController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'body' => 'required',
-            'email' => 'required_without:telephone|email',
-            'telephone' => 'required_without:email|max:12'
-        ]);
+        $request->validate(
+            [
+                'title' => 'required|max:255',
+                'body' => 'required',
+                'email' => 'nullable|required_without:telephone|email',
+                'telephone' => 'nullable|required_without:email|max:12',
+                'attachment' => 'nullable|max:2000'
+            ]
+        );
+
+        if ($request->hasFile('attachment'))
+        {
+            $attachmentPath = $request->attachment->store('public/recommend');
+        }
 
         $recommendation = new Recommendation;
 
@@ -56,6 +65,7 @@ class RecommendationController extends Controller
         $recommendation->body = $request->body;
         $recommendation->email = $request->email;
         $recommendation->telephone = $request->telephone;
+        $recommendation->attachment = isset($attachmentPath) ? $attachmentPath : '';
 
         $recommendation->save();
 
@@ -72,7 +82,22 @@ class RecommendationController extends Controller
     {
         $recommendation = Recommendation::find($id);
 
-        return view('pages.recommend.show', compact('recommendation'));
+        if ($recommendation == null)
+            abort(404);
+
+        $attachmentInfo = [];
+        if ($recommendation->attachment != null)
+        {
+            $attachment = explode('/', $recommendation->attachment)[2];
+
+            $attachmentMIME = Storage::mimeType($recommendation->attachment);
+
+            $attachmentType = explode('/', $attachmentMIME)[0];
+
+            $attachmentInfo = [$attachment, $attachmentType];
+        }
+
+        return view('pages.recommend.show', compact('recommendation', 'attachmentInfo'));
     }
 
     /**

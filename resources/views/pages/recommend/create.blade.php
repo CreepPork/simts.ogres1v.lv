@@ -17,7 +17,7 @@
 
         @include('inc.messages')
 
-        <form action="/recommend" method="post">
+        <form action="/recommend" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">
@@ -28,6 +28,12 @@
             <div class="form-group">
                 <label for="body">Apraksts</label>
                 <textarea name="body" id="body" cols="30" rows="10" required class="form-control" placeholder="Apraksts"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="attachment">Pievienot failu</label>
+                <input type="file" name="attachment" id="attachment" class="form-control">
+                <small class="form-text text-muted">Maksimums 2MB.</small>
             </div>
 
             <div class="row align-items-center">

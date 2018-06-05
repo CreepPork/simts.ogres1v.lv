@@ -19,6 +19,7 @@ class CreateRecommendationsTable extends Migration
             $table->longText('body');
             $table->text('email')->nullable();
             $table->text('telephone')->nullable();
+            $table->text('attachment')->nullable();
             $table->timestamps();
         });
     }

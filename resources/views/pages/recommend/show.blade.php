@@ -22,6 +22,15 @@
             <textarea id="body" cols="30" rows="10" class="form-control body-disabled" disabled>{{ $recommendation->body }}</textarea>
         </div>
 
+        <div class="form-group">
+            <label for="attachment">Pievienotais fails</label><br>
+            @if ($recommendation->attachment == null)
+                <input type="text" disabled class="form-control" value="Nav pieejams">
+            @else
+                <a class="btn btn-outline-secondary" href="/storage/recommend/{{ $attachmentInfo[0] }}">{{ __('mime.' . $attachmentInfo[1]) }}</a>
+            @endif
+        </div>
+
         <div class="row">
             <div class="col-sm">
                 <div class="form-group">
@@ -51,13 +60,13 @@
         </div>
 
         <div class="row justify-content-between">
-            <div class="col-2">
+            <div class="col">
                 <div class="form-group">
-                    <a href="/recommend/edit/{{ $recommendation->id }}" class="btn btn-outline-primary">Rediģēt</a>
+                    <a href="/recommend/{{ $recommendation->id }}/edit" class="btn btn-outline-primary">Rediģēt</a>
                 </div>
             </div>
 
-            <div class="col-2">
+            <div class="col">
                 <div class="form-group text-right">
                     <a href="/recommend/destroy/{{ $recommendation->id }}" id="destroyButton" class="btn btn-outline-danger">Dzēst</a>
                 </div>
