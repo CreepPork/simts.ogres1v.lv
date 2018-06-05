@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <div class="container">
-        <h2>Color Palette</h2>
+    <div class="container wrapper">
+        <h1 class="text-center">Color Palette</h1>
 
         <hr>
 
@@ -20,11 +20,11 @@
         <div class="alert alert-success" role="alert">
             This is a success alert—check it out!
         </div>
-        
+
         <div class="alert alert-danger" role="alert">
             This is a danger alert—check it out!
         </div>
-        
+
         <div class="alert alert-warning" role="alert">
             This is a warning alert—check it out!
         </div>
@@ -46,7 +46,7 @@
 
         <div class="container">
             <div class="row">
-                <h3>Normal Buttons</h3> 
+                <h3>Normal Buttons</h3>
             </div>
 
             <div class="row">
@@ -116,5 +116,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection
