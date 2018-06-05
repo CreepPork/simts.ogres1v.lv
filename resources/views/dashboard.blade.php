@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <a href="/recommend" class="btn btn-outline-primary">Ieteikumi</a>
                 </div>
             </div>
         </div>
