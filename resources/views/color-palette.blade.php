@@ -114,6 +114,37 @@
                 <button type="button" class="btn btn-lg btn-block btn-outline-info">Info</button>
                 <button type="button" class="btn btn-lg btn-block btn-outline-dark">Dark</button>
             </div>
+
+            <hr>
+
+            <div class="row">
+                <h3>Additional colors</h3>
+            </div>
+
+            <style>
+                div.div-colors>div {
+                    width: 100%;
+                    padding: 0.8em;
+                    color: white;
+                    text-align: center;
+                    margin-top: 3px;
+                    margin-bottom: 3px;
+                }
+            </style>
+
+            <div class="row div-colors">
+                <div style="background-color: #116CB7">Blue</div>
+                <div style="background-color: #A8CD87">Green</div>
+                <div style="background-color: #DCDFD7">White</div>
+                <div style="background-color: #868B87">Gray</div>
+            </div>
+
+            <hr>
+
+            <div class="row div-colors">
+                <div style="background-color: #A5B452">Middle Green Yellow</div>
+                <div style="background-color: #0B4F6C">Dark Imperial Blue</div>
+            </div>
         </div>
     </div>
 
