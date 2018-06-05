@@ -53,5 +53,7 @@ class CreateUser extends Command
         $user->password = Hash::make($password);
 
         $user->save();
+
+        $this->info('User ' . $name . ' created!');
     }
 }
