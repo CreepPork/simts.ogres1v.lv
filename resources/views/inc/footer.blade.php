@@ -6,9 +6,9 @@
             </div>
 
             <div class="col-sm-4 col-md-3 justify-content-between footer-icons">
-                <a href="http://www.facebook.com/ogres1v.lv"><i class="fab fa-facebook-square"></i></a>
-                <a href="https://github.com/CreepPork/simts.ogres1v.lv"><i class="ml-2 fab fa-github-square"></i></a>
-                <a href="https://twitter.com/ogres1v"><i class="ml-2 fab fa-twitter-square"></i></a>
+                <a target="_blank" href="http://www.facebook.com/ogres1v.lv"><i class="fab fa-facebook-square"></i></a>
+                <a target="_blank" href="https://github.com/CreepPork/simts.ogres1v.lv"><i class="ml-2 fab fa-github-square"></i></a>
+                <a target="_blank" href="https://twitter.com/ogres1v"><i class="ml-2 fab fa-twitter-square"></i></a>
             </div>
         </div>
     </div>
