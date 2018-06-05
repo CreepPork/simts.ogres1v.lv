@@ -235,11 +235,6 @@ body {
     }
 }
 
-// For some reason BS4 doesn't include this class
-.justify-content-evenly {
-    justify-content: space-evenly;
-}
-
 tr.clickable {
     cursor: pointer;
 }

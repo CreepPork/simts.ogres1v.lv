@@ -204,10 +204,9 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ornare elementum neque eu eleifend. Duis in condimentum justo, id vestibulum lorem. Curabitur efficitur velit nunc, ac congue leo tincidunt molestie. Donec tempus eros id ipsum interdum ornare. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam convallis sapien ipsum, at ultricies libero dapibus id. Proin eget tellus non mauris dapibus scelerisque. Nunc eu quam tempor, luctus dolor in, venenatis erat. Suspendisse justo leo, laoreet in accumsan a, accumsan id ex.
                 </p>
 
-                <div class="d-flex justify-content-evenly align-items-end temp-padding">
+                <div class="d-flex justify-content-between align-items-end temp-padding">
                     <a href="#" class="btn btn-outline-primary">Dāvināt</a>
                     <a href="/recommend/create" class="btn btn-outline-primary">Ieteikt</a>
-                    <a href="#" class="btn btn-outline-primary">Ziedot</a>
                 </div>
             </div>
         </div>
