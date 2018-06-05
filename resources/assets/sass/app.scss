@@ -43,7 +43,7 @@ body {
         li {
             a {
                 // Increase the anchor tag texts just a tiny bit due to the logo size
-                font-size: $font-size-base + 0.1;
+                font-size: $font-size-base + 0.15;
             }
         }
     }
@@ -111,6 +111,9 @@ body {
             }
         }
 
+        // Make that the card is as all other items, not rounded
+        border-radius: 0;
+
         // If the screen size is the smallest
         @include media-breakpoint-only(xs) {
             // Set it to be the full size of the parallax parent so it looks better because there isn't any room left
@@ -141,8 +144,8 @@ body {
 
     min-height: 100%;
 
-    // Give some room because the footer is on top of the content
-    margin-bottom: 8em;
+    // Give some room between the footer and the wrapper (from 4em it starts moving)
+    margin-bottom: 6em;
 
     @include media-breakpoint-up(sm) {
         // Add a shadow to the wrapper to give that feel that it's not a part of the gradient itself
@@ -178,15 +181,10 @@ body {
     width: 100%;
     height: map-get($map: $footer-sizes, $key: 'sm');
 
-    // Make the footer text white so it actually can be read on the orange-y background
-    color: white;
-
-    // Set the background color to the primary key from theme-colors
-    background-color: map-get($map: $theme-colors, $key: 'primary');
-
-    // Add some padding to the top and bottom to make the footer look fatter so it isn't so tiny
+    // Add some padding to the top to make the footer look fatter so it isn't right at the bottom of the page
     padding-top: 0.8em;
-    padding-bottom: 0.8em;
+
+    margin-bottom: 1em;
 
     .col-copyright {
         @include media-breakpoint-only(xs) {
@@ -197,7 +195,7 @@ body {
 
         // Increase the font size so it is more visible
         a.school-link {
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
     }
 
@@ -210,7 +208,14 @@ body {
 
     // Set the anchor tags to white (default: primary, which you guessed, is invisible on the background)
     a {
-        color: white;
+        color: #e5e5e5;
+
+        // Make the tags have a smooth transition
+        transition: color 0.25s ease-in-out;
+    
+        &:hover {
+            color: white;
+        }
     }
 
     // Align the footer icons maximum to the right incase there is some extra room between the col's
@@ -228,6 +233,16 @@ body {
 @include media-breakpoint-only(xs) {
     .footer {
         height: map-get($map: $footer-sizes, $key: 'xs');
+
+        // As we are in the xs view and the gradient isn't rendered, we'll make a new one
+        background: linear-gradient(
+            to bottom right,
+            map-get($map: $theme-colors, $key: 'blue'),
+            map-get($map: $theme-colors, $key: 'dark-imperial-blue')
+        ) fixed;
+
+        padding-bottom: 0.8em;
+        margin-bottom: 0;
     }
 
     body {
