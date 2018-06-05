@@ -17,5 +17,5 @@ Laravel application that is designed for ZPD (Scientific Research Work) that col
 8. `php artisan serve` (_if not running on a PHP server_)
 9. Get working!
 
-### Optional commands available
+### Additional commands available
 - `php artisan make:user`
