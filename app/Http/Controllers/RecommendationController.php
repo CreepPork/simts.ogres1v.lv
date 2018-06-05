@@ -133,6 +133,8 @@ class RecommendationController extends Controller
     {
         $recommendation = Recommendation::find($id);
 
+        Storage::delete($recommendation->attachment);
+
         $recommendation->delete();
 
         return Session::flash('success', 'Ieteikums izdzēsts.');
