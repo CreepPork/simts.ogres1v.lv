@@ -24,8 +24,8 @@ $('#destroyButton').click(function (e) {
     $('#deleteModal').modal();
 
     $('#modalDeleteButton').click(function (e) {
-        axios.delete('/recommend/' + recommendationID);
-
-        window.location.replace('/recommend');
+        axios.delete('/recommend/' + recommendationID).then(function () {
+            window.location.replace('/recommend');
+        });
     });
 });
