@@ -13,5 +13,9 @@ Laravel application that is designed for ZPD (Scientific Research Work) that col
 4. `npm run dev`
 5. `cp .env.example .env`
 6. `php artisan key:generate`
-7. `php artisan serve` (_if not running on a PHP server_)
-8. Get working!
+7. `php artisan storage:link`
+8. `php artisan serve` (_if not running on a PHP server_)
+9. Get working!
+
+### Optional commands available
+- `php artisan make:user`
