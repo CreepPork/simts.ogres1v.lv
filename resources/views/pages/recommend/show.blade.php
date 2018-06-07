@@ -59,16 +59,16 @@
             </div>
         </div>
 
-        <div class="row justify-content-between">
+        <div class="row align-items-center justify-content-between">
             <div class="col">
                 <div class="form-group">
-                    <a href="/recommend/{{ $recommendation->id }}/edit" class="btn btn-outline-primary">Rediģēt</a>
+                    <span class="form-text text-muted">Izveidots {{ $recommendation->created_at->diffForHumans() }}.</span>
                 </div>
             </div>
 
             <div class="col">
                 <div class="form-group text-right">
-                    <a href="/recommend/destroy/{{ $recommendation->id }}" id="destroyButton" class="btn btn-outline-danger">Dzēst</a>
+                    <a href="#" id="destroyButton" class="btn btn-outline-danger">Dzēst</a>
                 </div>
             </div>
         </div>
