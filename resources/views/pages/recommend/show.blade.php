@@ -27,7 +27,7 @@
             @if ($recommendation->attachment == null)
                 <input type="text" disabled class="form-control" value="Nav pieejams">
             @else
-                <a class="btn btn-outline-secondary" target="_blank" href="/storage/recommend/{{ $attachmentInfo[0] }}">{{ __('mime.' . $attachmentInfo[1]) }}</a>
+                <a class="btn btn-outline-secondary" target="_blank" href="{{ $attachmentURL }}">{{ __('mime.' . $attachmentMIMEType) }}</a>
             @endif
         </div>
 

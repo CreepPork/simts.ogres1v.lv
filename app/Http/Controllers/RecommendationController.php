@@ -56,7 +56,7 @@ class RecommendationController extends Controller
 
         if ($request->hasFile('attachment'))
         {
-            $attachmentPath = $request->attachment->store('public/recommend');
+            $attachmentPath = $request->attachment->store('recommend', 'public');
         }
 
         $recommendation = new Recommendation;
@@ -85,19 +85,19 @@ class RecommendationController extends Controller
         if ($recommendation == null)
             abort(404);
 
-        $attachmentInfo = [];
+        $attachmentURL = null;
+        $attachmentMIMEType = null;
+
         if ($recommendation->attachment != null)
         {
-            $attachment = explode('/', $recommendation->attachment)[2];
+            $attachmentURL = Storage::url($recommendation->attachment);
 
-            $attachmentMIME = Storage::mimeType($recommendation->attachment);
+            $attachmentMIME = Storage::disk('public')->getMimeType($recommendation->attachment);
 
-            $attachmentType = explode('/', $attachmentMIME)[0];
-
-            $attachmentInfo = [$attachment, $attachmentType];
+            $attachmentMIMEType = explode('/', $attachmentMIME)[0];
         }
 
-        return view('pages.recommend.show', compact('recommendation', 'attachmentInfo'));
+        return view('pages.recommend.show', compact('recommendation', 'attachmentURL', 'attachmentMIMEType'));
     }
 
     /**
@@ -136,7 +136,7 @@ class RecommendationController extends Controller
         if ($recommendation == null)
             abort(404);
 
-        Storage::delete($recommendation->attachment);
+        Storage::disk('public')->delete($recommendation->attachment);
 
         $recommendation->delete();
 
