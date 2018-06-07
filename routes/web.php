@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
-Route::get('/recommend', function () {
-    return view('pages.recommend');
-});
-
 Route::get('/colors', function () {
     return view('color-palette');
 });
