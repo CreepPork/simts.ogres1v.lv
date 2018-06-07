@@ -8,10 +8,11 @@ before_script:
   - touch database/database.sqlite
   - composer self-update
   - composer install --no-interaction
-  - chmod 777 public/storage/recommend
 
 script:
   - php artisan key:generate
+  - php artisan storage:link
+  - mkdir public/storage/recommend
   - vendor/bin/phpunit
 
 notifications:
