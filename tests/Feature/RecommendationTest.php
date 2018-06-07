@@ -106,7 +106,7 @@ class RecommendationTest extends TestCase
     {
         $this->get('/recommend')->assertRedirect(route('login'));
 
-        $recommendation = create('App\Recommendation');
+        $recommendation = $this->create('App\Recommendation');
 
         $this->get('/recommend/' . $recommendation->id)->assertRedirect(route('login'));
 
@@ -118,7 +118,7 @@ class RecommendationTest extends TestCase
     {
         $this->signIn();
 
-        $recommendation = create('App\Recommendation');
+        $recommendation = $this->create('App\Recommendation');
 
         $this->delete('/recommend/' . $recommendation->id);
 
