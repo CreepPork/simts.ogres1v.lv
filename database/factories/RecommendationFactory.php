@@ -7,6 +7,7 @@ $factory->define(App\Recommendation::class, function (Faker $faker) {
         'title' => $faker->sentence,
         'body' => $faker->paragraph,
         'email' => $faker->email,
-        'telephone' => $faker->phoneNumber
+        'telephone' => $faker->phoneNumber,
+        'attachment' => '/recommend/' . $faker->image('public/storage/recommend', 50, 50, null, false)
     ];
 });
