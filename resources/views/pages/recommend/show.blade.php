@@ -27,7 +27,7 @@
             @if ($recommendation->attachment == null)
                 <input type="text" disabled class="form-control" value="Nav pieejams">
             @else
-                <a class="btn btn-outline-secondary" href="/storage/recommend/{{ $attachmentInfo[0] }}">{{ __('mime.' . $attachmentInfo[1]) }}</a>
+                <a class="btn btn-outline-secondary" target="_blank" href="/storage/recommend/{{ $attachmentInfo[0] }}">{{ __('mime.' . $attachmentInfo[1]) }}</a>
             @endif
         </div>
 
@@ -40,7 +40,7 @@
                     type="text"
                     id="email"
                     class="form-control"
-                    value="{{ isset($recommendation->email) > 0 ? $recommendation->email : 'Nav pieejams' }}"
+                    value="{{ isset($recommendation->email) ? $recommendation->email : 'Nav pieejams' }}"
                     disabled>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     type="text"
                     id="telephone"
                     class="form-control"
-                    value="{{ isset($recommendation->telephone) > 0 ? $recommendation->telephone : 'Nav pieejams' }}"
+                    value="{{ isset($recommendation->telephone) ? $recommendation->telephone : 'Nav pieejams' }}"
                     disabled>
                 </div>
             </div>
