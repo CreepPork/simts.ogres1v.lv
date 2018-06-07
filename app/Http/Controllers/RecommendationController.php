@@ -108,7 +108,7 @@ class RecommendationController extends Controller
      */
     public function edit($id)
     {
-        abort(501, 'Not implemented.');
+        abort(404);
     }
 
     /**
@@ -120,7 +120,7 @@ class RecommendationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        abort(501, 'Not implemented.');
+        abort(404);
     }
 
     /**
