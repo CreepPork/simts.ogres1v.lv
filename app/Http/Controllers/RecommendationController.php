@@ -133,6 +133,9 @@ class RecommendationController extends Controller
     {
         $recommendation = Recommendation::find($id);
 
+        if ($recommendation == null)
+            abort(404);
+
         Storage::delete($recommendation->attachment);
 
         $recommendation->delete();
