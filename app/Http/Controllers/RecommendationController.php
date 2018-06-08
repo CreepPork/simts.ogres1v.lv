@@ -6,6 +6,8 @@ use App\Recommendation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RecommendationCreated;
 
 class RecommendationController extends Controller
 {
@@ -68,6 +70,9 @@ class RecommendationController extends Controller
         $recommendation->attachment = isset($attachmentPath) ? $attachmentPath : '';
 
         $recommendation->save();
+
+        if ($recommendation->email != null)
+            Mail::to($recommendation->email)->send(new RecommendationCreated($recommendation));
 
         return redirect('/recommend/create')->with('success', 'Paldies par jūsu ieteikumu, noteikti ņemsim vērā!');
     }
