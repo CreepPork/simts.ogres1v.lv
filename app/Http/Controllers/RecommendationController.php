@@ -80,10 +80,7 @@ class RecommendationController extends Controller
      */
     public function show($id)
     {
-        $recommendation = Recommendation::find($id);
-
-        if ($recommendation == null)
-            abort(404);
+        $recommendation = Recommendation::findOrFail($id);
 
         $attachmentURL = null;
         $attachmentMIMEType = null;
@@ -131,10 +128,7 @@ class RecommendationController extends Controller
      */
     public function destroy($id)
     {
-        $recommendation = Recommendation::find($id);
-
-        if ($recommendation == null)
-            abort(404);
+        $recommendation = Recommendation::findOrFail($id);
 
         Storage::disk('public')->delete($recommendation->attachment);
 
