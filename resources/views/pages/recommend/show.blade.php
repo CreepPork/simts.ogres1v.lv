@@ -24,10 +24,10 @@
 
         <div class="form-group">
             <label for="attachment">Pievienotais fails</label><br>
-            @if ($recommendation->attachment == null)
-                <input type="text" disabled class="form-control" value="Nav pieejams">
-            @else
+            @if (isset($recommendation->attachment))
                 <a class="btn btn-outline-secondary" target="_blank" href="{{ $attachmentURL }}">{{ __('mime.' . $attachmentMIMEType) }}</a>
+            @else
+                <input type="text" disabled class="form-control" value="Nav pieejams">
             @endif
         </div>
 
@@ -40,7 +40,7 @@
                     type="text"
                     id="email"
                     class="form-control"
-                    value="{{ isset($recommendation->email) ? $recommendation->email : 'Nav pieejams' }}"
+                    value="{{ $recommendation->email ?? 'Nav pieejams' }}"
                     disabled>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     type="text"
                     id="telephone"
                     class="form-control"
-                    value="{{ isset($recommendation->telephone) ? $recommendation->telephone : 'Nav pieejams' }}"
+                    value="{{ $recommendation->telephone ?? 'Nav pieejams' }}"
                     disabled>
                 </div>
             </div>

@@ -67,7 +67,7 @@ class RecommendationController extends Controller
         $recommendation->body = $request->body;
         $recommendation->email = $request->email;
         $recommendation->telephone = $request->telephone;
-        $recommendation->attachment = isset($attachmentPath) ? $attachmentPath : '';
+        $recommendation->attachment = $attachmentPath ?? '';
 
         $recommendation->save();
 
