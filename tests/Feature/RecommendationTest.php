@@ -9,6 +9,8 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 use App\Recommendation;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RecommendationCreated;
 
 class RecommendationTest extends TestCase
 {
@@ -124,5 +126,21 @@ class RecommendationTest extends TestCase
 
         $this->assertTrue(Recommendation::find($recommendation->id) == null);
         $this->assertFileNotExists(Storage::url($recommendation->attachment));
+    }
+
+    /** @test */
+    public function when_recommendation_is_created_then_email_is_sent()
+    {
+        Mail::fake();
+
+        $this->post('/recommend', [
+            'title' => 'Test title.',
+            'body' => 'A body.',
+            'email' => 'tester@example.com',
+            'telephone' => '',
+            'attachment' => ''
+        ]);
+
+        Mail::assertQueued(RecommendationCreated::class);
     }
 }

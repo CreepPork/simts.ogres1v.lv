@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Recommendation;
 
-class RecommendationCreated extends Mailable
+class RecommendationCreated extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
