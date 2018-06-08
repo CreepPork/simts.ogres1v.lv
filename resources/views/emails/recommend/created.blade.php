@@ -7,8 +7,8 @@ Mēs noteikti ņemsim vērā un apspriedīsim vai ir iespējams jūsu ideju real
 
 **Jūsu ieteikums**:
 
-## {{ $title }}
-{{ $body }}
+## {{ $recommendation->title }}
+{{ $recommendation->body }}
 
 Paldies,<br>
 {{ config('app.name') }}
