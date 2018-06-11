@@ -19,7 +19,7 @@
         @include('inc.messages')
 
         @if (count($recommendations) > 0)
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover table-clickable">
                 <thead>
                     <tr>
                         <th>Nosaukums</th>
@@ -29,7 +29,7 @@
 
                 <tbody>
                     @foreach ($recommendations as $recommendation)
-                    <tr class="clickable" data-href="/recommend/{{ $recommendation->id }}">
+                    <tr data-href="/recommend/{{ $recommendation->id }}">
                             <td>{{ $recommendation->title }}</td>
                             <td>{{ str_limit($recommendation->body, 120) }}</td>
                         </tr>

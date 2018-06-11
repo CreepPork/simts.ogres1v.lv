@@ -212,7 +212,7 @@ body {
 
         // Make the tags have a smooth transition
         transition: color 0.25s ease-in-out;
-    
+
         &:hover {
             color: white;
         }
@@ -250,11 +250,13 @@ body {
     }
 }
 
-tr.clickable {
-    cursor: pointer;
+table.table-clickable {
+    tbody>tr {
+        cursor: pointer;
+    }
 }
 
-textarea.body-disabled {
+textarea.disabled {
     overflow: hidden;
     resize: none;
 }

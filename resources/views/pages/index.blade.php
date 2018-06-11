@@ -49,7 +49,7 @@
                 <h3 class="text-center">Paveiktie darbi</h3>
 
                 {{-- Completed works --}}
-                <table class="table table-bordered table-striped table-hover">
+                <table class="table table-bordered table-striped table-hover table-clickable">
                     <thead class="table-primary">
                         <tr>
                             <th>Darbs</th>
@@ -90,7 +90,7 @@
                 <h3 class="text-center">Pašreizējie darbi</h3>
 
                 {{-- Current works --}}
-                <table class="table table-bordered table-striped table-hover">
+                <table class="table table-bordered table-striped table-hover table-clickable">
                     <thead class="table-primary">
                         <tr>
                             <th>Darbs</th>
@@ -115,7 +115,7 @@
                 </table>
 
                 {{-- Planned works --}}
-                <table class="table table-bordered table-striped table-hover">
+                <table class="table table-bordered table-striped table-hover table-clickable">
                     <h3 class="text-center">Plānotie darbi</h3>
 
                     <thead class="table-primary">

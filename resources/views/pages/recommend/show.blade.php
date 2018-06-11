@@ -19,7 +19,7 @@
 
         <div class="form-group">
             <label for="body">Apraksts</label>
-            <textarea id="body" cols="30" rows="10" class="form-control body-disabled" disabled>{{ $recommendation->body }}</textarea>
+            <textarea id="body" cols="30" rows="10" class="form-control disabled" disabled>{{ $recommendation->body }}</textarea>
         </div>
 
         <div class="form-group">

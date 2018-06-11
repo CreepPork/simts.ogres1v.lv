@@ -12,7 +12,7 @@ $('tr[data-href]').click(function (e) {
     window.location.href = link;
 });
 
-$('textarea.body-disabled').each(function () {
+$('textarea.disabled').each(function () {
     $(this).height($(this).prop('scrollHeight'));
 });
 
