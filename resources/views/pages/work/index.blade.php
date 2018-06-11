@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+@section('navbar-links')
+    <li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Sākums</a></li>
+            <li class="breadcrumb-item active" aria-current="page">100 labie darbi</li>
+        </ol>
+    </li>
+@endsection
+
 @section('content')
     <div class="container wrapper">
         <h1 class="text-center">100 labie darbi</h1>
