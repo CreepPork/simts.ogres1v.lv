@@ -20,7 +20,7 @@ $('a[href*="#"]')
 
                 $('html, body').animate({
                     scrollTop: target.offset().top
-                }, 1000, function () {
+                }, 1000, () => {
                     // Set focus to parent element that is the container
                     var targetContainer = $(target.closest('.container'));
                     targetContainer.addClass('container-selected').focus();
