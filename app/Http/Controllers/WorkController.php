@@ -14,7 +14,7 @@ class WorkController extends Controller
      */
     public function index()
     {
-        $works = Work::all();
+        $works = Work::all()->sortBy('work_status_id');
 
         return view('pages.work.index', compact('works'));
     }

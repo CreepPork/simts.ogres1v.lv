@@ -13,7 +13,7 @@ class Work extends Model
      */
     public function teacher()
     {
-        return $this->hasOne(Teacher::class);
+        return $this->belongsTo(Teacher::class);
     }
 
     /**
@@ -23,6 +23,6 @@ class Work extends Model
      */
     public function status()
     {
-        return $this->hasOne(WorkStatus::class);
+        return $this->belongsTo(WorkStatus::class, 'work_status_id');
     }
 }
