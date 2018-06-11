@@ -9,7 +9,7 @@ class Work extends Model
     /**
      * A work has one teacher.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function teacher()
     {
@@ -19,7 +19,7 @@ class Work extends Model
     /**
      * A work has one status.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function status()
     {
