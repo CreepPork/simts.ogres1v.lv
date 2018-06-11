@@ -42,6 +42,7 @@
             @auth
                 <div class="col">
                     <div class="form-group text-right">
+                        <a href="/work/{{ $work->id }}/edit" class="btn btn-outline-primary mr-2">Rediģēt</a>
                         <a href="#" id="destroyButton" class="btn btn-outline-danger">Dzēst</a>
                     </div>
                 </div>
