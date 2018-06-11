@@ -6,22 +6,29 @@
 
         <hr>
 
-        <table class="table table-hover table-clickable table-striped">
-            <thead>
-                <tr>
-                    <th>Nosaukums</th>
-                    <th>Skolotāja</th>
-                </tr>
-            </thead>
+        @foreach ($statuses as $status)
+            <h5 class="text-center">{{ $status->status }}</h5>
 
-            <tbody>
-                @foreach ($works as $work)
+            <table class="table table-hover table-clickable table-striped table-bordered">
+                <thead>
                     <tr>
-                        <td>{{ $work->title }}</td>
-                        <td>{{ $work->teacher->fullName() }}</td>
+                        <th class="w-75">Nosaukums</th>
+                        <th>Skolotājs</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+
+                <tbody>
+                    @foreach ($status->works as $work)
+                        <tr>
+                            <td>{{ $work->title }}</td>
+                            <td>{{ $work->teacher->fullName() }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+            <hr>
+        @endforeach
+
     </div>
 @endsection

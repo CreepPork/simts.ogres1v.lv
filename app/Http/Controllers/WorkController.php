@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Work;
 use Illuminate\Http\Request;
+use App\WorkStatus;
 
 class WorkController extends Controller
 {
@@ -14,9 +15,9 @@ class WorkController extends Controller
      */
     public function index()
     {
-        $works = Work::all()->sortBy('work_status_id');
+        $statuses = WorkStatus::has('works')->get()->sortBy('status');
 
-        return view('pages.work.index', compact('works'));
+        return view('pages.work.index', compact('statuses'));
     }
 
     /**
