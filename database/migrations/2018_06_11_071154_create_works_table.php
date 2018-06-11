@@ -19,7 +19,7 @@ class CreateWorksTable extends Migration
             $table->text('title');
             $table->longText('body');
 
-            $table->date('completion')->nullable();
+            $table->dateTime('completion')->nullable();
 
             $table->unsignedInteger('teacher_id')->index();
             $table->foreign('teacher_id')->references('id')->on('teachers');
