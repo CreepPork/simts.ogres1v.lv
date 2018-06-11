@@ -19,6 +19,8 @@ Route::get('/colors', function () {
     return view('color-palette');
 });
 
+Route::resource('/work', 'WorkController');
+
 Route::resource('/recommend', 'RecommendationController');
 
 Auth::routes();
