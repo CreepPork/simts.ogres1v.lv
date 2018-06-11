@@ -74,7 +74,7 @@
         </div>
     </div>
 
-    @include('inc.deleteModal', ['title' => $recommendation->title, 'object' => 'ieteikumu'])
+    @include('inc.deleteModal', ['title' => $recommendation->title, 'subject' => 'ieteikumu'])
 @endsection
 
 @section('scripts')

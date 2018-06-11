@@ -11,7 +11,7 @@
             </div>
 
             <div class="modal-body">
-                Vai tiešām jūs vēlaties <b>dzēst</b> {{ $object }} "{{ $title }}"? <br> Tas ir <b>neatgriezenisks</b> process!
+                Vai tiešām jūs vēlaties <b>dzēst</b> {{ $subject }} "{{ $title }}"? <br> Tas ir <b>neatgriezenisks</b> process!
             </div>
 
             <div class="modal-footer">
