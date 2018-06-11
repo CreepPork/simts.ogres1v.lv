@@ -6,12 +6,6 @@ $inputs.on('input', function () {
     $inputs.not(this).prop('required', !$(this).val().length);
 });
 
-$('tr[data-href]').click(function (e) {
-    var link = e.currentTarget.getAttribute('data-href');
-
-    window.location.href = link;
-});
-
 $('textarea.disabled').each(function () {
     $(this).height($(this).prop('scrollHeight'));
 });
