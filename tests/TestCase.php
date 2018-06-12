@@ -5,6 +5,7 @@ namespace Tests;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Tests\Utilities\FactoryHelpers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Artisan;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -16,6 +17,8 @@ abstract class TestCase extends BaseTestCase
         parent::setUp();
 
         DB::statement('PRAGMA foreign_keys=on;');
+
+        Artisan::call('app:setup');
     }
 
     protected function signIn($user = null)
