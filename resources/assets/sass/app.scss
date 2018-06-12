@@ -256,6 +256,20 @@ table.table-clickable {
     }
 }
 
+@include media-breakpoint-up(lg) {
+    div.great-works-limit {
+        max-height: 18.2rem;
+        overflow: auto;
+        margin-bottom: 1rem;
+    }
+}
+
+.great-works-buttons {
+    @include media-breakpoint-up(lg) {
+        text-align: right;
+    }
+}
+
 textarea.disabled {
     overflow: hidden;
     resize: none;
