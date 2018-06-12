@@ -6,9 +6,12 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class IndexTest extends TestCase
 {
+    use DatabaseMigrations;
+
     protected function setUp()
     {
         parent::setUp();
