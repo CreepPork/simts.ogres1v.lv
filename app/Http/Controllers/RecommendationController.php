@@ -61,15 +61,13 @@ class RecommendationController extends Controller
             $attachmentPath = $request->attachment->store('recommend', 'public');
         }
 
-        $recommendation = new Recommendation;
-
-        $recommendation->title = $request->title;
-        $recommendation->body = $request->body;
-        $recommendation->email = $request->email;
-        $recommendation->telephone = $request->telephone;
-        $recommendation->attachment = $attachmentPath ?? '';
-
-        $recommendation->save();
+        $recommendation = Recommendation::create([
+            'title' => $request->title,
+            'body' => $request->body,
+            'email' => $request->email,
+            'telephone' => $request->telephone,
+            'attachment' => $attachmentPath ?? ''
+        ]);
 
         if ($recommendation->email != null)
             Mail::to($recommendation->email)->send(new RecommendationCreated($recommendation));
