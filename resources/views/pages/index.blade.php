@@ -45,8 +45,8 @@
         {{-- Tables --}}
         <div class="row">
 
-            <div class="col-lg-8">
-                <h3 class="text-center">Paveiktie darbi</h3>
+            <div class="col-lg-7">
+                <h3 class="text-center">{{ $completedWorks->status }}</h3>
 
                 {{-- Completed works --}}
                 <table class="table table-bordered table-striped table-hover table-clickable">
@@ -58,98 +58,73 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Darbs 1</td>
-                            <td>Skolotājs 1</td>
-                        </tr>
-                        <tr>
-                            <td>Darbs 2</td>
-                            <td>Skolotājs 2</td>
-                        </tr>
-                        <tr>
-                            <td>Darbs 3</td>
-                            <td>Skolotājs 3</td>
-                        </tr>
-                        <tr>
-                            <td>Darbs 4</td>
-                            <td>Skolotājs 4</td>
-                        </tr>
-                        <tr>
-                            <td>Darbs 5</td>
-                            <td>Skolotājs 5</td>
-                        </tr>
-                        <tr>
-                            <td>Darbs 6</td>
-                            <td>Skolotājs 6</td>
-                        </tr>
+                        @foreach ($completedWorks->works as $work)
+                            <tr>
+                                <td>{{ $work->title }}</td>
+                                <td>{{ $work->teacher->fullName() }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
 
-            <div class="col-lg-4 no-padding-left">
-                <h3 class="text-center">Pašreizējie darbi</h3>
+            <div class="col-lg-5 no-padding-left">
+                <h3 class="text-center">{{ $currentWorks->status }}</h3>
 
                 {{-- Current works --}}
-                <table class="table table-bordered table-striped table-hover table-clickable">
-                    <thead class="table-primary">
-                        <tr>
-                            <th>Darbs</th>
-                            <th>Skolotājs</th>
-                        </tr>
-                    </thead>
+                <div class="great-works-limit">
+                    <table class="table table-bordered table-striped table-hover table-clickable">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Darbs</th>
+                                <th>Skolotājs</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>Darbs 1</td>
-                            <td>Skolotājs 1</td>
-                        </tr>
-                        <tr>
-                            <td>Darbs 2</td>
-                            <td>Skolotājs 2</td>
-                        </tr>
-                        <tr>
-                            <td>Darbs 3</td>
-                            <td>Skolotājs 3</td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <tbody>
+                            @foreach ($currentWorks->works as $work)
+                                <tr>
+                                    <td>{{ $work->title }}</td>
+                                    <td>{{ $work->teacher->fullName() }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
 
                 {{-- Planned works --}}
-                <table class="table table-bordered table-striped table-hover table-clickable">
-                    <h3 class="text-center">Plānotie darbi</h3>
+                <div class="great-works-limit">
+                    <table class="table table-bordered table-striped table-hover table-clickable">
+                        <h3 class="text-center">{{ $plannedWorks->status }}</h3>
 
-                    <thead class="table-primary">
-                        <tr>
-                            <th>Darbs</th>
-                            <th>Skolotājs</th>
-                        </tr>
-                    </thead>
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Darbs</th>
+                                <th>Skolotājs</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>Darbs 1</td>
-                            <td>Skolotājs 1</td>
-                        </tr>
-                        <tr>
-                            <td>Darbs 2</td>
-                            <td>Skolotājs 2</td>
-                        </tr>
-                        <tr>
-                            <td>Darbs 3</td>
-                            <td>Skolotājs 3</td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <tbody>
+                            @foreach ($currentWorks->works as $work)
+                                <tr>
+                                    <td>{{ $work->title }}</td>
+                                    <td>{{ $work->teacher->fullName() }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
         {{-- Buttons --}}
         <div class="row">
-            <div class="col">
-                <button class="btn btn-outline-primary">Prezentācija</button>
+            <div class="col-md-9">
+                <p class="text-muted">Šeit netiek rādīti visi labie darbi, lai redzētu visus nospiežiet <a href="/work">šeit</a>.</p>
             </div>
 
-            <div class="col text-right">
+            <div class="col-lg-3 great-works-buttons">
+                <button class="btn btn-outline-primary">Prezentācija</button>
                 <button class="btn btn-outline-primary">Nolikums</button>
             </div>
         </div>
