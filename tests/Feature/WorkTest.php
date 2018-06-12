@@ -18,4 +18,14 @@ class WorkTest extends TestCase
 
         $this->get('/work')->assertSee($work->title);
     }
+
+    /** @test */
+    public function three_main_types_of_statuses_can_be_seen_on_the_main_page()
+    {
+        $response = $this->get('/');
+
+        $response->assertSee('Pabeigtie darbi');
+        $response->assertSee('Plānotie darbi');
+        $response->assertSee('Pašreizējie darbi');
+    }
 }
