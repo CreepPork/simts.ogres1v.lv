@@ -6,11 +6,13 @@ use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Tests\Utilities\FactoryHelpers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
     use FactoryHelpers;
+    use DatabaseMigrations;
 
     protected function setUp()
     {
