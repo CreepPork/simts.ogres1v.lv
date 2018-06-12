@@ -22,10 +22,10 @@
         @else
             @foreach ($statuses as $status)
                 <div class="py-3">
-                    <h5 class="text-center">{{ $status->status }}</h5>
+                    <h3 class="text-center">{{ $status->status }}</h3>
 
                     <table class="table table-hover table-clickable table-striped table-bordered">
-                        <thead>
+                        <thead class="table-primary">
                             <tr>
                                 <th class="w-75">Nosaukums</th>
                                 <th>Skolotājs</th>
