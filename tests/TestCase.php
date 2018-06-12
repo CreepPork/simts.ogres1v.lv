@@ -3,12 +3,12 @@
 namespace Tests;
 
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use Tests\Utilities\Helpers;
+use Tests\Utilities\FactoryHelpers;
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
-    use Helpers;
+    use FactoryHelpers;
 
     protected function signIn($user = null)
     {

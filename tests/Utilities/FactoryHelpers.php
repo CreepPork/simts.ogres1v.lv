@@ -2,7 +2,7 @@
 
 namespace Tests\Utilities;
 
-trait Helpers
+trait FactoryHelpers
 {
     public function create($class, $attributes = [], $times = null)
     {
