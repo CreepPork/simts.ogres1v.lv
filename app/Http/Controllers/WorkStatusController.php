@@ -35,7 +35,13 @@ class WorkStatusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $workStatus = new WorkStatus;
+
+        $workStatus->status = $request->status;
+
+        $workStatus->save();
+
+        return redirect('/workStatus/create')->with('success', 'Darba statuss pievienots.');
     }
 
     /**
