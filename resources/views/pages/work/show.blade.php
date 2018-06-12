@@ -33,11 +33,13 @@
         </div>
 
         <div class="row align-items-center justify-content-between">
-            <div class="col">
-                <div class="form-group">
-                    <span class="form-text text-muted">Plānots pabeigt {{ $work->completion->diffForHumans() }}.</span>
+            @if ($work->completion != null)
+                <div class="col">
+                    <div class="form-group">
+                        <span class="form-text text-muted">Plānots pabeigt {{ $work->completion->diffForHumans() }}.</span>
+                    </div>
                 </div>
-            </div>
+            @endif
 
             @auth
                 <div class="col">
