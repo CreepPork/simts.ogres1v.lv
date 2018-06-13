@@ -10,6 +10,8 @@ $('textarea.disabled').each(function () {
     $(this).height($(this).prop('scrollHeight'));
 });
 
+// TODO: Split up for a separate JS file (we don't want this leaking into non-logged in user routes)
+//  however, it will still not be accessible to them because of the Auth middleware.
 $('#destroyButton').click(function (e) {
     e.preventDefault();
 
