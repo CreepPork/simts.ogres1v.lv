@@ -11,10 +11,22 @@ use Illuminate\Http\UploadedFile;
 use App\Recommendation;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RecommendationCreated;
+use App\Rules\Recaptcha;
 
 class RecommendationTest extends TestCase
 {
     use DatabaseMigrations;
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        app()->singleton(Recaptcha::class, function () {
+            return \Mockery::mock(Recaptcha::class, function ($m) {
+                $m->shouldReceive('passes')->andReturn(true);
+            });
+        });
+    }
 
     /** @test */
     public function recommend_create_page_is_visible()
@@ -22,6 +34,21 @@ class RecommendationTest extends TestCase
         $response = $this->get('/recommend/create');
 
         $response->assertSee('Ieteikt');
+    }
+
+    /** @test */
+    public function creating_a_recommendation_requires_recaptcha_verification()
+    {
+        unset(app()[Recaptcha::class]);
+
+        $this->post('/recommend', [
+            'title' => 'A Title.',
+            'body' => 'This is a captcha test.',
+            'email' => 'tester@example.com',
+            'telephone' => '',
+            'attachment' => '',
+            'g-recaptcha-response' => 'something'
+        ])->assertSessionHasErrors('g-recaptcha-response');
     }
 
     /** @test */
@@ -34,7 +61,8 @@ class RecommendationTest extends TestCase
             'body' => 'This is a attachment test.',
             'email' => 'tester@example.com',
             'telephone' => '',
-            'attachment' => $attachment = UploadedFile::fake()->image('attachment.jpg')
+            'attachment' => $attachment = UploadedFile::fake()->image('attachment.jpg'),
+            'g-recaptcha-response' => 'response'
         ]);
 
         $this->signIn();
@@ -59,7 +87,8 @@ class RecommendationTest extends TestCase
             'body' => 'This is a body.',
             'email' => 'tester@example.com',
             'telephone' => '12345678',
-            'attachment' => ''
+            'attachment' => '',
+            'g-recaptcha-response' => 'response'
         ]);
 
         $this->signIn();
@@ -77,7 +106,8 @@ class RecommendationTest extends TestCase
             'body' => 'This is a body.',
             'email' => $email,
             'telephone' => '',
-            'attachment' => ''
+            'attachment' => '',
+            'g-recaptcha-response' => 'response'
         ]);
 
         $this->signIn();
@@ -95,7 +125,8 @@ class RecommendationTest extends TestCase
             'body' => 'This is a body.',
             'email' => '',
             'telephone' => $phone,
-            'attachment' => ''
+            'attachment' => '',
+            'g-recaptcha-response' => 'response'
         ]);
 
         $this->signIn();
@@ -138,7 +169,8 @@ class RecommendationTest extends TestCase
             'body' => 'A body.',
             'email' => 'tester@example.com',
             'telephone' => '',
-            'attachment' => ''
+            'attachment' => '',
+            'g-recaptcha-response' => 'response'
         ]);
 
         Mail::assertQueued(RecommendationCreated::class);
