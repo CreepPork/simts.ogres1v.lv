@@ -56,3 +56,9 @@
         @endauth
     </div>
 @endsection
+
+@section('scripts')
+    @auth
+        <script defer src="{{ asset('js/pages/work.js') }}"></script>
+    @endauth
+@endsection
