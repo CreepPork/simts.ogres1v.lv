@@ -125,9 +125,7 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
+        'recaptcha' => 'The reCAPTCHA verification failed. Please try again.'
     ],
 
     /*
@@ -141,6 +139,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'g-recaptcha-response' => 'reCAPTCHA'
+    ],
 
 ];

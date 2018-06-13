@@ -61,6 +61,10 @@
             </div>
 
             <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6LeTu14UAAAAAAMYv2gT3ymIdYYlN5N0re5MydiN"></div>
+            </div>
+
+            <div class="form-group">
                 <input type="submit" value="Nosūtīt" class="btn btn-outline-primary form-control">
             </div>
         </form>
@@ -69,4 +73,5 @@
 
 @section('scripts')
     <script defer src="{{ asset('js/pages/recommend.js') }}"></script>
+    <script defer src='https://www.google.com/recaptcha/api.js'></script>
 @endsection

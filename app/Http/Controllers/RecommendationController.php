@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RecommendationCreated;
+use App\Rules\Recaptcha;
 
 class RecommendationController extends Controller
 {
@@ -42,9 +43,10 @@ class RecommendationController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Rules\Recaptcha      $recaptcha
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Recaptcha $recaptcha)
     {
         $request->validate(
             [
@@ -52,7 +54,8 @@ class RecommendationController extends Controller
                 'body' => 'required',
                 'email' => 'nullable|required_without:telephone|email',
                 'telephone' => 'nullable|required_without:email|max:12',
-                'attachment' => 'nullable|file|max:2000'
+                'attachment' => 'nullable|file|max:2000',
+                'g-recaptcha-response' => ['required', $recaptcha]
             ]
         );
 
