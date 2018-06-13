@@ -82,4 +82,28 @@ class WorkTest extends TestCase
 
         $this->assertDatabaseMissing('works', ['title' => 'New title.']);
     }
+
+    /** @test */
+    public function work_completed_at_date_appears_if_present()
+    {
+        $workWithoutCompletion = $this->create('App\Work', ['completed_at' => null]);
+
+        $this->get('/work/' . $workWithoutCompletion->id)->assertDontSee('Plānots pabeigt');
+
+        $workWithCompletion = $this->create('App\Work');
+
+        $this->get('/work/' . $workWithCompletion->id)->assertSee($workWithCompletion->completed_at->diffForHumans());
+    }
+
+    /** @test */
+    public function if_user_is_logged_in_they_can_see_the_delete_button()
+    {
+        $work = $this->create('App\Work');
+
+        $this->get('/work/' . $work->id)->assertDontSee('Dzēst');
+
+        $this->signIn();
+
+        $this->get('/work/' . $work->id)->assertSee('Dzēst');
+    }
 }
