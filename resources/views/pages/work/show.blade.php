@@ -32,6 +32,17 @@
             disabled>
         </div>
 
+        <div class="form-group">
+            <label for="status">Darba statuss</label>
+
+            <input
+            type="text"
+            id="status"
+            class="form-control"
+            value="{{ $work->status->status }}"
+            disabled>
+        </div>
+
         <div class="row align-items-center justify-content-between">
             @if ($work->completed_at != null)
                 <div class="col">
