@@ -15,6 +15,7 @@
                     @endif
 
                     <a href="/recommend" class="btn btn-outline-primary">Ieteikumi</a>
+                    <a href="/work" class="btn btn-outline-primary">Darbi</a>
                 </div>
             </div>
         </div>
