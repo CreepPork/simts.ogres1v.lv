@@ -12,7 +12,7 @@ class Work extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'body', 'completion', 'teacher_id', 'work_status_id'
+        'title', 'body', 'completed_at', 'teacher_id', 'work_status_id'
     ];
 
     /**
@@ -24,7 +24,7 @@ class Work extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-        'completion'
+        'completed_at'
     ];
 
     /**

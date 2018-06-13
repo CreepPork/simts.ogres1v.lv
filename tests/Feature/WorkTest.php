@@ -40,7 +40,7 @@ class WorkTest extends TestCase
             'title' => 'A title.',
             'body' => 'A body.',
 
-            'completion' => '',
+            'completed_at' => '',
 
             'teacher_id' => $this->create('App\Teacher')->id,
             'work_status_id' => WorkStatus::where('status', '=', 'Pabeigtie darbi')->get()->first()->id

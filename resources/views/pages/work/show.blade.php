@@ -33,10 +33,10 @@
         </div>
 
         <div class="row align-items-center justify-content-between">
-            @if ($work->completion != null)
+            @if ($work->completed_at != null)
                 <div class="col">
                     <div class="form-group">
-                        <span class="form-text text-muted">Plānots pabeigt {{ $work->completion->diffForHumans() }}.</span>
+                        <span class="form-text text-muted">Plānots pabeigt {{ $work->completed_at->diffForHumans() }}.</span>
                     </div>
                 </div>
             @endif

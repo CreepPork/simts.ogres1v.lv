@@ -9,7 +9,7 @@ $factory->define(App\Work::class, function (Faker $faker) {
         'title' => $faker->sentence,
         'body' => $faker->paragraph,
 
-        'completion' => $faker->dateTimeBetween('now', '+1 year'),
+        'completed_at' => $faker->dateTimeBetween('now', '+1 year'),
 
         'teacher_id' => factory(Teacher::class)->create()->id,
 

@@ -32,8 +32,7 @@
             </div>
 
             <div class="form-group">
-                <label for="completion">Plānotais pabeigšanas datums</label>
-                <input type="date" required class="form-control" placeholder="Pabeigšanas datums" name="completion" id="completion">
+                <label for="completed_at">Plānotais pabeigšanas datums</label>
             </div>
 
             <div class="form-group">
