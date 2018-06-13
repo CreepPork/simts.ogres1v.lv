@@ -106,4 +106,48 @@ class WorkTest extends TestCase
 
         $this->get('/work/' . $work->id)->assertSee('Dzēst');
     }
+
+    /** @test */
+    public function a_work_can_be_edited()
+    {
+        $this->signIn();
+
+        $work = $this->create('App\Work');
+
+        $this->assertDatabaseHas('works', ['id' => $work->id]);
+
+        $this->get('/work')->assertSee($work->title);
+
+        $this->patch('/work/' . $work->id, [
+            'title' => 'My new title.',
+            'body' => $work->body,
+
+            'completed_at' => '', // set it to '' so we don't have to mess with date conversion from Carbon to Carbon, etc.
+
+            'teacher_id' => $work->teacher_id,
+            'work_status_id' => $work->work_status_id
+        ]);
+
+        $this->assertDatabaseHas('works', ['title' => 'My new title.']);
+
+        $this->get('/work')->assertSee('My new title.');
+    }
+
+    /** @test */
+    public function create_store_update_and_destroy_methods_require_authencation()
+    {
+        $this->get('/work/create')->assertRedirect('/login');
+        $this->post('/work')->assertRedirect('/login');
+        $this->patch('/work/1')->assertRedirect('/login');
+        $this->delete('/work/1')->assertRedirect('/login');
+    }
+
+    /** @test */
+    public function index_and_show_methods_do_not_require_authencation_to_view()
+    {
+        $work = $this->create('App\Work');
+
+        $this->get('/work')->assertStatus(200);
+        $this->get('/work/' . $work->id)->assertStatus(200);
+    }
 }
