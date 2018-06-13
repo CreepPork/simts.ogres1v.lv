@@ -34,6 +34,8 @@ class WorkTest extends TestCase
     /** @test */
     public function a_work_can_be_created()
     {
+        $this->signIn();
+
         $response = $this->post('/work', [
             'title' => 'A title.',
             'body' => 'A body.',
