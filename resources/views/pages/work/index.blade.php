@@ -48,5 +48,9 @@
                 </div>
             @endforeach
         @endif
+
+        @auth
+            <a href="/work/create" class="btn btn-outline-primary">Pievienot darbu</a>
+        @endauth
     </div>
 @endsection
