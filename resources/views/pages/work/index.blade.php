@@ -15,6 +15,8 @@
 
         <hr>
 
+        @include('inc.messages')
+
         @if (count($statuses) == 0)
             <div class="alert alert-info">
                 Nav pievienoti darbi.
