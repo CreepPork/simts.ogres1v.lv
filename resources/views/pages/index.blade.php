@@ -46,7 +46,7 @@
         <div class="row">
 
             <div class="col-lg-7">
-                <h3 class="text-center">{{ $completedWorks->status }}</h3>
+                <h3 class="text-center">{{ $completedWorks->status ?? 'Pabeigtie darbi' }}</h3>
 
                 {{-- Completed works --}}
                 <table class="table table-bordered table-striped table-hover table-clickable">
@@ -58,7 +58,7 @@
                     </thead>
 
                     <tbody>
-                        @foreach ($completedWorks->works as $work)
+                        @foreach ($completedWorks->works ?? [] as $work)
                             <tr>
                                 <td>{{ $work->title }}</td>
                                 <td>{{ $work->teacher->fullName() }}</td>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="col-lg-5 no-padding-left">
-                <h3 class="text-center">{{ $currentWorks->status }}</h3>
+                <h3 class="text-center">{{ $currentWorks->status ?? 'Pašreizējie darbi' }}</h3>
 
                 {{-- Current works --}}
                 <div class="great-works-limit">
@@ -82,7 +82,7 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($currentWorks->works as $work)
+                            @foreach ($currentWorks->works ?? [] as $work)
                                 <tr>
                                     <td>{{ $work->title }}</td>
                                     <td>{{ $work->teacher->fullName() }}</td>
@@ -95,7 +95,7 @@
                 {{-- Planned works --}}
                 <div class="great-works-limit">
                     <table class="table table-bordered table-striped table-hover table-clickable">
-                        <h3 class="text-center">{{ $plannedWorks->status }}</h3>
+                        <h3 class="text-center">{{ $plannedWorks->status ?? 'Plānotie darbi' }}</h3>
 
                         <thead class="table-primary">
                             <tr>
@@ -105,7 +105,7 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($currentWorks->works as $work)
+                            @foreach ($currentWorks->works ?? [] as $work)
                                 <tr>
                                     <td>{{ $work->title }}</td>
                                     <td>{{ $work->teacher->fullName() }}</td>
