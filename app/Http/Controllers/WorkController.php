@@ -91,7 +91,10 @@ class WorkController extends Controller
      */
     public function edit(Work $work)
     {
-        //
+        $teachers = Teacher::all();
+        $statuses = WorkStatus::all();
+
+        return view('pages.work.edit', compact('work', 'teachers', 'statuses'));
     }
 
     /**
@@ -103,7 +106,27 @@ class WorkController extends Controller
      */
     public function update(Request $request, Work $work)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+
+            'completed_at' => 'date|nullable',
+
+            'teacher_id' => 'required',
+            'work_status_id' => 'required'
+        ]);
+
+        Work::where('id', $work->id)->update([
+            'title' => $request->title,
+            'body' => $request->body,
+
+            'completed_at' => isset($request->completed_at) ? Carbon::createFromFormat('Y-m-d H:i', $request->completed_at . ' 00:00') : null,
+
+            'teacher_id' => $request->teacher_id,
+            'work_status_id' => $request->work_status_id
+        ]);
+
+        return redirect('/work')->with('success', 'Darbs rediģēts.');
     }
 
     /**
