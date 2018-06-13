@@ -35,6 +35,10 @@ class WorkStatusController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'status' => 'min:3|required|string|max:255'
+        ]);
+
         WorkStatus::create([
             'status' => $request->status
         ]);
