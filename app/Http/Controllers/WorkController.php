@@ -38,17 +38,15 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
-        $work = new Work;
+        Work::create([
+            'title' => $request->title,
+            'body' => $request->body,
 
-        $work->title = $request->title;
-        $work->body = $request->body;
+            'completion' => $request->completion,
 
-        $work->completion = $request->completion;
-
-        $work->teacher_id = $request->teacher_id;
-        $work->work_status_id = $request->work_status_id;
-
-        $work->save();
+            'teacher_id' => $request->teacher_id,
+            'work_status_id' => $request->work_status_id
+        ]);
 
         return redirect('/work/create')->with('success', 'Darbs pievienots.');
     }
