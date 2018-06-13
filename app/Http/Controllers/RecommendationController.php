@@ -52,7 +52,7 @@ class RecommendationController extends Controller
                 'body' => 'required',
                 'email' => 'nullable|required_without:telephone|email',
                 'telephone' => 'nullable|required_without:email|max:12',
-                'attachment' => 'nullable|max:2000'
+                'attachment' => 'nullable|file|max:2000'
             ]
         );
 
