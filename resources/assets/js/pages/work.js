@@ -1,3 +1,7 @@
+$('textarea.disabled').each(function () {
+    $(this).height($(this).prop('scrollHeight'));
+});
+
 $('#destroyButton').click(function (e) {
     e.preventDefault();
 

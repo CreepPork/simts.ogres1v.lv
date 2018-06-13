@@ -6,6 +6,8 @@ use App\Work;
 use Illuminate\Http\Request;
 use App\WorkStatus;
 use Illuminate\Support\Facades\Session;
+use App\Teacher;
+use Carbon\Carbon;
 
 class WorkController extends Controller
 {
@@ -33,7 +35,10 @@ class WorkController extends Controller
      */
     public function create()
     {
-        //
+        $workStatuses = WorkStatus::all()->sortBy('status');
+        $teachers = Teacher::all()->sortBy('last_name');
+
+        return view('pages.work.create', compact('workStatuses', 'teachers'));
     }
 
     /**
@@ -58,7 +63,7 @@ class WorkController extends Controller
             'title' => $request->title,
             'body' => $request->body,
 
-            'completion' => $request->completion,
+            'completion' => Carbon::createFromFormat('Y-m-d', $request->completion),
 
             'teacher_id' => $request->teacher_id,
             'work_status_id' => $request->work_status_id
