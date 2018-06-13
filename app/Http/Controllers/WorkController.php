@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Work;
 use Illuminate\Http\Request;
 use App\WorkStatus;
+use Illuminate\Support\Facades\Session;
 
 class WorkController extends Controller
 {
@@ -108,6 +109,8 @@ class WorkController extends Controller
      */
     public function destroy(Work $work)
     {
-        //
+        $work->delete();
+
+        return Session::flash('success', 'Darbs izdzēsts.');
     }
 }
