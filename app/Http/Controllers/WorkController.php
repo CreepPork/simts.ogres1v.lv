@@ -53,7 +53,7 @@ class WorkController extends Controller
             'title' => 'required|max:255',
             'body' => 'required',
 
-            'completion' => 'date|nullable',
+            'completed_at' => 'date|nullable',
 
             'teacher_id' => 'required',
             'work_status_id' => 'required'
@@ -63,7 +63,7 @@ class WorkController extends Controller
             'title' => $request->title,
             'body' => $request->body,
 
-            'completion' => Carbon::createFromFormat('Y-m-d', $request->completion),
+            'completed_at' => isset($request->completed_at) ? Carbon::createFromFormat('Y-m-d H:i', $request->completed_at + ' 00:00') : null,
 
             'teacher_id' => $request->teacher_id,
             'work_status_id' => $request->work_status_id
