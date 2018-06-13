@@ -20,7 +20,7 @@
 
         @if (count($recommendations) > 0)
             <table class="table table-striped table-hover table-clickable">
-                <thead>
+                <thead class="table-primary">
                     <tr>
                         <th>Nosaukums</th>
                         <th>Īss apraksts</th>
