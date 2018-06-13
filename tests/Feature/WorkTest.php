@@ -68,4 +68,18 @@ class WorkTest extends TestCase
             ->assertSee($work->title)
             ->assertSee($work->teacher->fullName());
     }
+
+    /** @test */
+    public function a_work_can_be_deleted()
+    {
+        $this->signIn();
+
+        $work = $this->create('App\Work', ['title' => 'New title.']);
+
+        $this->assertDatabaseHas('works', ['title' => 'New title.']);
+
+        $this->delete('/work/' . $work->id)->assertStatus(200)->assertSessionHas('success', 'Darbs izdzēsts.');
+
+        $this->assertDatabaseMissing('works', ['title' => 'New title.']);
+    }
 }
