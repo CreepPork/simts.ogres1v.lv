@@ -11,7 +11,7 @@
 |
  */
 
-Route::get('/', 'IndexController@index');
+Route::resource('/', 'IndexController');
 
 Route::get('/colors', function () {
     return view('color-palette');

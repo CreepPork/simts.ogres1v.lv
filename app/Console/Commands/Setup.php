@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\WorkStatus;
+use App\Index;
 
 class Setup extends Command
 {
@@ -49,5 +50,15 @@ class Setup extends Command
 
             $this->info($status . ' row added to the work_statuses table.');
         }
+
+        Index::create([
+            'section' => 'involve',
+            'section_title' => 'Iesaisties!',
+            'title' => 'Vidusskolai vajag tevi!',
+            'body' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni voluptatem doloribus cumque, minima repudiandae delectus alias dolore iusto facere ipsam, rem assumenda voluptatum dignissimos et quis ea nobis porro molestias.',
+            'image' => 'involve/placeholder.gif'
+        ]);
+
+        $this->info('Involve row created.');
     }
 }

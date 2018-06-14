@@ -166,23 +166,27 @@
 
     {{-- Section - Involvement --}}
     <section tabindex="-1" class="container pb-3">
-        <h1 id="getInvolved" class="text-center">Iesaisties!</h1>
+        <h1 id="getInvolved" class="text-center">{{ $involve->section_title ?? 'Iesaisties!' }}</h1>
 
         <hr>
 
         <div class="row">
             <div class="col-lg-8">
-                <a href="{{ asset('images/placeholder.gif') }}" data-lightbox="image-2">
-                    <img src="{{ asset('images/placeholder.gif') }}" class="img-fluid img-thumbnail" alt="placeholder">
+                <a href="{{ isset($involve) ? asset($involve->image) : '' }}" data-lightbox="image-2">
+                    <img src="{{ isset($involve) ? asset($involve->image) : '' }}" class="img-fluid img-thumbnail" alt="iesaisties">
                 </a>
             </div>
 
             <div class="col-lg-4">
-                <h2 class="pt-2">Vidusskolai vajag tevi!</h2>
+                <h2 class="pt-2">{{ $involve->title ?? 'Vidusskolai vajag tevi!' }}</h2>
 
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ornare elementum neque eu eleifend. Duis in condimentum justo, id vestibulum lorem. Curabitur efficitur velit nunc, ac congue leo tincidunt molestie. Donec tempus eros id ipsum interdum ornare. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam convallis sapien ipsum, at ultricies libero dapibus id. Proin eget tellus non mauris dapibus scelerisque. Nunc eu quam tempor, luctus dolor in, venenatis erat. Suspendisse justo leo, laoreet in accumsan a, accumsan id ex.
-                </p>
+                @if (!isset($involve->body))
+                    <div class="alert alert-warning"><b>Sistēmā nav pievienots apraksts par iesaistīšanos!</b></div>
+                @else
+                    <p>
+                        {{ $involve->body }}
+                    </p>
+                @endif
 
                 <div class="d-flex justify-content-between align-items-end temp-padding">
                     <a href="#" class="btn btn-outline-primary">Dāvināt</a>
