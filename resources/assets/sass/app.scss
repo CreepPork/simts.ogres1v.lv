@@ -41,10 +41,8 @@ body {
 
   ul.navbar-nav {
         li {
-            a {
-                // Increase the anchor tag texts just a tiny bit due to the logo size
-                font-size: $font-size-base + 0.15;
-            }
+            // Increase the anchor tag texts just a tiny bit due to the logo size
+            font-size: $font-size-base + 0.15;
         }
     }
 
