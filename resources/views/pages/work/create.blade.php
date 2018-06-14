@@ -21,12 +21,12 @@
         <form action="/work" method="post">
             @csrf
 
-            <div class="form-group">
+            <div class="form-group required">
                 <label for="title">Nosaukums</label>
                 <input type="text" name="title" id="title" placeholder="Nosaukums" class="form-control" required autofocus>
             </div>
 
-            <div class="form-group">
+            <div class="form-group required">
                 <label for="body">Apraksts</label>
                 <textarea name="body" id="body" cols="30" rows="10" required class="form-control" placeholder="Apraksts"></textarea>
             </div>
@@ -36,7 +36,7 @@
                 <input type="date" class="form-control" placeholder="Pabeigšanas datums" name="completed_at" id="completed_at">
             </div>
 
-            <div class="form-group">
+            <div class="form-group required">
                 <label for="teacher">Vadītājs</label>
                 <select name="teacher_id" class="form-control" required id="teacher">
                     @foreach ($teachers as $teacher)
@@ -45,13 +45,17 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group required">
                 <label for="work_status">Darba statuss</label>
                 <select name="work_status_id" id="work_status" required class="form-control">
                     @foreach ($workStatuses as $status)
                         <option value="{{ $status->id }}">{{ $status->status }}</option>
                     @endforeach
                 </select>
+            </div>
+
+            <div class="form-group required-show">
+                <p class="form-text text-muted"><span>*</span> - obligāti aizpildāmie lauki.</p>
             </div>
 
             <div class="form-group">

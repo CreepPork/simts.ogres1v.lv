@@ -275,6 +275,16 @@ textarea.disabled {
     resize: none;
 }
 
+.required label:after {
+  content: "*";
+  color: red;
+}
+
+.required-show span {
+    color: red;
+    font-size: $font-size-base + 0.6 // takes into account that base is 0.9rem
+}
+
 // TODO: Replace with proper flex box align
 .temp-padding {
     padding-top: 20px;

@@ -20,19 +20,22 @@
         <form action="/recommend" method="post" enctype="multipart/form-data">
             @csrf
 
-            <div class="form-group">
+            <div class="form-group required">
                 <label for="title">Nosaukums</label>
                 <input type="text" name="title" id="title" required autofocus placeholder="Nosaukums" class="form-control">
             </div>
 
-            <div class="form-group">
+            <div class="form-group required">
                 <label for="body">Apraksts</label>
                 <textarea name="body" id="body" cols="30" rows="10" required class="form-control" placeholder="Apraksts"></textarea>
             </div>
 
             <div class="form-group">
-                <label for="attachment">Pievienot failu</label>
-                <input type="file" name="attachment" id="attachment" class="form-control">
+                <div class="custom-file">
+                    <input type="file" name="attachment" id="attachment" class="custom-file-label">
+                    <label for="attachment" class="custom-file-label">Pievienot failu</label>
+                </div>
+
                 <small class="form-text text-muted">Maksimums 2MB.</small>
             </div>
 
@@ -62,6 +65,10 @@
 
             <div class="form-group">
                 <div class="g-recaptcha" data-sitekey="6LeTu14UAAAAAAMYv2gT3ymIdYYlN5N0re5MydiN"></div>
+            </div>
+
+            <div class="form-group required-show">
+                <p class="form-text text-muted"><span>*</span> - obligāti aizpildāmie lauki.</p>
             </div>
 
             <div class="form-group">
