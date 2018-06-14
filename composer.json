@@ -9,8 +9,7 @@
         "fideloper/proxy": "^4.0",
         "kitetail/zttp": "^0.3.0",
         "laravel/framework": "5.6.*",
-        "laravel/tinker": "^1.0",
-        "unisharp/laravel-ckeditor": "^4.7"
+        "laravel/tinker": "^1.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

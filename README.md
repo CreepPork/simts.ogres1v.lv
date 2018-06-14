@@ -15,9 +15,8 @@ Laravel application that is designed for ZPD (Scientific Research Work) that col
 6. `php artisan key:generate`
 7. `php artisan storage:link`
 8. `php artisan app:setup`
-9. `php artisan vendor:publish --tag=ckeditor`
-10. `php artisan serve` (_if not running on a PHP server_)
-11. Get working!
+9. `php artisan serve` (_if not running on a PHP server_)
+10. Get working!
 
 ### Additional commands available
 - `php artisan make:user`
