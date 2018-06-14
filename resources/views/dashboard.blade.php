@@ -16,6 +16,7 @@
 
                     <a href="/recommend" class="btn btn-outline-primary">Ieteikumi</a>
                     <a href="/work" class="btn btn-outline-primary">Darbi</a>
+                    <a href="/edit" class="btn btn-outline-primary">Rediģēt galvenās lapas saturu</a>
                 </div>
             </div>
         </div>
