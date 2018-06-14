@@ -53,7 +53,7 @@ class WorkController extends Controller
             'title' => 'required|max:255',
             'body' => 'required',
 
-            'completed_at' => 'date|nullable',
+            'completed_at' => 'date|nullable|after:today',
 
             'teacher_id' => 'required',
             'work_status_id' => 'required'
@@ -110,7 +110,7 @@ class WorkController extends Controller
             'title' => 'required|max:255',
             'body' => 'required',
 
-            'completed_at' => 'date|nullable',
+            'completed_at' => 'date|nullable|after:today',
 
             'teacher_id' => 'required',
             'work_status_id' => 'required'
