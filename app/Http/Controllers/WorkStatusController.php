@@ -31,7 +31,7 @@ class WorkStatusController extends Controller
      */
     public function create()
     {
-        return view('pages.workStatus.create');
+        abort(404);
     }
 
     /**
@@ -42,15 +42,7 @@ class WorkStatusController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'status' => 'min:3|required|string|max:255'
-        ]);
-
-        WorkStatus::create([
-            'status' => $request->status
-        ]);
-
-        return redirect('/workStatus')->with('success', 'Darba statuss pievienots.');
+        abort(404);
     }
 
     /**
@@ -72,7 +64,7 @@ class WorkStatusController extends Controller
      */
     public function edit(WorkStatus $workStatus)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -84,7 +76,7 @@ class WorkStatusController extends Controller
      */
     public function update(Request $request, WorkStatus $workStatus)
     {
-        //
+        abort(404);
     }
 
     /**

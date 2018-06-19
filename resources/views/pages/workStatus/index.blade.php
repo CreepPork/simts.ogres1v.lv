@@ -32,7 +32,5 @@
                 @endforeach
             </tbody>
         </table>
-
-        <a href="/workStatus/create" class="btn btn-outline-primary">Pievienot</a>
     </div>
 @endsection
