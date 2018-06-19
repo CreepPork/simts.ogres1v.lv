@@ -19,7 +19,9 @@ class WorkStatusController extends Controller
      */
     public function index()
     {
-        //
+        $statuses = WorkStatus::all();
+
+        return view('pages.workStatus.index', compact('statuses'));
     }
 
     /**
