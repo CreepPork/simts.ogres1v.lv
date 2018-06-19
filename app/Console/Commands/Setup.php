@@ -42,11 +42,9 @@ class Setup extends Command
         $workStatuses = ['Plānotie darbi', 'Pašreizējie darbi', 'Pabeigtie darbi'];
         foreach ($workStatuses as $status)
         {
-            $workStatus = new WorkStatus;
-
-            $workStatus->status = $status;
-
-            $workStatus->save();
+            WorkStatus::create([
+                'status' => $status
+            ]);
 
             $this->info($status . ' row added to the work_statuses table.');
         }
