@@ -19,6 +19,7 @@ Route::get('/colors', function () {
 
 Route::resource('/work', 'WorkController');
 Route::resource('/workStatus', 'WorkStatusController');
+Route::resource('/teacher', 'TeacherController');
 
 Route::resource('/recommend', 'RecommendationController');
 
