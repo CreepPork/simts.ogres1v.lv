@@ -85,7 +85,7 @@ return [
     'min' => [
         'numeric' => 'Laukam :attribute ir jābūt vismaz :min.',
         'file' => 'Laukam :attribute ir jābūt vismaz :min kilobaitiem.',
-        'string' => 'Laukam :attribute ir jābūt vismaz :min rakstzīmēm.',
+        'string' => 'Laukam :attribute ir jābūt vismaz :min rakstzīmēm garam.',
         'array' => 'Laukam :attribute ir jābūt vismaz :min priekšmetiem.',
     ],
     'not_in' => 'Izvēlētais lauks :attribute ir nederīgs.',
