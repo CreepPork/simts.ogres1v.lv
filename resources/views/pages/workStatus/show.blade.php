@@ -64,7 +64,3 @@
         @include('inc.deleteModal', ['title' => $status->status, 'subject' => 'statusu'])
     </div>
 @endsection
-
-@section('scripts')
-    <script defer src="{{ asset('js/pages/workStatus.js') }}"></script>
-@endsection
