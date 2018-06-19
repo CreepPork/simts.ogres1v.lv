@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class TeacherController extends Controller
 {
@@ -19,7 +20,9 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $teachers = Teacher::all();
+
+        return view('pages.teacher.index', compact('teachers'));
     }
 
     /**
@@ -29,7 +32,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.teacher.create');
     }
 
     /**
@@ -40,7 +43,17 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required|string|min:3|max:255',
+            'last_name' => 'required|string|min:3|max:255'
+        ]);
+
+        Teacher::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name
+        ]);
+
+        return redirect('/teacher/create')->with('success', 'Skolotājs pievienots.');
     }
 
     /**
@@ -51,7 +64,7 @@ class TeacherController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        //
+        return view('pages.teacher.show', compact('teacher'));
     }
 
     /**
@@ -62,7 +75,7 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        //
+        return view('pages.teacher.edit', compact('teacher'));
     }
 
     /**
@@ -74,7 +87,17 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        //
+        $request->validate([
+            'first_name' => 'required|string|min:3|max:255',
+            'last_name' => 'required|string|min:3|max:255'
+        ]);
+
+        Teacher::where('id', $teacher->id)->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name
+        ]);
+
+        return redirect('/teacher')->with('success', 'Skolotājs rediģēts.');
     }
 
     /**
@@ -85,6 +108,8 @@ class TeacherController extends Controller
      */
     public function destroy(Teacher $teacher)
     {
-        //
+        $teacher->delete();
+
+        return Session::flash('success', 'Skolotājs izdzēsts.');
     }
 }
