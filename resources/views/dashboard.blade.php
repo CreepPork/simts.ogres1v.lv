@@ -1,25 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    <div class="container wrapper">
+        <h1 class="text-center">Informācijas panelis</h1>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        <hr>
 
-                    <a href="/recommend" class="btn btn-outline-primary">Ieteikumi</a>
-                    <a href="/work" class="btn btn-outline-primary">Darbi</a>
-                    <a href="/edit" class="btn btn-outline-primary">Rediģēt galvenās lapas saturu</a>
-                </div>
-            </div>
+        @include('inc.messages')
+
+        <div class="btn-group d-flex justify-content-center">
+            <a href="/recommend" class="btn btn-primary">Ieteikumi</a>
+            <a href="/work" class="btn btn-primary">Darbi</a>
+            <a href="/workStatus" class="btn btn-primary">Darba statusi</a>
+            <a href="/teacher" class="btn btn-primary">Skolotāji</a>
+            <a href="/edit" class="btn btn-primary">Rediģēt galvenās lapas saturu</a>
         </div>
     </div>
-</div>
 @endsection
