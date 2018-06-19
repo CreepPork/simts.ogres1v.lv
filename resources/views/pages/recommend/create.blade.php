@@ -67,9 +67,7 @@
                 <div class="g-recaptcha" data-sitekey="6LeTu14UAAAAAAMYv2gT3ymIdYYlN5N0re5MydiN"></div>
             </div>
 
-            <div class="form-group required-show">
-                <p class="form-text text-muted"><span>*</span> - obligāti aizpildāmie lauki.</p>
-            </div>
+            @include('inc.required')
 
             <div class="form-group">
                 <input type="submit" value="Nosūtīt" class="btn btn-outline-primary form-control">

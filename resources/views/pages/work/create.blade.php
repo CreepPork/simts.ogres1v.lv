@@ -54,9 +54,7 @@
                 </select>
             </div>
 
-            <div class="form-group required-show">
-                <p class="form-text text-muted"><span>*</span> - obligāti aizpildāmie lauki.</p>
-            </div>
+            @include('inc.required')
 
             <div class="form-group">
                 <input type="submit" value="Pievienot" class="btn btn-outline-primary form-control">
