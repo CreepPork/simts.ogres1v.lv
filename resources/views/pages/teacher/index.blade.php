@@ -32,5 +32,7 @@
                 @endforeach
             </tbody>
         </table>
+
+        <a href="/teacher/create" class="btn btn-outline-primary">Pievienot</a>
     </div>
 @endsection
