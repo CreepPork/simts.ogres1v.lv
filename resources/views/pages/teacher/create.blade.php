@@ -21,15 +21,17 @@
         <form action="/teacher" method="post">
             @csrf
 
-            <div class="form-group">
+            <div class="form-group required">
                 <label for="first_name">Vārds</label>
                 <input type="text" name="first_name" id="first_name" class="form-control" required autofocus placeholder="Vārds">
             </div>
 
-            <div class="form-group">
+            <div class="form-group required">
                 <label for="last_name">Uzvārds</label>
                 <input type="text" name="last_name" id="last_name" class="form-control" required placeholder="Uzvārds">
             </div>
+
+            @include('inc.required')
 
             <div class="form-group">
                 <input type="submit" value="Pievienot" class="btn btn-outline-primary form-control">
