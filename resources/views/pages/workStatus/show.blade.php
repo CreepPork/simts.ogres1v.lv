@@ -12,7 +12,7 @@
 
 @section('content')
     <div class="wrapper container">
-        <h1 class="text-center">Darba statusi</h1>
+        <h1 class="text-center">{{ $status->status }}</h1>
 
         <hr>
 
