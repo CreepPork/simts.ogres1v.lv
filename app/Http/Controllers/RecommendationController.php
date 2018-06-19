@@ -61,7 +61,7 @@ class RecommendationController extends Controller
 
         if ($request->hasFile('attachment'))
         {
-            $attachmentPath = $request->attachment->store('recommend', 'public');
+            $request->attachment = $request->attachment->store('recommend', 'public');
         }
 
         $recommendation = Recommendation::create([
@@ -69,7 +69,7 @@ class RecommendationController extends Controller
             'body' => $request->body,
             'email' => $request->email,
             'telephone' => $request->telephone,
-            'attachment' => $attachmentPath ?? ''
+            'attachment' => $request->attachment
         ]);
 
         if ($recommendation->email != null)
@@ -84,10 +84,8 @@ class RecommendationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Recommendation $recommendation)
     {
-        $recommendation = Recommendation::findOrFail($id);
-
         $attachmentURL = null;
         $attachmentMIMEType = null;
 
@@ -132,10 +130,8 @@ class RecommendationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Recommendation $recommendation)
     {
-        $recommendation = Recommendation::findOrFail($id);
-
         Storage::disk('public')->delete($recommendation->attachment);
 
         $recommendation->delete();
