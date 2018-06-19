@@ -31,7 +31,7 @@ class WorkStatusController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.workStatus.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class WorkStatusController extends Controller
             'status' => $request->status
         ]);
 
-        return redirect('/workStatus/create')->with('success', 'Darba statuss pievienots.');
+        return redirect('/workStatus')->with('success', 'Darba statuss pievienots.');
     }
 
     /**
