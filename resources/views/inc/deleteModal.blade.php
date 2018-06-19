@@ -21,3 +21,4 @@
         </div>
     </div>
 </div>
+<script defer src="{{ asset('js/helpers/deleteModal.js') }}"></script>
