@@ -53,7 +53,7 @@ class WorkStatusController extends Controller
      */
     public function show(WorkStatus $workStatus)
     {
-        //
+        return view('pages.workStatus.show', ['status' => $workStatus]);
     }
 
     /**
