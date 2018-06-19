@@ -61,6 +61,7 @@
 
             <div class="col">
                 <div class="form-group text-right">
+                    <a href="/teacher/{{ $teacher->id }}/edit" class="btn btn-outline-primary">Rediģēt</a>
                     <a href="#" id="destroyButton" class="btn btn-outline-danger">Dzēst</a>
                 </div>
             </div>
