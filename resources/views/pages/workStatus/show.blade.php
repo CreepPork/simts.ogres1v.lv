@@ -50,7 +50,7 @@
         <div class="row align-items-center justify-content-between">
             <div class="col">
                 <div class="form-group">
-                    <span class="text-muted form-text">Izveidots {{ $status->created_at->diffForHumans() }}.</span>
+                    <span class="text-muted form-text">Pievienots {{ $status->created_at->diffForHumans() }}.</span>
                 </div>
             </div>
 
