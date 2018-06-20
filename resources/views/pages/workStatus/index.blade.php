@@ -17,20 +17,24 @@
 
         @include('inc.messages')
 
-        <table class="table table-hover table-clickable table-striped">
-            <thead>
-                <tr>
-                    <th>Statuss</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach ($statuses as $status)
-                    <tr data-href="/workStatus/{{ $status->id }}">
-                        <td>{{ $status->status }}</td>
+        @if (count($statuses) > 0)
+            <table class="table table-hover table-clickable table-striped">
+                <thead>
+                    <tr>
+                        <th>Statuss</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+
+                <tbody>
+                    @foreach ($statuses as $status)
+                        <tr data-href="/workStatus/{{ $status->id }}">
+                            <td>{{ $status->status }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <div class="alert alert-warning"><b>Sistēmā nav pievienotu statusu!</b></div>
+        @endif
     </div>
 @endsection
