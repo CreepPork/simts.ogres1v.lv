@@ -64,7 +64,13 @@ class IndexController extends Controller
      */
     public function edit(Index $index)
     {
-        return view('pages.index.edit', compact('index'));
+        $imageURL = null;
+
+        if ($index->image != null) {
+            $imageURL = Storage::url($index->image);
+        }
+
+        return view('pages.index.edit', compact('index', 'imageURL'));
     }
 
     /**
@@ -83,6 +89,11 @@ class IndexController extends Controller
             'body' => 'nullable|string',
             'image' => 'nullable|file|image|max:10240'
         ]);
+
+        if ($request->hasFile('image'))
+        {
+            $request->image = $request->image->store('index', 'public');
+        }
 
         Index::where('id', $index->id)->update([
             'section' => $request->section,
