@@ -134,6 +134,9 @@ class RecommendationController extends Controller
      */
     public function destroy(Recommendation $recommendation)
     {
+        // Again it's returned in a collection for some magical reason
+        $recommendation = $recommendation->first();
+
         Storage::disk('public')->delete($recommendation->attachment);
 
         $recommendation->delete();
