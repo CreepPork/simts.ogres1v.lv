@@ -24,7 +24,7 @@
 
             <tbody>
                 @foreach ($indexes as $index)
-                    <tr data-href="/index/{{ $index->id }}">
+                    <tr data-href="/index/{{ $index->id }}/edit">
                         <td>{{ $index->section_title }}</td>
                     </tr>
                 @endforeach
