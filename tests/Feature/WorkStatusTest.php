@@ -71,4 +71,19 @@ class WorkStatusTest extends TestCase
 
         $this->get('/workStatus/' . $status->id)->assertDontSee($status->status);
     }
+
+    /** @test */
+    public function there_is_a_releationship_between_work_status_and_work()
+    {
+        $this->signIn();
+
+        $work = $this->create('App\Work');
+
+        $status = $work->status;
+
+        $this->assertDatabaseHas('works', ['id' => $work->id]);
+        $this->assertDatabaseHas('work_statuses', ['id' => $status->id]);
+
+        $this->get('/workStatus/' . $status->id)->assertSee($work->title);
+    }
 }
