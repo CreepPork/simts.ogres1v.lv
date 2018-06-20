@@ -170,25 +170,27 @@
 
         <hr>
 
-        <div class="row">
-            <div class="col-lg-8">
+        <div class="row d-flex">
+            <div class="col-lg-8 d-flex">
                 <a href="{{ isset($involve) ? asset($involve->image) : '' }}" data-lightbox="image-2">
-                    <img src="{{ isset($involve) ? asset($involve->image) : '' }}" class="img-fluid img-thumbnail" alt="iesaisties">
+                    <img src="{{ isset($involve) ? asset($involve->image) : '' }}" class="img-fluid img-thumbnail" alt="Iesaisties!">
                 </a>
             </div>
 
-            <div class="col-lg-4">
-                <h2 class="pt-2">{{ $involve->title ?? 'Vidusskolai vajag tevi!' }}</h2>
+            <div class="col-lg-4 d-flex flex-wrap align-content-between">
+                <div>
+                    <h2 class="pt-2">{{ $involve->title ?? 'Vidusskolai vajag tevi!' }}</h2>
 
-                @if (!isset($involve->body))
-                    <div class="alert alert-warning"><b>Sistēmā nav pievienots apraksts par iesaistīšanos!</b></div>
-                @else
-                    <p>
-                        {{ $involve->body }}
-                    </p>
-                @endif
+                    @if (!isset($involve->body))
+                        <div class="alert alert-warning"><b>Sistēmā nav pievienots apraksts par iesaistīšanos!</b></div>
+                    @else
+                        <p>
+                            {{ $involve->body }}
+                        </p>
+                    @endif
+                </div>
 
-                <div class="d-flex justify-content-between align-items-end temp-padding">
+                <div class="d-flex flex-grow justify-content-between">
                     <a href="#" class="btn btn-outline-primary">Dāvināt</a>
                     <a href="/recommend/create" class="btn btn-outline-primary">Ieteikt</a>
                 </div>
