@@ -56,17 +56,6 @@ class IndexController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Index  $index
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Index $index)
-    {
-        return view('pages.index.show', compact('index'));
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Index  $index
