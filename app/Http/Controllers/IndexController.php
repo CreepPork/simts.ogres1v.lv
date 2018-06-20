@@ -38,7 +38,14 @@ class IndexController extends Controller
 
         if (isset($involve->image))
         {
-            $involve->image = Storage::url($involve->image);
+            if (Storage::disk('public')->exists($involve->image))
+            {
+                $involve->image = Storage::url($involve->image);
+            }
+            else
+            {
+                $involve->image = null;
+            }
         }
 
         return view('pages.index', compact('plannedWorks', 'currentWorks', 'completedWorks', 'involve'));
