@@ -15,6 +15,8 @@
 
         <hr>
 
+        @include('inc.messages')
+
         <table class="table table-clickable table-hover table-striped">
             <thead>
                 <tr>
