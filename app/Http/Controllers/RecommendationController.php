@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Recommendation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
+use App\Rules\Recaptcha;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RecommendationCreated;
-use App\Rules\Recaptcha;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 
 class RecommendationController extends Controller
 {
@@ -43,7 +43,6 @@ class RecommendationController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Rules\Recaptcha      $recaptcha
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Recaptcha $recaptcha)
@@ -81,11 +80,14 @@ class RecommendationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Recommendation  $recommendation
      * @return \Illuminate\Http\Response
      */
     public function show(Recommendation $recommendation)
     {
+        // For some reason this returns a collection ¯\_(ツ)_/¯
+        $recommendation = $recommendation->first();
+
         $attachmentURL = null;
         $attachmentMIMEType = null;
 
@@ -104,10 +106,10 @@ class RecommendationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Recommendation  $recommendation
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Recommendation $recommendation)
     {
         abort(404);
     }
@@ -116,10 +118,10 @@ class RecommendationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Recommendation  $recommendation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Recommendation $recommendation)
     {
         abort(404);
     }
@@ -127,7 +129,7 @@ class RecommendationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Recommendation  $recommendation
      * @return \Illuminate\Http\Response
      */
     public function destroy(Recommendation $recommendation)
