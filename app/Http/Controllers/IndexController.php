@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class IndexController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display the main web page (/).
      *
      * @return \Illuminate\Http\Response
      */
@@ -39,24 +39,15 @@ class IndexController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display the admin panel listing of all pages editable.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function list()
     {
-        abort(404);
-    }
+        $indexes = Index::all();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        abort(404);
+        return view('pages.index.list', compact('indexes'));
     }
 
     /**
@@ -67,7 +58,7 @@ class IndexController extends Controller
      */
     public function show(Index $index)
     {
-        abort(404);
+        return view('pages.index.show', compact('index'));
     }
 
     /**
@@ -78,7 +69,7 @@ class IndexController extends Controller
      */
     public function edit(Index $index)
     {
-        //
+        return view('pages.index.edit', compact('index'));
     }
 
     /**
@@ -90,17 +81,22 @@ class IndexController extends Controller
      */
     public function update(Request $request, Index $index)
     {
-        //
-    }
+        $request->validate([
+            'section' => 'required|string|min:3|max:255',
+            'section_title' => 'required|string|min:3|max:255',
+            'title' => 'nullable|string|max:255',
+            'body' => 'nullable|string',
+            'image' => 'nullable|file|image|max:10240'
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Index  $index
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Index $index)
-    {
-        abort(404);
+        Index::where('id', $index->id)->update([
+            'section' => $request->section,
+            'section_title' => $request->section_title,
+            'title' => $request->title,
+            'body' => $request->body,
+            'image' => $request->image
+        ]);
+
+        return redirect('/index')->with('success', 'Galvenā lapa rediģēta!');
     }
 }
