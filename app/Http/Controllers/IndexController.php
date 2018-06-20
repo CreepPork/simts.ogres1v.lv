@@ -94,6 +94,10 @@ class IndexController extends Controller
         {
             $request->image = $request->image->store('index', 'public');
         }
+        else
+        {
+            $request->image = $index->image;
+        }
 
         Index::where('id', $index->id)->update([
             'section' => $request->section,
