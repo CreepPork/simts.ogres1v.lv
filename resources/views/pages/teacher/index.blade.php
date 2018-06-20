@@ -17,21 +17,25 @@
 
         @include('inc.messages')
 
-        <table class="table table-hover table-clickable table-striped">
-            <thead>
-                <tr>
-                    <th>Skolotājs</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach ($teachers as $teacher)
-                    <tr data-href="/teacher/{{ $teacher->id }}">
-                        <td>{{ $teacher->fullName() }}</td>
+        @if (count($teachers) > 0)
+            <table class="table table-hover table-clickable table-striped">
+                <thead>
+                    <tr>
+                        <th>Skolotājs</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+
+                <tbody>
+                    @foreach ($teachers as $teacher)
+                        <tr data-href="/teacher/{{ $teacher->id }}">
+                            <td>{{ $teacher->fullName() }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <div class="alert alert-info">Sistēmā nav pievienotu skolotāju!</div>
+        @endif
 
         <a href="/teacher/create" class="btn btn-outline-primary">Pievienot</a>
     </div>
