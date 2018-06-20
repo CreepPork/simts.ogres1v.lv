@@ -15,6 +15,7 @@ Route::get('/', 'IndexController@index');
 Route::get('/index', 'IndexController@list');
 Route::get('/index/{index}/edit', 'IndexController@edit');
 Route::patch('/index/{index}', 'IndexController@update');
+Route::delete('/index/{index}', 'IndexController@imageDestroy');
 
 Route::get('/colors', function () {
     return view('color-palette');

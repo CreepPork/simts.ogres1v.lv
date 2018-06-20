@@ -6,6 +6,7 @@ use App\Index;
 use Illuminate\Http\Request;
 use App\WorkStatus;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 
 class IndexController extends Controller
 {
@@ -92,5 +93,22 @@ class IndexController extends Controller
         ]);
 
         return redirect('/index')->with('success', 'Galvenā lapa rediģēta!');
+    }
+
+    /**
+     * Removes attached image from the specified index.
+     *
+     * @param  \App\Index  $index
+     * @return void
+     */
+    public function imageDestroy(Index $index)
+    {
+        Storage::disk('public')->delete($index->image);
+
+        Index::where('id', $index->id)->update([
+            'image' => ''
+        ]);
+
+        return Session::flash('success', 'Pievienotais attēls izdzēsts.');
     }
 }
