@@ -13,7 +13,7 @@
             <a href="/work" class="btn btn-primary">Darbi</a>
             <a href="/workStatus" class="btn btn-primary">Darba statusi</a>
             <a href="/teacher" class="btn btn-primary">Skolotāji</a>
-            <a href="/edit" class="btn btn-primary">Rediģēt galvenās lapas saturu</a>
+            <a href="/index" class="btn btn-primary">Rediģēt galvenās lapas saturu</a>
         </div>
     </div>
 @endsection
