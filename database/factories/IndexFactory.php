@@ -7,6 +7,6 @@ $factory->define(App\Index::class, function (Faker $faker) {
         'section' => 'involve',
         'section_title' => $faker->text,
         'title' => $faker->text,
-        'body' => $faker->paragraphs,
+        'body' => $faker->paragraph,
     ];
 });
