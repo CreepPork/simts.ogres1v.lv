@@ -13,4 +13,6 @@ class Index extends Model
         'body',
         'image'
     ];
+
+    protected $table = 'indexes';
 }
