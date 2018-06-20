@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Auth;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -28,6 +29,11 @@ abstract class TestCase extends BaseTestCase
         $this->actingAs($user);
 
         return $this;
+    }
+
+    protected function logout($user = null)
+    {
+        Auth::logout();
     }
 
     protected function create($class, $attributes = [], $times = null)
