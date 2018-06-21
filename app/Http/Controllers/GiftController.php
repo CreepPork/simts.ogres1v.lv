@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Gift;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class GiftController extends Controller
 {
@@ -19,7 +20,9 @@ class GiftController extends Controller
      */
     public function index()
     {
-        //
+        $gifts = Gift::all();
+
+        return view('pages.gift.index', compact('gifts'));
     }
 
     /**
@@ -29,7 +32,7 @@ class GiftController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.gift.create');
     }
 
     /**
@@ -40,7 +43,17 @@ class GiftController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|min:3',
+            'body' => 'required|string|min:3'
+        ]);
+
+        Gift::create([
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+
+        return redirect('/gift/create')->with('success', 'Apraksts pievienots.');
     }
 
     /**
@@ -62,7 +75,7 @@ class GiftController extends Controller
      */
     public function edit(Gift $gift)
     {
-        //
+        return view('pages.gift.edit', compact('gift'));
     }
 
     /**
@@ -74,7 +87,17 @@ class GiftController extends Controller
      */
     public function update(Request $request, Gift $gift)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|min:3',
+            'body' => 'required|string|min:3'
+        ]);
+
+        Gift::where('id', $gift->id)->update([
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+
+        return redirect('/gift')->with('success', 'Apraksts rediģēts.');
     }
 
     /**
@@ -85,6 +108,8 @@ class GiftController extends Controller
      */
     public function destroy(Gift $gift)
     {
-        //
+        $gift->delete();
+
+        return Session::flash('success', 'Apraksts izdzēsts.');
     }
 }
