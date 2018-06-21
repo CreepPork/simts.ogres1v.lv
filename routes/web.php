@@ -25,6 +25,8 @@ Route::resource('/work', 'WorkController');
 Route::resource('/workStatus', 'WorkStatusController');
 Route::resource('/teacher', 'TeacherController');
 
+Route::resource('/gift', 'GiftController');
+
 Route::resource('/recommend', 'RecommendationController');
 
 Auth::routes();
