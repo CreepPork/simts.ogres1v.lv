@@ -69,7 +69,7 @@ class WorkStatusTest extends TestCase
 
         $this->assertDatabaseMissing('work_statuses', ['id' => $status->id]);
 
-        $this->get('/workStatus/' . $status->id)->assertDontSee($status->status);
+        $this->get('/workStatus/' . $status->id)->assertStatus(404);
     }
 
     /** @test */
