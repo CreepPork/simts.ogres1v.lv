@@ -40,5 +40,9 @@
         @else
             <div class="alert alert-warning"><b>Sistēmā nav pievienotu aprakstu par dāvināšanu!</b></div>
         @endif
+
+        @auth
+            <a href="/gift/create" class="btn btn-outline-primary mt-3">Pievienot</a>
+        @endauth
     </div>
 @endsection
