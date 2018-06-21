@@ -193,7 +193,7 @@
                 </div>
 
                 <div class="d-flex flex-grow justify-content-between">
-                    <a href="#" class="btn btn-outline-primary">Dāvināt</a>
+                    <a href="/gift" class="btn btn-outline-primary">Dāvināt</a>
                     <a href="/recommend/create" class="btn btn-outline-primary">Ieteikt</a>
                 </div>
             </div>
