@@ -2,7 +2,6 @@
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{-- TODO: Replace with WEBM --}}
-            {{-- Note: aspect ratio for the image is 86 : 37 --}}
             <img src="{{ asset('images/logo.png') }}" id="logo" width="180" height="77" alt="Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,11 +28,11 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
+                            <a href="{{ route('dashboard') }}" class="dropdown-item">Informācijas panelis</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                Iziet
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
