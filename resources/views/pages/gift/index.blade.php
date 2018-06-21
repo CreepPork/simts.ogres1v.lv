@@ -15,6 +15,8 @@
 
         <hr>
 
+        @include('inc.messages')
+
         @if (count($gifts) > 0)
             <div id="accordion">
                 @foreach ($gifts as $gift)
