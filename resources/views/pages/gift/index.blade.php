@@ -34,7 +34,15 @@
                                 {{ $gift->body }}
 
                                 @auth
-                                    <br><a href="/gift/{{ $gift->id }}/edit" class="btn btn-outline-primary">Rediģēt</a>
+                                    <div class="row pt-3">
+                                        <div class="col">
+                                            <a href="/gift/{{ $gift->id }}/edit" class="btn btn-outline-primary">Rediģēt</a>
+                                        </div>
+
+                                        <div class="col text-right">
+                                            <a href="#" id="destroyButton" data-id="{{ $gift->id }}" class="btn btn-outline-danger">Dzēst</a>
+                                        </div>
+                                    </div>
                                 @endauth
                             </div>
                         </div>
