@@ -140,7 +140,21 @@ return [
      */
 
     'attributes' => [
-        'g-recaptcha-response' => 'reCAPTCHA'
+        'g-recaptcha-response' => 'reCAPTCHA',
+        'title' => 'nosaukums',
+        'body' => 'apraksts',
+        'completed_at' => 'plānotais pabeigšanas datums',
+        'teacher_id' => 'vadītājs',
+        'work_status_id' => 'darba statuss',
+        'section' => 'sekcija',
+        'section_title' => 'sekcijas virsraksts',
+        'image' => 'attēls',
+        'attachment' => 'pielikums',
+        'telephone' => 'telefons',
+        'email' => 'e-pasts',
+        'status' => 'statuss',
+        'first_name' => 'vārds',
+        'last_name' => 'uzvārds'
     ],
 
 ];
