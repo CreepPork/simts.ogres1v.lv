@@ -33,12 +33,6 @@
             </div>
 
             <div class="form-group">
-                <label for="completed_at">Plānotais pabeigšanas datums</label>
-                <input type="date" class="form-control" placeholder="Pabeigšanas datums" name="completed_at" id="completed_at"
-                    value="{{ $work->completed_at != null ? $work->completed_at->format('Y-m-d') : '' }}">
-            </div>
-
-            <div class="form-group">
                 <label for="teacher">Vadītājs</label>
                 <select name="teacher_id" class="form-control" required id="teacher">
                     @foreach ($teachers as $teacher)
@@ -54,6 +48,18 @@
                         <option {{ $status->id == $work->work_status_id ? 'selected' : '' }} value="{{ $status->id }}">{{ $status->status }}</option>
                     @endforeach
                 </select>
+            </div>
+
+            <div class="form-group">
+                <label for="completed_at">Plānotais pabeigšanas datums</label>
+                <input type="date" class="form-control" placeholder="Pabeigšanas datums" name="completed_at" id="completed_at"
+                    value="{{ $work->completed_at != null ? $work->completed_at->format('Y-m-d') : '' }}">
+            </div>
+
+            <div class="form-group">
+                <label for="priority">Prioritāte</label>
+                <input type="text" name="priority" id="priority" placeholder="Prioritāte" value="{{ $work->priority }}" class="form-control">
+                <p class="text-muted form-text">Prioritāte skaitļu veidā no 0 līdz 100. Prioritāte tiek izmantota galvenajā lapā, lai kārtotu pēc secības.</p>
             </div>
 
             <div class="form-group">

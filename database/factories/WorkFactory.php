@@ -13,6 +13,8 @@ $factory->define(App\Work::class, function (Faker $faker) {
 
         'teacher_id' => factory(Teacher::class)->create()->id,
 
-        'work_status_id' => factory(WorkStatus::class)->create()->id
+        'work_status_id' => factory(WorkStatus::class)->create()->id,
+
+        'priority' => $faker->numberBetween(0, 100)
     ];
 });

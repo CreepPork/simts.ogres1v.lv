@@ -43,6 +43,20 @@
             disabled>
         </div>
 
+        @auth
+            <div class="form-group">
+                <label for="priority">Prioritāte</label>
+
+                <input
+                type="text"
+                id="priority"
+                class="form-control"
+                value="{{ $work->priority }}"
+                disabled>
+                <p class="text-muted form-text">Prioritāte skaitļu veidā no 0 līdz 100. Prioritāte tiek izmantota galvenajā lapā, lai kārtotu pēc secības.</p>
+            </div>
+        @endauth
+
         <div class="row align-items-center justify-content-between">
             @if ($work->completed_at != null)
                 <div class="col">

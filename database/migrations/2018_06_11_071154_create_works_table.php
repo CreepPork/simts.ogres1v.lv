@@ -27,6 +27,8 @@ class CreateWorksTable extends Migration
             $table->unsignedInteger('work_status_id')->index();
             $table->foreign('work_status_id')->references('id')->on('work_statuses');
 
+            $table->integer('priority')->nullable();
+
             $table->timestamps();
         });
     }

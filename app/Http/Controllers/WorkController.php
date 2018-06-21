@@ -56,7 +56,9 @@ class WorkController extends Controller
             'completed_at' => 'date|nullable|after:today',
 
             'teacher_id' => 'required',
-            'work_status_id' => 'required'
+            'work_status_id' => 'required',
+
+            'priority' => 'nullable|integer|between:0,100'
         ]);
 
         Work::create([
@@ -66,7 +68,9 @@ class WorkController extends Controller
             'completed_at' => isset($request->completed_at) ? Carbon::createFromFormat('Y-m-d H:i', $request->completed_at . ' 00:00') : null,
 
             'teacher_id' => $request->teacher_id,
-            'work_status_id' => $request->work_status_id
+            'work_status_id' => $request->work_status_id,
+
+            'priority' => $request->priority
         ]);
 
         return redirect('/work/create')->with('success', 'Darbs pievienots.');
@@ -113,7 +117,9 @@ class WorkController extends Controller
             'completed_at' => 'date|nullable|after:today',
 
             'teacher_id' => 'required',
-            'work_status_id' => 'required'
+            'work_status_id' => 'required',
+
+            'priority' => 'nullable|integer|between:0,100'
         ]);
 
         Work::where('id', $work->id)->update([
@@ -123,7 +129,9 @@ class WorkController extends Controller
             'completed_at' => isset($request->completed_at) ? Carbon::createFromFormat('Y-m-d H:i', $request->completed_at . ' 00:00') : null,
 
             'teacher_id' => $request->teacher_id,
-            'work_status_id' => $request->work_status_id
+            'work_status_id' => $request->work_status_id,
+
+            'priority' => $request->priority
         ]);
 
         return redirect('/work')->with('success', 'Darbs rediģēts.');

@@ -154,7 +154,8 @@ return [
         'email' => 'e-pasts',
         'status' => 'statuss',
         'first_name' => 'vārds',
-        'last_name' => 'uzvārds'
+        'last_name' => 'uzvārds',
+        'priority' => 'prioritāte'
     ],
 
 ];

@@ -23,15 +23,15 @@ class IndexController extends Controller
     public function index()
     {
         $plannedWorks = WorkStatus::where('status', '=', 'Plānotie darbi')->with(['works' => function ($query) {
-            $query->limit(5);
+            $query->orderBy('priority', 'desc')->limit(5);
         }])->get()->first();
 
         $currentWorks = WorkStatus::where('status', '=', 'Pašreizējie darbi')->with(['works' => function ($query) {
-            $query->limit(5);
+            $query->orderBy('priority', 'desc')->limit(5);
         }])->get()->first();
 
         $completedWorks = WorkStatus::where('status', '=', 'Pabeigtie darbi')->with(['works' => function ($query) {
-            $query->limit(10);
+            $query->orderBy('priority', 'desc')->limit(10);
         }])->get()->first();
 
         $involve = Index::where('section', '=', 'involve')->get()->first();
