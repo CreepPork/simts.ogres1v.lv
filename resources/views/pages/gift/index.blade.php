@@ -58,3 +58,9 @@
         @endauth
     </div>
 @endsection
+
+@section('scripts')
+    @auth
+        <script defer src="{{ asset('js/pages/gift.js') }}"></script>
+    @endauth
+@endsection
