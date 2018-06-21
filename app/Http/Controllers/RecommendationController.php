@@ -72,7 +72,7 @@ class RecommendationController extends Controller
         ]);
 
         if ($recommendation->email != null)
-            Mail::to($recommendation->email)->send(new RecommendationCreated($recommendation));
+            Mail::to($recommendation->email)->queue(new RecommendationCreated($recommendation));
 
         return redirect('/recommend/create')->with('success', 'Paldies par jūsu ieteikumu, noteikti ņemsim vērā!');
     }
