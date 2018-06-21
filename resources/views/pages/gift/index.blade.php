@@ -32,6 +32,10 @@
                         <div id="collapse_{{ $gift->id }}" class="collapse {{ $loop->first ? 'show' : '' }}" aria-labelledby="gift_{{ $gift->id }}" data-parent="#accordion">
                             <div class="card-body">
                                 {{ $gift->body }}
+
+                                @auth
+                                    <br><a href="/gift/{{ $gift->id }}/edit" class="btn btn-outline-primary">Rediģēt</a>
+                                @endauth
                             </div>
                         </div>
                     </div>
