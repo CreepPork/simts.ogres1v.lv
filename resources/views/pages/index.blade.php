@@ -142,24 +142,52 @@
         <hr>
 
         <div class="row mb-5">
-            <div class="col-lg-8">
-                <a href="{{ asset('images/event-1.jpg') }}" data-lightbox="image-1">
-                    <img src="{{ asset('images/event-1.jpg') }}" class="img-fluid img-thumbnail mb-2" class="mb-3" alt="placeholder">
-                </a>
-                <a href="{{ asset('images/event-2.jpg') }}" data-lightbox="image-1"></a>
-                <a href="{{ asset('images/event-3.jpg') }}" data-lightbox="image-1"></a>
+            <div class="col-lg">
+                @if (count($events) > 0)
+                    <div id="eventCarousel" class="carousel slide mb-3" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            @foreach ($events as $event)
+                                <li data-target="#eventCarousel" data-slide-to="{{ $event->id }}" class="{{ $loop->first ? 'active' : ''}}"></li>
+                            @endforeach
+                        </ol>
 
-                <h2>Tuvākais pasākums</h2>
+                        <div class="carousel-inner">
+                            @foreach ($events as $event)
+                                <div data-id="{{ $event->id }}" class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                    <img class="d-block w-100" src="{{ asset($event->image) }}" alt="{{ $event->title }}">
 
-                <h4>Pasākums 1</h4>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h3 class="event-title">{{ $event->title }}</h3>
+                                        <p class="event-summary">{{ $event->summary }}</p>
+                                        <input type="hidden" value="{{ $event->event_at->formatLocalized('%e. %B %Y %H:%M') }}" class="event-date">
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
 
-                <h4 class="text-muted">20. jūnijs 2018</h4>
+                        <a class="carousel-control-prev" data-href-disable="true" href="#eventCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
-                <button class="btn btn-lg btn-outline-primary">Skatīt</button>
-            </div>
+                            <span class="sr-only">Previous</span>
+                        </a>
 
-            <div class="col-lg-4">
-                <div id="calendar"></div>
+                        <a class="carousel-control-next" data-href-disable="true" href="#eventCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+                    <h2 id="event-title">{{ $events[0]->title }}</h2>
+
+                    <h4 id="event-summary">{{ $events[0]->summary }}</h4>
+
+                    <h4 id="event-date" class="text-muted">{{ $events[0]->event_at->formatLocalized('%e. %B %Y %H:%M') }}</h4>
+
+                    <a id="event-view" href="/event/{{ $events[0]->id }}" class="btn btn-lg btn-outline-primary">Skatīt</a>
+                @else
+                    <div class="alert alert-warning"><b>Sistēmā nav pievienoti pasākumi!</b></div>
+                @endif
             </div>
         </div>
     </section>

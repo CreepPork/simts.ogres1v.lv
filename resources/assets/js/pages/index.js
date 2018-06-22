@@ -1,40 +1,17 @@
-// Have to re-import jQuery because FullCalendar can't attach itself to the registered jQuery in bootstrap.js
-$ = require('jquery');
-
-require('fullcalendar');
 require('lightbox2');
 
-$('#calendar').fullCalendar({
-    defaultView: 'listYear',
-    locale: 'lv',
-    themeSystem: 'bootstrap4',
-    navLinks: true,
+let primaryEventTitle = $('#event-title');
+let primaryEventSummary = $('#event-summary');
+let primaryEventDate = $('#event-date');
 
-    header: {
-        left: 'prev, next today',
-        center: 'title',
-        right: 'listYear, listMonth'
-    },
+$('#eventCarousel').on('slid.bs.carousel', () => {
+    let item = $('div[class="carousel-item active"]');
 
-    events: [
-        {
-            title: 'Pasākums 1',
-            start: '2018-06-20'
-        },
+    let title = item.find('h3').html();
+    let summary = item.find('p').html();
+    let date = item.find('input').val();
 
-        {
-            title: 'Pasākums 2',
-            start: '2018-08-12'
-        },
-
-        {
-            title: 'Pasākums 3',
-            start: '2018-09-22'
-        },
-
-        {
-            title: 'Pasākums 4',
-            start: '2019-12-31'
-        }
-    ]
+    primaryEventTitle.html(title);
+    primaryEventSummary.html(summary);
+    primaryEventDate.html(date);
 });

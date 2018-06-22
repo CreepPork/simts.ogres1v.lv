@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\WorkStatus;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
+use App\Event;
 
 class IndexController extends Controller
 {
@@ -48,7 +49,14 @@ class IndexController extends Controller
             }
         }
 
-        return view('pages.index', compact('plannedWorks', 'currentWorks', 'completedWorks', 'involve'));
+        $events = Event::all();
+
+        foreach ($events as $event)
+        {
+            $event->image = Storage::url($event->image);
+        }
+
+        return view('pages.index', compact('plannedWorks', 'currentWorks', 'completedWorks', 'involve', 'events'));
     }
 
     /**
