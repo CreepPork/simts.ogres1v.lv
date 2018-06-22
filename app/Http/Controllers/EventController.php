@@ -47,15 +47,17 @@ class EventController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255|string',
-            'body' => 'required|max:255',
+            'summary' => 'required|max:255|string',
+            'body' => 'required|string',
 
-            'image' => 'required|max:10240|file|image',
+            'image' => 'required|max:10240|file|image|dimensions:width=1024,height=512',
 
             'event_at' => 'required|date|after:now'
         ]);
 
         Event::create([
             'title' => $request->title,
+            'summary' => $request->summary,
             'body' => $request->body,
 
             'image' => $request->image->store('event', 'public'),
@@ -99,9 +101,10 @@ class EventController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255|string',
-            'body' => 'required|max:255',
+            'summary' => 'required|max:255|string',
+            'body' => 'required|string',
 
-            'image' => 'required|max:10240|file|image',
+            'image' => 'required|max:10240|file|image|dimensions:width=1024,height=512',
 
             'event_at' => 'required|date|after:now'
         ]);
@@ -117,6 +120,7 @@ class EventController extends Controller
 
         Event::find($event->id)->update([
             'title' => $request->title,
+            'summary' => $request->summary,
             'body' => $request->body,
 
             'image' => $request->image,
