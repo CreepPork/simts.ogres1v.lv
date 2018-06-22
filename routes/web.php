@@ -29,6 +29,9 @@ Route::resource('/gift', 'GiftController');
 
 Route::resource('/recommend', 'RecommendationController');
 
+Route::resource('/event', 'EventController');
+Route::patch('/event/{event}/image', 'EventController@replaceImage');
+
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
