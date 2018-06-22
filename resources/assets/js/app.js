@@ -15,7 +15,7 @@ $('body').scrollspy({
 require('./extensions/smoothScrolling.js');
 
 $('tr[data-href]').click(function (e) {
-    var link = e.currentTarget.getAttribute('data-href');
+    let link = e.currentTarget.getAttribute('data-href');
 
     window.location.href = link;
 });
