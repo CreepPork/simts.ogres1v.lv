@@ -3,9 +3,12 @@ require('lightbox2');
 let primaryEventTitle = $('#event-title');
 let primaryEventSummary = $('#event-summary');
 let primaryEventDate = $('#event-date');
+let primaryEventView = $('#event-view');
 
 $('#eventCarousel').on('slid.bs.carousel', () => {
     let item = $('div[class="carousel-item active"]');
+
+    let itemID = item.attr('data-id');
 
     let title = item.find('h3').html();
     let summary = item.find('p').html();
@@ -14,4 +17,6 @@ $('#eventCarousel').on('slid.bs.carousel', () => {
     primaryEventTitle.html(title);
     primaryEventSummary.html(summary);
     primaryEventDate.html(date);
+
+    primaryEventView.attr('href', `/event/${itemID}`);
 });
