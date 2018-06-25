@@ -76,6 +76,8 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
+        $event->image = Storage::url($event->image);
+
         return view('pages.event.show', compact('event'));
     }
 
@@ -87,6 +89,8 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
+        $event->image = Storage::url($event->image);
+
         return view('pages.event.edit', compact('event'));
     }
 
