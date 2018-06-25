@@ -18,7 +18,7 @@
 
         <div class="form-group">
             <label for="status">Statuss</label>
-            <input type="text" name="status" id="status" disabled value="{{ $status->status }}" class="form-control">
+            <input type="text" name="status" id="status" readonly value="{{ $status->status }}" class="form-control">
         </div>
 
         <div class="form-group">

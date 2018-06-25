@@ -1,5 +1,5 @@
 export function textareaHeight() {
-    $('textarea.disabled').each(function () {
+    $('textarea.readonly').each(function () {
         $(this).height($(this).prop('scrollHeight'));
     });
 }

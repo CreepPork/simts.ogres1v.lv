@@ -18,12 +18,12 @@
 
         <div class="form-group">
             <label for="first_name">Vārds</label>
-            <input type="text" name="first_name" id="first_name" disabled value="{{ $teacher->first_name }}" class="form-control">
+            <input type="text" name="first_name" id="first_name" readonly value="{{ $teacher->first_name }}" class="form-control">
         </div>
 
         <div class="form-group">
             <label for="last_name">Uzvārds</label>
-            <input type="text" name="last_name" id="last_name" disabled value="{{ $teacher->last_name }}" class="form-control">
+            <input type="text" name="last_name" id="last_name" readonly value="{{ $teacher->last_name }}" class="form-control">
         </div>
 
         <div class="form-group">

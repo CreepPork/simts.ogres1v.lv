@@ -18,7 +18,7 @@
 
         <div class="form-group">
             <label for="body">Apraksts</label>
-            <textarea id="body" cols="30" rows="10" class="form-control disabled" disabled>{{ $work->body }}</textarea>
+            <textarea id="body" cols="30" rows="10" class="form-control readonly" readonly>{{ $work->body }}</textarea>
         </div>
 
         <div class="form-group">
@@ -29,7 +29,7 @@
             id="teacher"
             class="form-control"
             value="{{ $work->teacher->fullName() }}"
-            disabled>
+            readonly>
         </div>
 
         <div class="form-group">
@@ -40,7 +40,7 @@
             id="status"
             class="form-control"
             value="{{ $work->status->status }}"
-            disabled>
+            readonly>
         </div>
 
         @auth
@@ -52,7 +52,7 @@
                 id="priority"
                 class="form-control"
                 value="{{ $work->priority }}"
-                disabled>
+                readonly>
                 <p class="text-muted form-text">Prioritāte skaitļu veidā no 0 līdz 100. Prioritāte tiek izmantota galvenajā lapā, lai kārtotu pēc secības.</p>
             </div>
         @endauth

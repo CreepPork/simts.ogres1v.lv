@@ -19,7 +19,7 @@
 
         <div class="form-group">
             <label for="body">Apraksts</label>
-            <textarea id="body" cols="30" rows="10" class="form-control disabled" disabled>{{ $recommendation->body }}</textarea>
+            <textarea id="body" cols="30" rows="10" class="form-control readonly" readonly>{{ $recommendation->body }}</textarea>
         </div>
 
         <div class="form-group">
@@ -27,7 +27,7 @@
             @if (isset($recommendation->attachment))
                 <a class="btn btn-outline-secondary" target="_blank" href="{{ $attachmentURL }}">{{ __('mime.' . $attachmentMIMEType) }}</a>
             @else
-                <input type="text" disabled class="form-control" value="Nav pieejams">
+                <input type="text" readonly class="form-control" value="Nav pieejams">
             @endif
         </div>
 
@@ -41,7 +41,7 @@
                     id="email"
                     class="form-control"
                     value="{{ $recommendation->email ?? 'Nav pieejams' }}"
-                    disabled>
+                    readonly>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@
                     id="telephone"
                     class="form-control"
                     value="{{ $recommendation->telephone ?? 'Nav pieejams' }}"
-                    disabled>
+                    readonly>
                 </div>
             </div>
         </div>
