@@ -34,7 +34,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('pages.event.index');
+        return view('pages.event.create');
     }
 
     /**
