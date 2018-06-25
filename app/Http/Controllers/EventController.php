@@ -62,7 +62,7 @@ class EventController extends Controller
 
             'image' => $request->image->store('event', 'public'),
 
-            'event_at' => Carbon::createFromFormat('Y-m-d H:i', $request->event_at)
+            'event_at' => Carbon::createFromFormat('Y-m-d\TH:i:s', $request->event_at)
         ]);
 
         return redirect('/event/create')->with('success', 'Pasākums pievienots.');
@@ -129,7 +129,7 @@ class EventController extends Controller
 
             'image' => $request->image,
 
-            'event_at' => Carbon::createFromFormat('Y-m-d H:i', $request->event_at)
+            'event_at' => Carbon::createFromFormat('Y-m-d\TH:i:s', $request->event_at)
         ]);
 
         return redirect('/event')->with('success', 'Pasākums rediģēts.');
