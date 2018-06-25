@@ -6,5 +6,6 @@
     "/js/pages/recommend.js": "/js/pages/recommend.js",
     "/js/pages/indexAdmin.js": "/js/pages/indexAdmin.js",
     "/js/pages/gift.js": "/js/pages/gift.js",
+    "/js/pages/event.js": "/js/pages/event.js",
     "/js/helpers/deleteModal.js": "/js/helpers/deleteModal.js"
 }
