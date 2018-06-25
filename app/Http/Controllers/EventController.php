@@ -22,7 +22,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $events = Event::orderBy('event_at', 'asc')->get();
 
         return view('pages.event.index', compact('events'));
     }
