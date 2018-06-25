@@ -151,29 +151,4 @@ class EventController extends Controller
 
         return Session::flash('success', 'Pasākums izdzēsts.');
     }
-
-    /**
-     * Replaces the specified resource's image from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function replaceImage(Request $request, Event $event)
-    {
-        if ($request->hasFile('image'))
-        {
-            $request->validate([
-                'image' => 'required|max:10240|file|image'
-            ]);
-
-            Storage::disk('public')->delete($event->image);
-
-            Event::find($event->id)->update([
-                'image' => $request->image->store('event', 'public')
-            ]);
-
-            return Session::flash('success', 'Attēls nomainīts.');
-        }
-    }
 }
