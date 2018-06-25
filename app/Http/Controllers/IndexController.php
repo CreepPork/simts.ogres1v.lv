@@ -49,7 +49,7 @@ class IndexController extends Controller
             }
         }
 
-        $events = Event::all();
+        $events = Event::orderBy('event_at', 'asc')->get();
 
         foreach ($events as $event)
         {
