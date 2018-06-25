@@ -115,6 +115,8 @@ class EventController extends Controller
 
         if ($request->hasFile('image'))
         {
+            Storage::disk('public')->delete($event->image);
+
             $request->image = $request->image->store('event', 'public');
         }
         else
@@ -143,6 +145,8 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
+        Storage::delete($event->image);
+
         $event->delete();
 
         return Session::flash('success', 'Pasākums izdzēsts.');
