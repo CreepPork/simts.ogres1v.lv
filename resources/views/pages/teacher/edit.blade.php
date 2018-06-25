@@ -5,7 +5,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/dashboard">Informācijas panelis</a></li>
             <li class="breadcrumb-item"><a href="/teacher">Skolotāji</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ $teacher->fullName() }}</li>
+            <li class="breadcrumb-item active" aria-current="page">Rediģēt {{ $teacher->fullName() }}</li>
         </ol>
     </li>
 @endsection

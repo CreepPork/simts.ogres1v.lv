@@ -3,7 +3,7 @@
 @section('navbar-links')
     <li>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Sākums</a></li>
+            <li class="breadcrumb-item"><a href="/dashboard">Informācijas panelis</a></li>
             <li class="breadcrumb-item"><a href="/work">100 labie darbi</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $work->title }}</li>
         </ol>
