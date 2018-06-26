@@ -121,9 +121,9 @@ class TeacherTest extends TestCase
     /** @test */
     public function a_teacher_can_be_deleted()
     {
-        $teacher = $this->create('App\Teacher');
+        $teacher = $this->create('App\Teacher', ['first_name' => 'MyCoolFirstName']);
 
-        $this->assertDatabaseHas('teachers', ['id' => $teacher->id, 'first_name' => 'SomeCrazyLongNameSoTestsDontBreak']);
+        $this->assertDatabaseHas('teachers', ['id' => $teacher->id]);
 
         $this->get('/teacher')->assertSee($teacher->first_name);
 
