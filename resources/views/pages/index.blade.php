@@ -132,11 +132,11 @@
             </div>
 
             <div class="col-sm text-center works-button-center">
-                <a href="#" class="btn btn-outline-primary">Prezentācija</a>
+                <a target="_blank" rel="noopener" href="{{ $workPresentationURL }}" class="btn btn-outline-primary">Prezentācija</a>
             </div>
 
             <div class="col-sm text-right works-button-right">
-                <a href="#" class="btn btn-outline-primary">Nolikums</a>
+                <a target="_blank" rel="noopener" href="{{ $workRegulationURL }}" class="btn btn-outline-primary">Nolikums</a>
             </div>
         </div>
     </section>
