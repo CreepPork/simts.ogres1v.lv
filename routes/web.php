@@ -15,7 +15,8 @@ Route::get('/', 'IndexController@index');
 Route::get('/index', 'IndexController@list');
 Route::get('/index/{index}/edit', 'IndexController@edit');
 Route::patch('/index/{index}', 'IndexController@update');
-Route::delete('/index/{index}', 'IndexController@imageDestroy');
+Route::delete('/index/{index}/image', 'IndexController@imageDestroy');
+Route::delete('/index/{index}/file', 'IndexController@fileDestroy');
 
 Route::resource('/work', 'WorkController');
 Route::resource('/workStatus', 'WorkStatusController');

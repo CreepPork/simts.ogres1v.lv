@@ -11,7 +11,8 @@ class Index extends Model
         'section_title',
         'title',
         'body',
-        'image'
+        'image',
+        'file'
     ];
 
     protected $table = 'indexes';

@@ -56,7 +56,16 @@ class IndexController extends Controller
             $event->image = Storage::url($event->image);
         }
 
-        return view('pages.index', compact('plannedWorks', 'currentWorks', 'completedWorks', 'involve', 'events'));
+        $presentation = Index::where('section', 'presentation')->get()->first();
+        $regulation = Index::where('section', 'regulation')->get()->first();
+
+        $presentationURL = isset($presentation->file) ? Storage::url($presentation) : '';
+        $regulationURL = isset($regulation->file) ? Storage::url($regulation) : '';
+
+        $workPresentation = [$presentation, $presentationURL];
+        $workRegulation = [$regulation, $regulationURL];
+
+        return view('pages.index', compact('plannedWorks', 'currentWorks', 'completedWorks', 'involve', 'events', 'workPresentation', 'workRegulation'));
     }
 
     /**
@@ -80,12 +89,18 @@ class IndexController extends Controller
     public function edit(Index $index)
     {
         $imageURL = null;
-
-        if ($index->image != null) {
+        if ($index->image != null)
+        {
             $imageURL = Storage::url($index->image);
         }
 
-        return view('pages.index.edit', compact('index', 'imageURL'));
+        $fileURL = null;
+        if ($index->file != null)
+        {
+            $fileURL = Storage::url($index->file);
+        }
+
+        return view('pages.index.edit', compact('index', 'imageURL', 'fileURL'));
     }
 
     /**
@@ -102,7 +117,8 @@ class IndexController extends Controller
             'section_title' => 'required|string|min:3|max:255',
             'title' => 'nullable|string|max:255',
             'body' => 'nullable|string',
-            'image' => 'nullable|file|image|max:10240'
+            'image' => 'nullable|file|image|max:10240',
+            'file' => 'nullable|file|max:10240'
         ]);
 
         if ($request->hasFile('image'))
@@ -114,12 +130,22 @@ class IndexController extends Controller
             $request->image = $index->image;
         }
 
+        if ($request->hasFile('file'))
+        {
+            $request->file = $request->file->store('index', 'public');
+        }
+        else
+        {
+            $request->file = $index->file;
+        }
+
         Index::where('id', $index->id)->update([
             'section' => $request->section,
             'section_title' => $request->section_title,
             'title' => $request->title,
             'body' => $request->body,
-            'image' => $request->image
+            'image' => $request->image,
+            'file' => $request->file
         ]);
 
         return redirect('/index')->with('success', 'Galvenā lapa rediģēta!');
@@ -140,5 +166,22 @@ class IndexController extends Controller
         ]);
 
         return Session::flash('success', 'Pievienotais attēls izdzēsts.');
+    }
+
+    /**
+     * Removes attached file from the specified index.
+     *
+     * @param  \App\Index  $index
+     * @return void
+     */
+    public function fileDestroy(Index $index)
+    {
+        Storage::disk('public')->delete($index->file);
+
+        Index::where('id', $index->id)->update([
+            'file' => ''
+        ]);
+
+        return Session::flash('success', 'Pievienotais fails izdzēsts.');
     }
 }

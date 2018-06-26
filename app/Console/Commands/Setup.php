@@ -54,9 +54,22 @@ class Setup extends Command
             'section_title' => 'Iesaisties!',
             'title' => 'Vidusskolai vajag tevi!',
             'body' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni voluptatem doloribus cumque, minima repudiandae delectus alias dolore iusto facere ipsam, rem assumenda voluptatum dignissimos et quis ea nobis porro molestias.',
-            'image' => 'involve/placeholder.gif'
         ]);
 
-        $this->info('Involve row created.');
+        $this->info('Involve row added to indexes table.');
+
+        Index::create([
+            'section' => 'presentation',
+            'section_title' => 'Nav Prezentācijas'
+        ]);
+
+        $this->info('Presentation row added to indexes table.');
+
+        Index::create([
+            'section' => 'regulation',
+            'section_title' => 'Nav nolikuma'
+        ]);
+
+        $this->info('Regulation row added to indexes table.');
     }
 }

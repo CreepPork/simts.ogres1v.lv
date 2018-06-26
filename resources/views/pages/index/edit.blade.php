@@ -55,9 +55,26 @@
                 </div>
             @else
                 <div class="form-group">
-                    <label for="attachment">Pievienotais fails</label><br>
+                    <label for="image">Pievienotais attēls</label><br>
                     <a class="btn btn-outline-secondary mb-2" target="_blank" href="{{ $imageURL }}">Skatīt attēlu</a><br>
                     <a href="#" id="imageDestroyButton" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Dzēst pievienoto attēlu</a>
+                </div>
+            @endif
+
+            @if ($index->file == null)
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" name="file" id="file" class="custom-file-label">
+                        <label for="file" class="custom-file-label">Pievienot failu</label>
+                    </div>
+
+                    <small class="form-text text-muted">Maksimums 10MB.</small>
+                </div>
+            @else
+                <div class="form-group">
+                    <label for="file">Pievienotais fails</label><br>
+                    <a class="btn btn-outline-secondary mb-2" target="_blank" href="{{ $fileURL }}">Skatīt failu</a><br>
+                    <a href="#" id="fileDestroyButton" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Dzēst pievienoto failu</a>
                 </div>
             @endif
 

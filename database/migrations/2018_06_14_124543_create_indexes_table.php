@@ -20,6 +20,7 @@ class CreateIndexesTable extends Migration
             $table->text('title')->nullable();
             $table->longText('body')->nullable();
             $table->text('image')->nullable();
+            $table->text('file')->nullable();
             $table->timestamps();
         });
     }
