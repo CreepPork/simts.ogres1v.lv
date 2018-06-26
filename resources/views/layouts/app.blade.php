@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>100 labie darbi - {{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title', '100 labie darbi') - {{ config('app.name', 'Ogres 1. vidusskola') }}</title>
 
     <!-- Favicons -->
     @include('inc.favicon')
