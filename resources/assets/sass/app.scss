@@ -115,6 +115,9 @@ body {
             height: 100%;
             width: 100%;
 
+            // Remove the minimum width requirement due to the card overflowing on mobile devices.
+            min-width: 0;
+
             // Set the card body to center all the text on the y axis in the middle (looks better, doesn't it?)
             .card-body {
                 display: flex;
