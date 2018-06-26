@@ -3,8 +3,7 @@
 @section('navbar-links')
     <li>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/dashboard">Informācijas panelis</a></li>
-            <li class="breadcrumb-item"><a href="/event">Pasākumi</a></li>
+            <li class="breadcrumb-item"><a href="/">Sākums</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $event->title }}</li>
         </ol>
     </li>
@@ -38,21 +37,23 @@
             <input type="datetime-local" name="event_at" id="event_at" placeholder="Pasākuma datums" readonly class="form-control" value="{{ $event->event_at->format('Y-m-d\TH:i:s') }}">
         </div>
 
-        <div class="form-group">
-            <label for="image">Pievienotais attēls</label><br>
-            <a id="image" class="btn btn-outline-secondary" target="_blank" href="{{ $event->image }}">Skatīt attēlu</a>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <a href="/event/{{ $event->id }}/edit" class="btn btn-outline-primary">Rediģet</a>
+        @auth
+            <div class="form-group">
+                <label for="image">Pievienotais attēls</label><br>
+                <a id="image" class="btn btn-outline-secondary" target="_blank" href="{{ $event->image }}">Skatīt attēlu</a>
             </div>
 
-            <div class="col text-right">
-                <a href="#" id="destroyButton" class="btn btn-outline-danger">Dzēst</a>
-            </div>
-        </div>
+            <div class="row">
+                <div class="col">
+                    <a href="/event/{{ $event->id }}/edit" class="btn btn-outline-primary">Rediģet</a>
+                </div>
 
-        @include('inc.deleteModal', ['subject' => 'pasākumu', 'title' => $event->title])
+                <div class="col text-right">
+                    <a href="#" id="destroyButton" class="btn btn-outline-danger">Dzēst</a>
+                </div>
+            </div>
+
+            @include('inc.deleteModal', ['subject' => 'pasākumu', 'title' => $event->title])
+        @endauth
     </div>
 @endsection
