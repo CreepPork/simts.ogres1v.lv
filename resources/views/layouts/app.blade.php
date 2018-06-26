@@ -10,6 +10,8 @@
 
     <title>@yield('title', '100 labie darbi') - {{ config('app.name', 'Ogres 1. vidusskola') }}</title>
 
+    <meta name="description" content="@yield('description', 'Ogres 1. vidusskolas projekts 100 labie darbi.')">
+
     <!-- Favicons -->
     @include('inc.favicon')
 
