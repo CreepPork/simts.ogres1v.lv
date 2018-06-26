@@ -18,7 +18,7 @@
         @include('inc.messages')
 
         @if (count($statuses) == 0)
-            <div class="alert alert-info">
+            <div class="alert alert-warning">
                 Nav pievienoti darbi.
             </div>
         @else
