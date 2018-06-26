@@ -44,7 +44,7 @@
 
         {{-- Tables --}}
         <div class="row">
-            @if (count($completedWorks->works) > 0 && count($currentWorks->works) > 0 && count($plannedWorks->works) > 0)
+            @if (count($completedWorks->works) > 0 || count($currentWorks->works) > 0 || count($plannedWorks->works) > 0)
                 <div class="col-lg-7">
                     <h3 class="text-center">{{ $completedWorks->status ?? 'Pabeigtie darbi' }}</h3>
 
