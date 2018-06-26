@@ -123,7 +123,7 @@ class TeacherTest extends TestCase
     {
         $teacher = $this->create('App\Teacher');
 
-        $this->assertDatabaseHas('teachers', ['id' => $teacher->id]);
+        $this->assertDatabaseHas('teachers', ['id' => $teacher->id, 'first_name' => 'SomeCrazyLongNameSoTestsDontBreak']);
 
         $this->get('/teacher')->assertSee($teacher->first_name);
 
