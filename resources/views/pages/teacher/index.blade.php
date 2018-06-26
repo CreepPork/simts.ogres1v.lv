@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Skolotāji')
+
 @section('navbar-links')
     <li>
         <ol class="breadcrumb">

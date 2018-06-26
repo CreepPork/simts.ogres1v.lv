@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', $event->title)
+@section('description', 'Ogres 1. vidusskolas projekta "100 labie darbi" pasākums "' . $event->title . '" par ' . $event->summary)
+
 @section('navbar-links')
     <li>
         <ol class="breadcrumb">

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Rediģēt ' . $teacher->fullName())
+
 @section('navbar-links')
     <li>
         <ol class="breadcrumb">

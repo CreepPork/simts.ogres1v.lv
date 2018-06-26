@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', '100 labie darbi')
+@section('description', 'Apskati Ogres 1. vidusskolas projektu "100 labie darbi", kas veicina skolas un Latvijas attīstību saistībā ar Latvijas simtgadi!')
+
 {{-- Remove padding from main --}}
 @section('styling-main', '')
 

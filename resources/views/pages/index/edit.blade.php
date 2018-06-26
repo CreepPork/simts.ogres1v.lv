@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Rediģēt ' . $index->section_title)
+
 @section('navbar-links')
     <li>
         <ol class="breadcrumb">

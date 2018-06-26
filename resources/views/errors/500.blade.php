@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
+@section('title', 'Iekšēja servera kļūda')
+
 @section('navbar-links')
     <li class="breadcrumb-item" aria-current="page"><a href="/">Sākums</a></li>
     <li class="breadcrumb-item active" aria-current="page">Iekšēja servera kļūda</li>
 @endsection
-
-@section('title', 'Iekšēja servera kļūda')
 
 @section('content')
     <div class="wrapper container text-center">

@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Skatīt visus darbus')
+@section('description', 'Apskati visus Ogres 1. vidusskolas projekta "100 labie darbi" darbus!')
+
 @section('navbar-links')
     <li>
         <ol class="breadcrumb">

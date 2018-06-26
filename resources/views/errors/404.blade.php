@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
+@section('title', 'Lapa netika atrasta')
+
 @section('navbar-links')
     <li class="breadcrumb-item" aria-current="page"><a href="/">Sākums</a></li>
     <li class="breadcrumb-item active" aria-current="page">Lapa nav atrasta</li>
 @endsection
-
-@section('title', 'Lapa netika atrasta')
 
 @section('content')
     <div class="wrapper container text-center">
