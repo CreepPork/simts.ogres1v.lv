@@ -71,5 +71,12 @@ class Setup extends Command
         ]);
 
         $this->info('Regulation row added to indexes table.');
+
+        Index::create([
+            'section' => 'parallax',
+            'section_title' => 'Lapas attēls'
+        ]);
+
+        $this->info('Parallax row added to indexes table.');
     }
 }

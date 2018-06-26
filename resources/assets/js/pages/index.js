@@ -20,3 +20,8 @@ $('#eventCarousel').on('slid.bs.carousel', () => {
 
     primaryEventView.attr('href', `/event/${itemID}`);
 });
+
+let parallax = $('.parallax');
+let parallaxURL = $('#parallaxURL').val();
+
+parallax.css('background-image', `url('${parallaxURL}'`);

@@ -15,6 +15,8 @@
 
 @section('content')
 
+<input type="hidden" id="parallaxURL" value="{{ $parallaxURL }}">
+
 <div class="parallax">
     <div class="parallax-container card">
         <div class="card-body text-center">
