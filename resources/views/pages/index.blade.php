@@ -127,13 +127,16 @@
 
         {{-- Buttons --}}
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-sm works-button-left">
                 <a href="/work" class="btn btn-outline-primary">Skatīt visus</a>
             </div>
 
-            <div class="col-lg-3 great-works-buttons">
-                <button class="btn btn-outline-primary">Prezentācija</button>
-                <button class="btn btn-outline-primary">Nolikums</button>
+            <div class="col-sm text-center works-button-center">
+                <a href="#" class="btn btn-outline-primary">Prezentācija</a>
+            </div>
+
+            <div class="col-sm text-right works-button-right">
+                <a href="#" class="btn btn-outline-primary">Nolikums</a>
             </div>
         </div>
     </section>

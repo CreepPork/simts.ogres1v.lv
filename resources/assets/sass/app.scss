@@ -267,6 +267,22 @@ table.table-clickable {
     }
 }
 
+@include media-breakpoint-only(xs) {
+    .works-button-left {
+        margin-bottom: 0.5rem;
+    }
+
+    .works-button-center {
+        margin-bottom: 0.5rem;
+        text-align: left !important;
+    }
+
+    .works-button-right {
+        margin-bottom: 0.5rem;
+        text-align: left !important;
+    }
+}
+
 textarea.readonly {
     overflow: hidden;
     resize: none;
