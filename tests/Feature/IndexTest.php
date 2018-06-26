@@ -34,7 +34,8 @@ class IndexTest extends TestCase
         $this->get('/index')->assertRedirect('/login');
         $this->get('/index/1/edit')->assertRedirect('/login');
         $this->patch('/index/1')->assertRedirect('/login');
-        $this->delete('/index/1')->assertRedirect('/login');
+        $this->delete('/index/1/image')->assertRedirect('/login');
+        $this->delete('/index/1/file')->assertRedirect('/login');
     }
 
     /** @test */
