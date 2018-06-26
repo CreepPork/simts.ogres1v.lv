@@ -44,7 +44,7 @@
 
         {{-- Tables --}}
         <div class="row">
-            @if ($completedWorks && $currentWorks && $plannedWorks != null)
+            @if (count($completedWorks->works) > 0 && count($currentWorks->works) > 0 && count($plannedWorks->works) > 0)
                 <div class="col-lg-7">
                     <h3 class="text-center">{{ $completedWorks->status ?? 'Pabeigtie darbi' }}</h3>
 
@@ -125,7 +125,7 @@
         {{-- Buttons --}}
         <div class="row">
             <div class="col-md-9">
-                <p class="text-muted">Šeit netiek rādīti visi labie darbi, lai redzētu visus nospiežiet <a href="/work">šeit</a>.</p>
+                <a href="/work" class="btn btn-outline-primary">Skatīt visus</a>
             </div>
 
             <div class="col-lg-3 great-works-buttons">
@@ -180,11 +180,11 @@
 
                     <h2 id="event-title">{{ $events[0]->title }}</h2>
 
-                    <h4 id="event-summary">{{ $events[0]->summary }}</h4>
+                    <h5 id="event-summary">{{ $events[0]->summary }}</h5>
 
-                    <h4 id="event-date" class="text-muted">{{ $events[0]->event_at->formatLocalized('%e. %B %Y %H:%M') }}</h4>
+                    <h5 id="event-date" class="text-muted">{{ $events[0]->event_at->formatLocalized('%e. %B %Y %H:%M') }}</h5>
 
-                    <a id="event-view" href="/event/{{ $events[0]->id }}" class="btn btn-lg btn-outline-primary">Skatīt</a>
+                    <a id="event-view" href="/event/{{ $events[0]->id }}" class="btn btn-outline-primary">Skatīt</a>
                 @else
                     <div class="alert alert-warning"><b>Sistēmā nav pievienoti pasākumi!</b></div>
                 @endif
