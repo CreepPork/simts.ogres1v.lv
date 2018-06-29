@@ -60,7 +60,7 @@ class Setup extends Command
 
         Index::create([
             'section' => 'presentation',
-            'section_title' => 'Nav Prezentācijas'
+            'section_title' => 'Nav prezentācijas'
         ]);
 
         $this->info('Presentation row added to indexes table.');
