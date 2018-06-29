@@ -38,6 +38,9 @@ Laravel application that is designed for ZPD (Scientific Research Work) that col
 - NPM >= 3.10.8
 - At least 300MB of storage
 - Ability to write to the directory
+- In PHP config set these values
+    - `post_max_size=20M`
+    - `upload_max_filesize=10M`
 
 ### Recommended
 - OS - Windows
