@@ -26,7 +26,7 @@
 
             <div class="form-group required">
                 <label for="section">Sekcija</label>
-                <input type="text" name="section" id="section" class="form-control" value="{{ $index->section }}" required autofocus placeholder="Sekcija">
+                <small class="form-text text-muted">Izmantots, lai sistēma identificētu, kur lauks tiks izmantots.</small>
             </div>
 
             <div class="form-group required">
