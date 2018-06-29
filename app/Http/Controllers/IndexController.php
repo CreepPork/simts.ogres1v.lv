@@ -65,8 +65,9 @@ class IndexController extends Controller
         $workPresentation = [$presentation, $presentationURL];
         $workRegulation = [$regulation, $regulationURL];
 
-        $parallaxURL = optional(Index::where('section', 'parallax')->get()->first())->image ?? '';
-        $parallaxURL = $parallaxURL == '' ? '../images/parallax.jpg' : Storage::url($parallaxURL->image);
+        $parallax = Index::where('section', 'parallax')->get()->first();
+
+        $parallaxURL = isset($parallax->image) ? Storage::url($parallax->image) : '../images/parallax.jpg';
 
         return view('pages.index', compact('plannedWorks', 'currentWorks', 'completedWorks', 'involve', 'events', 'workPresentation', 'workRegulation', 'parallaxURL'));
     }
