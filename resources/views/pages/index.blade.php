@@ -208,14 +208,14 @@
 
         <div class="row d-flex">
             @if (isset($involve->image))
-                <div class="col-lg-8 d-flex">
+                <div class="col-lg d-flex">
                     <a href="{{ isset($involve) ? asset($involve->image) : '' }}" data-lightbox="image-2">
                         <img src="{{ isset($involve) ? asset($involve->image) : '' }}" class="img-fluid img-thumbnail" alt="Iesaisties!">
                     </a>
                 </div>
             @endif
 
-            <div class="{{ isset($involve->image) ? 'col-lg-4' : 'col' }} d-flex flex-wrap align-content-between">
+            <div class="{{ isset($involve->image) ? 'col-lg' : 'col' }} d-flex flex-wrap align-content-between">
                 <div> {{-- Wrapper div to keep the text together with the title so there isn't a big gap between title and text --}}
                     <h2 class="pt-2">{{ $involve->title ?? 'Vidusskolai vajag tevi!' }}</h2>
 
