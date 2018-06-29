@@ -22,7 +22,7 @@
 
         @if (count($statuses) == 0)
             <div class="alert alert-warning">
-                Nav pievienoti darbi.
+                <b>Nav pievienoti darbi.</b>
             </div>
         @else
             @foreach ($statuses as $status)
