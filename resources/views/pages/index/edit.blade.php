@@ -26,12 +26,13 @@
 
             <div class="form-group required">
                 <label for="section">Sekcija</label>
+                <input type="text" name="section" id="section" class="form-control" value="{{ $index->section }}" required readonly placeholder="Sekcija">
                 <small class="form-text text-muted">Izmantots, lai sistēma identificētu, kur lauks tiks izmantots.</small>
             </div>
 
             <div class="form-group required">
                 <label for="section_title">Sekcijas virsraksts</label>
-                <input type="text" name="section_title" id="section_title" value="{{ $index->section_title }}" required placeholder="Sekcijas virsraksts" class="form-control">
+                <input type="text" name="section_title" id="section_title" value="{{ $index->section_title }}" required autofocus placeholder="Sekcijas virsraksts" class="form-control">
             </div>
 
             <div class="form-group">
