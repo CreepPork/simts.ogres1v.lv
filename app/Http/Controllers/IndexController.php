@@ -59,8 +59,8 @@ class IndexController extends Controller
         $presentation = Index::where('section', 'presentation')->get()->first();
         $regulation = Index::where('section', 'regulation')->get()->first();
 
-        $presentationURL = isset($presentation->file) ? Storage::url($presentation) : '';
-        $regulationURL = isset($regulation->file) ? Storage::url($regulation) : '';
+        $presentationURL = isset($presentation->file) ? Storage::url($presentation->file) : '';
+        $regulationURL = isset($regulation->file) ? Storage::url($regulation->file) : '';
 
         $workPresentation = [$presentation, $presentationURL];
         $workRegulation = [$regulation, $regulationURL];
