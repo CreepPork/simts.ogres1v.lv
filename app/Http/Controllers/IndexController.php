@@ -78,7 +78,7 @@ class IndexController extends Controller
      */
     public function list()
     {
-        $indexes = Index::all();
+        $indexes = Index::orderBy('section_title')->get();
 
         return view('pages.index.list', compact('indexes'));
     }
