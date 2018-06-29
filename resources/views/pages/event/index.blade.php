@@ -37,10 +37,10 @@
                     @endforeach
                 </tbody>
             </table>
-
-            <a href="/event/create" class="btn btn-outline-primary">Pievienot</a>
         @else
             <div class="alert alert-warning"><b>Sistēmā nav pievienoti pasākumi!</b></div>
         @endif
+
+        <a href="/event/create" class="btn btn-outline-primary">Pievienot</a>
     </div>
 @endsection
