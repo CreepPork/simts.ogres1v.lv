@@ -166,7 +166,7 @@ class IndexController extends Controller
         Storage::disk('public')->delete($index->image);
 
         Index::where('id', $index->id)->update([
-            'image' => ''
+            'image' => null
         ]);
 
         return Session::flash('success', 'Pievienotais attēls izdzēsts.');
@@ -183,7 +183,7 @@ class IndexController extends Controller
         Storage::disk('public')->delete($index->file);
 
         Index::where('id', $index->id)->update([
-            'file' => ''
+            'file' => null
         ]);
 
         return Session::flash('success', 'Pievienotais fails izdzēsts.');
