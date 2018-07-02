@@ -16,14 +16,15 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                {{-- <button class="btn btn-lg btn-primary">Iesūti</button> --}}
+                @if (url()->previous() != url()->current())
+                    <li>
+                        <a href="{{ url()->previous() }}" class="btn btn-outline-secondary">Atgriezties</a>
+                    </li>
+                @endif
 
-                <!-- Authentication Links -->
-                @guest
-                    {{-- <li><a class="nav-link" href="{{ route('login') }}">{{ __('Ieiet') }}</a></li> --}}
-                @else
+                @auth
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
