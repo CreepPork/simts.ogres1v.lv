@@ -60,15 +60,15 @@ class WorkTest extends TestCase
 
         $this->get('/')
             ->assertSee($work->title)
-            ->assertSee($work->teacher->fullName());
+            ->assertSee(e($work->teacher->fullName()));
 
         $this->get('/work')
             ->assertSee($work->title)
-            ->assertSee($work->teacher->fullName());
+            ->assertSee(e($work->teacher->fullName()));
 
         $this->get('/work/' . $work->id)
             ->assertSee($work->title)
-            ->assertSee($work->teacher->fullName());
+            ->assertSee(e($work->teacher->fullName()));
     }
 
     /** @test */
