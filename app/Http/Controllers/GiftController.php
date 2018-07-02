@@ -92,7 +92,7 @@ class GiftController extends Controller
             'body' => 'required|string|min:3'
         ]);
 
-        Gift::where('id', $gift->id)->update([
+        $gift->update([
             'title' => $request->title,
             'body' => $request->body
         ]);

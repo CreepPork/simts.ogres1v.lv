@@ -124,7 +124,7 @@ class EventController extends Controller
             $request->image = $event->image;
         }
 
-        Event::find($event->id)->update([
+        $event->update([
             'title' => $request->title,
             'summary' => $request->summary,
             'body' => $request->body,

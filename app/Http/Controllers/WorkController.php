@@ -122,7 +122,7 @@ class WorkController extends Controller
             'priority' => 'nullable|integer|between:0,100'
         ]);
 
-        Work::where('id', $work->id)->update([
+        $work->update([
             'title' => $request->title,
             'body' => $request->body,
 

@@ -92,7 +92,7 @@ class TeacherController extends Controller
             'last_name' => 'required|string|min:3|max:255'
         ]);
 
-        Teacher::where('id', $teacher->id)->update([
+        $teacher->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name
         ]);

@@ -143,7 +143,7 @@ class IndexController extends Controller
             $request->file = $index->file;
         }
 
-        Index::where('id', $index->id)->update([
+        $index->update([
             'section' => $request->section,
             'section_title' => $request->section_title,
             'title' => $request->title,
@@ -165,7 +165,7 @@ class IndexController extends Controller
     {
         Storage::disk('public')->delete($index->image);
 
-        Index::where('id', $index->id)->update([
+        $index->update([
             'image' => null
         ]);
 
@@ -182,7 +182,7 @@ class IndexController extends Controller
     {
         Storage::disk('public')->delete($index->file);
 
-        Index::where('id', $index->id)->update([
+        $index->update([
             'file' => null
         ]);
 
