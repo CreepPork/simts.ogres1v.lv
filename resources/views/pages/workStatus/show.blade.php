@@ -49,20 +49,6 @@
             @endif
         </div>
 
-        <div class="row align-items-center justify-content-between">
-            <div class="col">
-                <div class="form-group">
-                    <span class="text-muted form-text">Pievienots {{ $status->created_at->diffForHumans() }}.</span>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="form-group text-right">
-                    <a href="#" id="destroyButton" class="btn btn-outline-danger">Dzēst</a>
-                </div>
-            </div>
-        </div>
-
-        @include('inc.deleteModal', ['title' => $status->status, 'subject' => 'statusu'])
+        <span class="text-muted form-text">Pievienots {{ $status->created_at->diffForHumans() }}.</span>
     </div>
 @endsection
