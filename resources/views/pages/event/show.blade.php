@@ -1,54 +1,69 @@
 @extends('layouts.app')
 
-@section('title', $event->title)
-@section('description', 'Ogres 1. vidusskolas projekta "100 labie darbi" pasākums "' . $event->title . '" par ' . $event->summary)
+@section('title', $mainEvent->title)
+@section('description', 'Ogres 1. vidusskolas projekta "100 labie darbi" pasākums "' . $mainEvent->title . '" par ' . $mainEvent->summary)
 
 @section('navbar-links')
     <li>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Sākums</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ $event->title }}</li>
+            <li id="breadcrumb-active" class="breadcrumb-item active" aria-current="page">{{ $mainEvent->title }}</li>
         </ol>
     </li>
 @endsection
 
 @section('content')
     <div class="wrapper container">
-        <h1 class="text-center">{{ $event->title }}</h1>
+        <div id="eventCarousel" class="carousel slide mb-3" data-interval="false" data-ride="carousel">
+            <ol class="carousel-indicators">
+                @foreach ($events as $event)
+                    <li data-target="#eventCarousel" data-slide-to="{{ $event->id }}" class="{{ $loop->iteration == $mainEvent->id ? 'active' : ''}}"></li>
+                @endforeach
+            </ol>
+
+            <div class="carousel-inner">
+                @foreach ($events as $event)
+                    <div data-id="{{ $event->id }}" class="carousel-item {{ $loop->iteration == $mainEvent->id ? 'active' : '' }}">
+                        <img class="d-block w-100" src="{{ Storage::url($event->image) }}" alt="{{ $event->title }}">
+
+                        <input type="hidden" name="title" value="{{ $event->title }}">
+                        <input type="hidden" name="body" value="{{ $event->body }}">
+                        <input type="hidden" name="event_at" value="{{ $event->event_at->formatLocalized('%e. %B %Y %H:%M') }}">
+                    </div>
+                @endforeach
+            </div>
+
+            <a class="carousel-control-prev" data-href-disable="true" href="#eventCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="carousel-control-next" data-href-disable="true" href="#eventCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <h1 id="title" class="text-center">{{ $mainEvent->title }}</h1>
 
         <hr>
 
         @include('inc.messages')
 
-        <div class="form-group">
-            <label for="title">Nosaukums</label>
-            <input type="text" name="title" id="title" class="form-control" readonly value="{{ $event->title }}" placeholder="Nosaukums">
-        </div>
+        <p id="body">
+            {{ $mainEvent->body }}
+        </p>
 
         <div class="form-group">
-            <label for="summary">Īss apraksts</label>
-            <input type="text" name="summary" id="summary" readonly value="{{ $event->summary }}" placeholder="Īss apraksts" class="form-control">
-        </div>
-
-        <div class="form-group">
-            <label for="body">Apraksts</label>
-            <textarea name="body" id="body" cols="30" rows="10" readonly placeholder="Apraksts" class="form-control">{{ $event->body }}</textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="event_at">Pasākuma datums</label>
-            <input type="datetime-local" name="event_at" id="event_at" placeholder="Pasākuma datums" readonly class="form-control" value="{{ $event->event_at->format('Y-m-d\TH:i:s') }}">
+            <input type="text" name="event_at" id="event_at" readonly class="form-control" value="{{ $mainEvent->event_at->formatLocalized('%e. %B %Y %H:%M') }}">
         </div>
 
         @auth
-            <div class="form-group">
-                <label for="image">Pievienotais attēls</label><br>
-                <a id="image" class="btn btn-outline-secondary" target="_blank" href="{{ $event->image }}">Skatīt attēlu</a>
-            </div>
-
             <div class="row">
                 <div class="col">
-                    <a href="/event/{{ $event->id }}/edit" class="btn btn-outline-primary">Rediģet</a>
+                    <a href="/event/{{ $mainEvent->id }}/edit" class="btn btn-outline-primary">Rediģet</a>
                 </div>
 
                 <div class="col text-right">
@@ -56,7 +71,11 @@
                 </div>
             </div>
 
-            @include('inc.deleteModal', ['subject' => 'pasākumu', 'title' => $event->title])
+            @include('inc.deleteModal', ['subject' => 'pasākumu', 'title' => $mainEvent->title])
         @endauth
     </div>
+@endsection
+
+@section('scripts')
+    <script defer src="{{ asset('js/pages/event.js') }}"></script>
 @endsection

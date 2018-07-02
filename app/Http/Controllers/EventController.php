@@ -76,9 +76,13 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        $event->image = Storage::url($event->image);
+        $mainEvent = $event;
 
-        return view('pages.event.show', compact('event'));
+        $events = Event::all();
+
+        $mainEvent->image = Storage::url($mainEvent->image);
+
+        return view('pages.event.show', compact('events', 'mainEvent'));
     }
 
     /**
