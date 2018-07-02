@@ -64,7 +64,7 @@
 
                         <tbody>
                             @foreach ($completedWorks->works ?? [] as $work)
-                                <tr>
+                                <tr data-href="/work/{{ $work->id }}">
                                     <td>{{ $work->title }}</td>
                                     <td>{{ $work->teacher->fullName() }}</td>
                                 </tr>
@@ -88,7 +88,7 @@
 
                             <tbody>
                                 @foreach ($currentWorks->works ?? [] as $work)
-                                    <tr>
+                                    <tr data-href="/work/{{ $work->id }}">
                                         <td>{{ $work->title }}</td>
                                         <td>{{ $work->teacher->fullName() }}</td>
                                     </tr>
@@ -111,7 +111,7 @@
 
                             <tbody>
                                 @foreach ($currentWorks->works ?? [] as $work)
-                                    <tr>
+                                    <tr data-href="/work/{{ $work->id }}">
                                         <td>{{ $work->title }}</td>
                                         <td>{{ $work->teacher->fullName() }}</td>
                                     </tr>
