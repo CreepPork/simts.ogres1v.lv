@@ -19,6 +19,7 @@
     "laravel-mix": "^2.0",
     "lightbox2": "^2.10.0",
     "lodash": "^4.17.4",
-    "popper.js": "^1.12"
+    "popper.js": "^1.12",
+    "sortablejs": "^1.7.0"
   }
 }
