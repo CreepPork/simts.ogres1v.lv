@@ -21,7 +21,7 @@
 
         @if (count($statuses) > 0)
             <table class="table table-hover table-clickable table-striped">
-                <thead>
+                <thead class="table-primary">
                     <tr>
                         <th>Statuss</th>
                     </tr>

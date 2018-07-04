@@ -28,7 +28,7 @@
 
             @if (count($status->works) > 0)
                 <table id="assignedWorks" class="table table-hover table-clickable table-striped">
-                    <thead>
+                    <thead class="table-primary">
                         <tr>
                             <th>Darbs</th>
                             <th>Skolotājs</th>

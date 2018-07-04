@@ -21,7 +21,7 @@
 
         @if (count($events) > 0)
             <table class="table table-clickable table-striped table-hover">
-                <thead>
+                <thead class="table-primary">
                     <tr>
                         <th>Pasākums</th>
                         <th>Datums</th>

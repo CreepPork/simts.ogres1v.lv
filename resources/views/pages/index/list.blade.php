@@ -20,7 +20,7 @@
         @include('inc.messages')
 
         <table class="table table-clickable table-hover table-striped">
-            <thead>
+            <thead class="table-primary">
                 <tr>
                     <th>Sekcija</th>
                 </tr>
