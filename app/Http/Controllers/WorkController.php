@@ -8,6 +8,7 @@ use App\WorkStatus;
 use Illuminate\Support\Facades\Session;
 use App\Teacher;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 
 class WorkController extends Controller
 {
@@ -137,6 +138,24 @@ class WorkController extends Controller
         ]);
 
         return redirect('/work')->with('success', 'Darbs rediģēts.');
+    }
+
+    /**
+     * Sort the specified resource by priority in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Work  $work
+     * @return \Illuminate\Http\Response
+     */
+    public function sort(Request $request, Work $work)
+    {
+        $request->validate([
+            'priority' => 'required|integer'
+        ]);
+
+        $work->update([
+            'priority' => $request->priority
+        ]);
     }
 
     /**

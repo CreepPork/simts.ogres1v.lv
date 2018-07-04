@@ -26,29 +26,37 @@
             </div>
         @else
             @foreach ($statuses as $status)
-                <div class="pt-3">
-                    <h3 class="text-center">{{ $status->status }}</h3>
+                @if (count($status->works) > 0)
+                    <div class="pt-3">
+                        <h3 class="text-center">{{ $status->status }}</h3>
 
-                    <table class="table table-hover table-clickable table-striped table-bordered">
-                        <thead class="table-primary">
-                            <tr>
-                                <th class="w-75">Nosaukums</th>
-                                <th>Skolotājs</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach ($status->works as $work)
-                            <tr data-href="/work/{{ $work->id }}">
-                                    <td>{{ $work->title }}</td>
-                                    <td>{{ $work->teacher->fullName() }}</td>
+                        <table class="table table-hover table-clickable table-striped table-bordered">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th class="w-75">Nosaukums</th>
+                                    <th>Skolotājs</th>
+                                    @auth
+                                        <th>Kārtot</th>
+                                    @endauth
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
 
-                    <hr>
-                </div>
+                            <tbody>
+                                @foreach ($status->works as $work)
+                                <tr data-id="{{ $work->id }}" data-href="/work/{{ $work->id }}" class="tr-draggable">
+                                        <td>{{ $work->title }}</td>
+                                        <td>{{ $work->teacher->fullName() }}</td>
+                                        @auth
+                                            <td class="text-center text-secondary {{ auth()->check() ? 'td-draggable' : '' }}"><i class="fas fa-sort"></i></td>
+                                        @endauth
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                        <hr>
+                    </div>
+                @endif
             @endforeach
         @endif
 
@@ -56,4 +64,10 @@
             <a href="/work/create" class="btn btn-outline-primary">Pievienot</a>
         @endauth
     </div>
+@endsection
+
+@section('scripts')
+    @auth
+        <script defer src="{{ asset('js/pages/work.js') }}"></script>
+    @endauth
 @endsection
