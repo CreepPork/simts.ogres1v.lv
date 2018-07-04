@@ -9,8 +9,8 @@
 @section('navbar-links')
     <li><a href="#app" class="nav-link active">Sākums</a></li>
     <li><a href="#greatWorks" class="nav-link">Labie Darbi</a></li>
-    <li><a href="#events" class="nav-link">Pasākumi</a></li>
     <li><a href="#getInvolved" class="nav-link">Iesaisties!</a></li>
+    <li><a href="#events" class="nav-link">Pasākumi</a></li>
 @endsection
 
 @section('content')
@@ -143,13 +143,49 @@
         </div>
     </section>
 
+    {{-- Section - Involvement --}}
+    <section tabindex="-1" class="container mb-5">
+        <h1 id="getInvolved" class="text-center">{{ $involve->section_title ?? 'Iesaisties!' }}</h1>
+
+        <hr>
+
+        <div class="row d-flex">
+            @if (isset($involve->image))
+                <div class="col-lg d-flex">
+                    <a href="{{ isset($involve) ? asset($involve->image) : '' }}" data-lightbox="image-2">
+                        <img src="{{ isset($involve) ? asset($involve->image) : '' }}" class="img-fluid img-thumbnail" alt="Iesaisties!">
+                    </a>
+                </div>
+            @endif
+
+            <div class="{{ isset($involve->image) ? 'col-lg' : 'col' }} d-flex flex-wrap align-content-between">
+                <div> {{-- Wrapper div to keep the text together with the title so there isn't a big gap between title and text --}}
+                    <h2 class="pt-2">{{ $involve->title ?? 'Vidusskolai vajag tevi!' }}</h2>
+
+                    @if (isset($involve->body))
+                        <p>
+                            {{ $involve->body }}
+                        </p>
+                    @else
+                        <div class="alert alert-warning"><b>Sistēmā nav pievienots apraksts par iesaistīšanos!</b></div>
+                    @endif
+                </div>
+
+                <div class="d-flex flex-grow justify-content-between">
+                    <a href="/gift" class="btn btn-outline-primary">Dāvināt</a>
+                    <a href="/recommend/create" class="btn btn-outline-primary">Ieteikt</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- Section - Events --}}
-    <section tabindex="-1" class="container">
+    <section tabindex="-1" class="container mb-3">
         <h1 id="events" class="text-center">Pasākumi</h1>
 
         <hr>
 
-        <div class="row mb-5">
+        <div class="row">
             <div class="col-lg">
                 @if (count($events) > 0)
                     <div id="eventCarousel" class="carousel slide mb-3" data-ride="carousel">
@@ -196,42 +232,6 @@
                 @else
                     <div class="alert alert-warning"><b>Sistēmā nav pievienoti pasākumi!</b></div>
                 @endif
-            </div>
-        </div>
-    </section>
-
-    {{-- Section - Involvement --}}
-    <section tabindex="-1" class="container pb-3">
-        <h1 id="getInvolved" class="text-center">{{ $involve->section_title ?? 'Iesaisties!' }}</h1>
-
-        <hr>
-
-        <div class="row d-flex">
-            @if (isset($involve->image))
-                <div class="col-lg d-flex">
-                    <a href="{{ isset($involve) ? asset($involve->image) : '' }}" data-lightbox="image-2">
-                        <img src="{{ isset($involve) ? asset($involve->image) : '' }}" class="img-fluid img-thumbnail" alt="Iesaisties!">
-                    </a>
-                </div>
-            @endif
-
-            <div class="{{ isset($involve->image) ? 'col-lg' : 'col' }} d-flex flex-wrap align-content-between">
-                <div> {{-- Wrapper div to keep the text together with the title so there isn't a big gap between title and text --}}
-                    <h2 class="pt-2">{{ $involve->title ?? 'Vidusskolai vajag tevi!' }}</h2>
-
-                    @if (isset($involve->body))
-                        <p>
-                            {{ $involve->body }}
-                        </p>
-                    @else
-                        <div class="alert alert-warning"><b>Sistēmā nav pievienots apraksts par iesaistīšanos!</b></div>
-                    @endif
-                </div>
-
-                <div class="d-flex flex-grow justify-content-between">
-                    <a href="/gift" class="btn btn-outline-primary">Dāvināt</a>
-                    <a href="/recommend/create" class="btn btn-outline-primary">Ieteikt</a>
-                </div>
             </div>
         </div>
     </section>
