@@ -16,12 +16,6 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                @if (url()->previous() != url()->current())
-                    <li>
-                        <a href="{{ url()->previous() }}" class="btn btn-outline-secondary">Atgriezties</a>
-                    </li>
-                @endif
-
                 @auth
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
