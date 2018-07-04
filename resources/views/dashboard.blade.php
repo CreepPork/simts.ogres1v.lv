@@ -18,12 +18,61 @@
 
         <div class="btn-group d-flex justify-content-center">
             <a href="/workStatus" class="btn btn-primary">Darba statusi</a>
-            <a href="/work" class="btn btn-primary">Darbi</a>
-            <a href="/gift" class="btn btn-primary">Dāvināt</a>
+
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="works" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Darbi
+                </button>
+                <div class="dropdown-menu" aria-labelledby="works">
+                    <a class="dropdown-item" href="/work">Skatīt visus</a>
+                    <a class="dropdown-item" href="/work/create">Pievienot jaunu</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="gift" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dāvināt
+                </button>
+                <div class="dropdown-menu" aria-labelledby="gift">
+                    <a class="dropdown-item" href="/gift">Skatīt visus</a>
+                    <a class="dropdown-item" href="/gift/create">Pievienot jaunu</a>
+                </div>
+            </div>
+
             <a href="/recommend" class="btn btn-primary">Ieteikumi</a>
-            <a href="/event" class="btn btn-primary">Pasākumi</a>
-            <a href="/index" class="btn btn-primary">Rediģēt galvenās lapas saturu</a>
-            <a href="/teacher" class="btn btn-primary">Skolotāji</a>
+
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="events" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Pasākumi
+                </button>
+                <div class="dropdown-menu" aria-labelledby="events">
+                    <a class="dropdown-item" href="/event">Skatīt visus</a>
+                    <a class="dropdown-item" href="/event">Pievienot jaunu</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="index" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Rediģēt galvenās lapas saturu
+                </button>
+                <div class="dropdown-menu" aria-labelledby="index">
+                    <a class="dropdown-item" href="/">Skatīt galveno lapu</a>
+                    <a class="dropdown-item" href="/index">Skatīt visas sekcijas</a>
+                    @foreach ($indexes as $index)
+                        <a class="dropdown-item" href="/index/{{ $index->id }}/edit">Rediģēt sekciju "{{ $index->section_title }}"</a>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="teacher" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Skolotāji
+                </button>
+                <div class="dropdown-menu" aria-labelledby="teacher">
+                    <a class="dropdown-item" href="/teacher">Skatīt visus</a>
+                    <a class="dropdown-item" href="/teacher/create">Pievienot jaunu</a>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
