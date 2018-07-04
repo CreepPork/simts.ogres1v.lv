@@ -23,7 +23,9 @@ class WorkController extends Controller
      */
     public function index()
     {
-        $statuses = WorkStatus::has('works')->get()->sortBy('status');
+        $statuses = WorkStatus::with(['works' => function ($query) {
+            $query->with('teacher')->orderBy('priority', 'desc');
+        }])->get()->sortBy('status');
 
         return view('pages.work.index', compact('statuses'));
     }
