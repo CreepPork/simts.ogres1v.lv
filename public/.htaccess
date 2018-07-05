@@ -27,11 +27,11 @@
 </IfModule>
 
 # 1 week for most static assets
-<IfModule mod_headers.c>
-    <filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
-    Header set Cache-Control "max-age=604800, public"
-    </filesMatch>
-</IfModule>
+# <IfModule mod_headers.c>
+#     <filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
+#     Header set Cache-Control "max-age=604800, public"
+#     </filesMatch>
+# </IfModule>
 
 # X-XSS-Protection
 <IfModule mod_headers.c>
