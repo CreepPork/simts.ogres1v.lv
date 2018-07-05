@@ -60,8 +60,6 @@ class WorkController extends Controller
 
             'teacher_id' => 'required',
             'work_status_id' => 'required',
-
-            'priority' => 'nullable|integer|between:0,100'
         ]);
 
         Work::create([
@@ -72,8 +70,6 @@ class WorkController extends Controller
 
             'teacher_id' => $request->teacher_id,
             'work_status_id' => $request->work_status_id,
-
-            'priority' => $request->priority
         ]);
 
         return redirect('/work/create')->with('success', 'Darbs pievienots.');
@@ -121,8 +117,6 @@ class WorkController extends Controller
 
             'teacher_id' => 'required',
             'work_status_id' => 'required',
-
-            'priority' => 'nullable|integer|between:0,100'
         ]);
 
         $work->update([
@@ -133,8 +127,6 @@ class WorkController extends Controller
 
             'teacher_id' => $request->teacher_id,
             'work_status_id' => $request->work_status_id,
-
-            'priority' => $request->priority
         ]);
 
         return redirect('/work')->with('success', 'Darbs rediģēts.');

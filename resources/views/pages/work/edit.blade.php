@@ -59,12 +59,6 @@
             </div>
 
             <div class="form-group">
-                <label for="priority">Prioritāte</label>
-                <input type="text" name="priority" id="priority" placeholder="Prioritāte" value="{{ $work->priority }}" class="form-control">
-                <p class="text-muted form-text">Prioritāte skaitļu veidā no 0 līdz 100. Prioritāte tiek izmantota galvenajā lapā, lai kārtotu pēc secības.</p>
-            </div>
-
-            <div class="form-group">
                 <input type="submit" value="Saglabāt" class="btn btn-outline-primary form-control">
             </div>
         </form>
