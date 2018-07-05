@@ -9,20 +9,26 @@ $('tbody').each(function () {
         dataIdAttr: 'data-id',
         handle: '.td-draggable',
 
+        scroll: true,
+        scrollSensitivity: 30,
+        scrollSpeed: 10,
+
         onEnd(event) {
             let element = event.item;
 
-            let allElementCount = element.parentElement.childElementCount;
+            let parent = element.parentElement;
 
-            let elementPriority = allElementCount - $(element).index();
+            let allElementCount = parent.childElementCount;
 
-            let elementID = element.dataset.id;
+            $(parent).children().each(function () {
+                let id = this.dataset.id;
+                let priority = allElementCount - $(this).index();
 
-            axios.patch(`/work/sort/${elementID}`, {
-                priority: elementPriority
-            }).then().catch(() => console.log('failed!'));
+                axios.patch(`/work/sort/${id}`, {
+                    priority: priority
+                });
+            });
         }
     });
-
 });
 
