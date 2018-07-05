@@ -26,7 +26,7 @@ $('tbody').each(function () {
 
                 axios.patch(`/work/sort/${id}`, {
                     priority: priority
-                });
+                }).catch(() => $('#failModal').modal());
             });
         }
     });
