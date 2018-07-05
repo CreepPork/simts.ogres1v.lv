@@ -15,6 +15,6 @@ $factory->define(App\Work::class, function (Faker $faker) {
 
         'work_status_id' => factory(WorkStatus::class)->create()->id,
 
-        'priority' => $faker->numberBetween(0, 100)
+        'priority' => $faker->unique()->randomNumber()
     ];
 });
