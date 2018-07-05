@@ -76,6 +76,7 @@
     </div>
 
     @include('inc.deleteModal', ['title' => $recommendation->title, 'subject' => 'ieteikumu'])
+    @include('inc.ajaxFailModal')
 @endsection
 
 @section('scripts')

@@ -70,5 +70,6 @@
         </div>
 
         @include('inc.deleteModal', ['title' => $teacher->fullName(), 'subject' => 'skolotāju'])
+        @include('inc.ajaxFailModal')
     </div>
 @endsection

@@ -7,6 +7,8 @@ $('#destroyButton').click(function (e) {
     $('#deleteModal').modal();
 
     $('#modalDeleteButton').click(() => {
-        axios.delete(`/${page}/${pageID}`).then(() => window.location.replace(`/${page}`));
+        axios.delete(`/${page}/${pageID}`)
+            .then(() => window.location.replace(`/${page}`))
+            .catch(() => $('#failModal').modal());
     });
 });

@@ -84,6 +84,8 @@
             <div class="form-group">
                 <input type="submit" value="Saglabāt" class="btn btn-outline-primary form-control">
             </div>
+
+            @include('inc.ajaxFailModal')
         </form>
     </div>
 @endsection

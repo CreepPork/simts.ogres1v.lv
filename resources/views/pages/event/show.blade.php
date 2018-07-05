@@ -72,6 +72,7 @@
             </div>
 
             @include('inc.deleteModal', ['subject' => 'pasākumu', 'title' => $mainEvent->title])
+            @include('inc.ajaxFailModal')
         @endauth
     </div>
 @endsection

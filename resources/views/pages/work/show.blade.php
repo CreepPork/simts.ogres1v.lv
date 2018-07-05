@@ -81,6 +81,7 @@
 
         @auth
             @include('inc.deleteModal', ['title' => $work->title, 'subject' => 'darbu'])
+            @include('inc.ajaxFailModal')
         @endauth
     </div>
 @endsection
