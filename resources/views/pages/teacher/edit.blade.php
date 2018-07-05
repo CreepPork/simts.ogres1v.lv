@@ -37,7 +37,7 @@
             @include('inc.required')
 
             <div class="form-group">
-                <input type="submit" value="Pievienot" class="btn btn-outline-primary form-control">
+                <input type="submit" value="Saglabāt" class="btn btn-outline-primary form-control">
             </div>
         </form>
     </div>
