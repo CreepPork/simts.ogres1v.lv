@@ -136,18 +136,18 @@ class WorkController extends Controller
      * Sort the specified resource by priority in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Work  $work
      * @return \Illuminate\Http\Response
      */
-    public function sort(Request $request, Work $work)
+    public function sort(Request $request)
     {
-        $request->validate([
-            'priority' => 'required|integer'
-        ]);
+        $data = $request->json();
 
-        $work->update([
-            'priority' => $request->priority
-        ]);
+        foreach ($data as $id => $priority)
+        {
+            Work::find($id)->update([
+                'priority' => $priority
+            ]);
+        }
     }
 
     /**

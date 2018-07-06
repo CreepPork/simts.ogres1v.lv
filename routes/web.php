@@ -18,8 +18,8 @@ Route::patch('/index/{index}', 'IndexController@update');
 Route::delete('/index/{index}/image', 'IndexController@imageDestroy');
 Route::delete('/index/{index}/file', 'IndexController@fileDestroy');
 
+Route::patch('/work/sort', 'WorkController@sort');
 Route::resource('/work', 'WorkController');
-Route::patch('/work/sort/{work}', 'WorkController@sort');
 
 Route::resource('/workStatus', 'WorkStatusController');
 Route::resource('/teacher', 'TeacherController');
