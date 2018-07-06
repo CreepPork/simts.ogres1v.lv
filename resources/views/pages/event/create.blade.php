@@ -25,22 +25,22 @@
 
             <div class="form-group required">
                 <label for="title">Nosaukums</label>
-                <input type="text" name="title" id="title" class="form-control" required autofocus placeholder="Nosaukums">
+                <input type="text" name="title" id="title" value="{{ old('title') }}" class="form-control" required autofocus placeholder="Nosaukums">
             </div>
 
             <div class="form-group required">
                 <label for="summary">Īss apraksts</label>
-                <input type="text" name="summary" id="summary" required placeholder="Īss apraksts" class="form-control">
+                <input type="text" name="summary" id="summary" value="{{ old('summary') }}" required placeholder="Īss apraksts" class="form-control">
             </div>
 
             <div class="form-group required">
                 <label for="body">Apraksts</label>
-                <textarea name="body" id="body" cols="30" rows="10" required placeholder="Apraksts" class="form-control"></textarea>
+                <textarea name="body" id="body" cols="30" rows="10" required placeholder="Apraksts" class="form-control">{{ old('body') }}</textarea>
             </div>
 
             <div class="form-group required">
                 <label for="event_at">Pasākuma datums</label>
-                <input type="datetime-local" name="event_at" id="event_at" step="1" required placeholder="Pasākuma datums" class="form-control">
+                <input type="datetime-local" name="event_at" id="event_at" value="{{ old('event_at') }}" step="1" required placeholder="Pasākuma datums" class="form-control">
             </div>
 
             <div class="form-group">

@@ -25,12 +25,12 @@
 
             <div class="form-group required">
                 <label for="first_name">Vārds</label>
-                <input type="text" name="first_name" id="first_name" class="form-control" required autofocus placeholder="Vārds">
+                <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}" class="form-control" required autofocus placeholder="Vārds">
             </div>
 
             <div class="form-group required">
                 <label for="last_name">Uzvārds</label>
-                <input type="text" name="last_name" id="last_name" class="form-control" required placeholder="Uzvārds">
+                <input type="text" name="last_name" id="last_name" class="form-control" value="{{ old('last_name') }}" required placeholder="Uzvārds">
             </div>
 
             @include('inc.required')

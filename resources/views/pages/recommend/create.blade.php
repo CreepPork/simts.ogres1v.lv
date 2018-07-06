@@ -25,12 +25,12 @@
 
             <div class="form-group required">
                 <label for="title">Nosaukums</label>
-                <input type="text" name="title" id="title" required autofocus placeholder="Nosaukums" class="form-control">
+                <input type="text" name="title" id="title" required autofocus placeholder="Nosaukums" value="{{ old('title') }}" class="form-control">
             </div>
 
             <div class="form-group required">
                 <label for="body">Apraksts</label>
-                <textarea name="body" id="body" cols="30" rows="10" required class="form-control" placeholder="Apraksts"></textarea>
+                <textarea name="body" id="body" cols="30" rows="10" required class="form-control" placeholder="Apraksts">{{ old('body') }}</textarea>
             </div>
 
             <div class="form-group">
@@ -46,7 +46,7 @@
                 <div class="col-sm">
                     <div class="form-group">
                         <label for="email">E-pasts</label>
-                        <input type="email" name="email" id="email" required class="form-control" placeholder="E-pasts">
+                        <input type="email" name="email" id="email" value="{{ old('email') }}" required class="form-control" placeholder="E-pasts">
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@
                 <div class="col-sm">
                     <div class="form-group">
                         <label for="telephone">Telefona numurs</label>
-                        <input type="tel" name="telephone" id="telephone" required class="form-control" placeholder="Telefona numurs">
+                        <input type="tel" name="telephone" id="telephone" value="{{ old('telephone') }}" required class="form-control" placeholder="Telefona numurs">
                     </div>
                 </div>
             </div>

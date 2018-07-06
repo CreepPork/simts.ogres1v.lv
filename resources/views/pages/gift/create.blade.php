@@ -25,12 +25,12 @@
 
             <div class="form-group required">
                 <label for="title">Nosaukums</label>
-                <input type="text" name="title" id="title" class="form-control" placeholder="Nosaukums" required autofocus>
+                <input type="text" name="title" id="title" value="{{ old('title') }}" class="form-control" placeholder="Nosaukums" required autofocus>
             </div>
 
             <div class="form-group required">
                 <label for="body">Apraksts</label>
-                <textarea name="body" id="body" cols="30" rows="10" class="form-control" placeholder="Apraksts" required></textarea>
+                <textarea name="body" id="body" cols="30" rows="10" class="form-control" placeholder="Apraksts" required>{{ old('body') }}</textarea>
             </div>
 
             @include('inc.required')
