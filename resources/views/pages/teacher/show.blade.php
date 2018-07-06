@@ -54,6 +54,10 @@
             @endif
         </div>
 
+        @if (count($teacher->works) > 0)
+            <div class="alert alert-info">Lai izdzēstu šo skolotāju, noņemiet skolotājam visus pievienotos darbus!</div>
+        @endif
+
         <div class="row align-items-center justify-content-between">
             <div class="col">
                 <div class="form-group">
@@ -64,10 +68,13 @@
             <div class="col">
                 <div class="form-group text-right">
                     <a href="/teacher/{{ $teacher->id }}/edit" class="btn btn-outline-primary">Rediģēt</a>
-                    <a href="#" id="destroyButton" class="btn btn-outline-danger">Dzēst</a>
-                </div>
+                    <a href="#" id="destroyButton"
+                    class="btn btn-outline-danger {{ count($teacher->works) > 0 ? 'disabled' : '' }} ">
+                    Dzēst
+                </a>
             </div>
         </div>
+    </div>
 
         @include('inc.deleteModal', ['title' => $teacher->fullName(), 'subject' => 'skolotāju'])
         @include('inc.ajaxFailModal')
