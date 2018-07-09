@@ -78,7 +78,7 @@ class EventController extends Controller
     {
         $mainEvent = $event;
 
-        $events = Event::all();
+        $events = Event::orderBy('event_at', 'asc')->get();
 
         $mainEvent->image = Storage::url($mainEvent->image);
 
