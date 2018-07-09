@@ -25,6 +25,8 @@ class WorkTest extends TestCase
     public function three_main_types_of_statuses_can_be_seen_on_the_main_page()
     {
         $this->create('App\Work', ['work_status_id' => 1]);
+        $this->create('App\Work', ['work_status_id' => 2]);
+        $this->create('App\Work', ['work_status_id' => 3]);
 
         $response = $this->get('/');
 
