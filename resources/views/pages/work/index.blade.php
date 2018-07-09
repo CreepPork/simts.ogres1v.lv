@@ -6,7 +6,11 @@
 @section('navbar-links')
     <li>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Sākums</a></li>
+            @guest
+                <li class="breadcrumb-item"><a href="/">Sākums</a></li>
+            @else
+                <li class="breadcrumb-item"><a href="/dashboard">Informācijas panelis</a></li>
+            @endguest
             <li class="breadcrumb-item active" aria-current="page">100 labie darbi</li>
         </ol>
     </li>

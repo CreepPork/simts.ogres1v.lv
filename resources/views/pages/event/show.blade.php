@@ -6,7 +6,11 @@
 @section('navbar-links')
     <li>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Sākums</a></li>
+            @guest
+                <li class="breadcrumb-item"><a href="/">Sākums</a></li>
+            @else
+                <li class="breadcrumb-item"><a href="/dashboard">Informācijas panelis</a></li>
+            @endguest
             <li id="breadcrumb-active" class="breadcrumb-item active" aria-current="page">{{ $mainEvent->title }}</li>
         </ol>
     </li>
