@@ -17,13 +17,13 @@
         <div id="eventCarousel" class="carousel slide mb-3" data-interval="false" data-ride="carousel">
             <ol class="carousel-indicators">
                 @foreach ($events as $event)
-                    <li data-target="#eventCarousel" data-slide-to="{{ $event->id }}" class="{{ $loop->iteration == $mainEvent->id ? 'active' : ''}}"></li>
+                    <li data-target="#eventCarousel" data-slide-to="{{ $event->id }}" class="{{ $event->id == $mainEvent->id ? 'active' : ''}}"></li>
                 @endforeach
             </ol>
 
             <div class="carousel-inner">
                 @foreach ($events as $event)
-                    <div data-id="{{ $event->id }}" class="carousel-item {{ $loop->iteration == $mainEvent->id ? 'active' : '' }}">
+                    <div data-id="{{ $event->id }}" class="carousel-item {{ $event->id == $mainEvent->id ? 'active' : '' }}">
                         <img class="d-block w-100" src="{{ Storage::url($event->image) }}" alt="{{ $event->title }}">
 
                         <input type="hidden" name="title" value="{{ $event->title }}">
