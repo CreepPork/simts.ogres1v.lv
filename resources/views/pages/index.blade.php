@@ -50,7 +50,7 @@
         {{-- Tables --}}
         <div class="row">
             @if (count($completedWorks->works) > 0 || count($currentWorks->works) > 0 || count($plannedWorks->works) > 0)
-                <div class="col-lg-7">
+                <div class="{{ count($currentWorks->works) > 0 && count($plannedWorks->works) > 0 ? 'col-lg-7' : 'col' }}">
                     <h3 class="text-center">{{ $completedWorks->status ?? 'Pabeigtie darbi' }}</h3>
 
                     {{-- Completed works --}}
@@ -73,53 +73,59 @@
                     </table>
                 </div>
 
-                <div class="col-lg-5 no-padding-left">
-                    <h3 class="text-center">{{ $currentWorks->status ?? 'Pašreizējie darbi' }}</h3>
+                @if (count($currentWorks->works) > 0 && count($plannedWorks->works) > 0)
+                    <div class="col-lg-5 no-padding-left">
+                        <h3 class="text-center">{{ $currentWorks->status ?? 'Pašreizējie darbi' }}</h3>
 
-                    {{-- Current works --}}
-                    <div class="great-works-limit">
-                        <table class="table table-bordered table-striped table-hover table-clickable">
-                            <thead class="table-primary">
-                                <tr>
-                                    <th>Darbs</th>
-                                    <th>Skolotājs</th>
-                                </tr>
-                            </thead>
+                        {{-- Current works --}}
+                        @if (count($currentWorks->works) > 0)
+                            <div class="great-works-limit">
+                                <table class="table table-bordered table-striped table-hover table-clickable">
+                                    <thead class="table-primary">
+                                        <tr>
+                                            <th>Darbs</th>
+                                            <th>Skolotājs</th>
+                                        </tr>
+                                    </thead>
 
-                            <tbody>
-                                @foreach ($currentWorks->works ?? [] as $work)
-                                    <tr data-href="/work/{{ $work->id }}">
-                                        <td>{{ $work->title }}</td>
-                                        <td>{{ $work->teacher->fullName() }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                    <tbody>
+                                        @foreach ($currentWorks->works ?? [] as $work)
+                                            <tr data-href="/work/{{ $work->id }}">
+                                                <td>{{ $work->title }}</td>
+                                                <td>{{ $work->teacher->fullName() }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @endif
+
+                        {{-- Planned works --}}
+                        @if (count($plannedWorks->works) > 0)
+                            <div class="great-works-limit">
+                                <table class="table table-bordered table-striped table-hover table-clickable">
+                                    <h3 class="text-center">{{ $plannedWorks->status ?? 'Plānotie darbi' }}</h3>
+
+                                    <thead class="table-primary">
+                                        <tr>
+                                            <th>Darbs</th>
+                                            <th>Skolotājs</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach ($currentWorks->works ?? [] as $work)
+                                            <tr data-href="/work/{{ $work->id }}">
+                                                <td>{{ $work->title }}</td>
+                                                <td>{{ $work->teacher->fullName() }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @endif
                     </div>
-
-                    {{-- Planned works --}}
-                    <div class="great-works-limit">
-                        <table class="table table-bordered table-striped table-hover table-clickable">
-                            <h3 class="text-center">{{ $plannedWorks->status ?? 'Plānotie darbi' }}</h3>
-
-                            <thead class="table-primary">
-                                <tr>
-                                    <th>Darbs</th>
-                                    <th>Skolotājs</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                @foreach ($currentWorks->works ?? [] as $work)
-                                    <tr data-href="/work/{{ $work->id }}">
-                                        <td>{{ $work->title }}</td>
-                                        <td>{{ $work->teacher->fullName() }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                @endif
             @else
                 <div class="col">
                     <div class="alert alert-warning"><b>Sistēmā nav pievienoti 100 labie darbi.</b></div>
