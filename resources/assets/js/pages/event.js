@@ -10,8 +10,16 @@ $('#image-replace-button').click(() => {
     $('#image-upload').removeClass('d-none');
 });
 
-$('#eventCarousel').on('slid.bs.carousel', () => {
-    let item = $('div[class="carousel-item active"]');
+/**
+ * Updates the event page from data that the carousel has.
+ *
+ * @param {object} event jQuery event for the carousel.
+ * @param {bool} updateHistory Should we update the history state.
+ * @param {number} position Position where the carousel should go to.
+ */
+function updateEvent(event = {}, updateHistory = true)
+{
+    let item = $(event.relatedTarget);
 
     let itemID = item.attr('data-id');
 
@@ -29,13 +37,47 @@ $('#eventCarousel').on('slid.bs.carousel', () => {
 
     let pushed = false;
 
-    if (pushed)
+    if (updateHistory)
     {
-        window.history.replaceState('event', title, `/event/${itemID}`);
+        if (pushed)
+        {
+            window.history.replaceState('event', title, `/event/${itemID}`);
+        }
+        else
+        {
+            window.history.pushState('event', title, `/event/${itemID}`);
+            pushed = true;
+        }
+    }
+}
+
+let isPopStateDriven = false;
+
+$('#eventCarousel').on('slide.bs.carousel', event => {
+    console.log(event);
+
+    if (isPopStateDriven)
+    {
+        updateEvent(event, false);
     }
     else
     {
-        window.history.pushState('event', title, `/event/${itemID}`);
-        pushed = true;
+        updateEvent(event);
     }
 });
+
+window.onpopstate = () => {
+    let id = document.location.href.split('/')[4];
+
+    let item = $('div[class="carousel-item active"]');
+
+    let wantedItem = item.parent().find(`div[data-id="${id}"]`);
+
+    let wantedItemIndex = wantedItem.index();
+
+    isPopStateDriven = true;
+
+    $('#eventCarousel').carousel(wantedItemIndex);
+
+    isPopStateDriven = false;
+};
