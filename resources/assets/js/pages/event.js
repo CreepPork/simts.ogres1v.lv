@@ -54,8 +54,6 @@ function updateEvent(event = {}, updateHistory = true)
 let isPopStateDriven = false;
 
 $('#eventCarousel').on('slide.bs.carousel', event => {
-    console.log(event);
-
     if (isPopStateDriven)
     {
         updateEvent(event, false);
