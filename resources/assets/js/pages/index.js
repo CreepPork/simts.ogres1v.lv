@@ -5,8 +5,8 @@ let primaryEventSummary = $('#event-summary');
 let primaryEventDate = $('#event-date');
 let primaryEventView = $('#event-view');
 
-$('#eventCarousel').on('slid.bs.carousel', () => {
-    let item = $('div[class="carousel-item active"]');
+$('#eventCarousel').on('slide.bs.carousel', event => {
+    let item = $(event.relatedTarget);
 
     let itemID = item.attr('data-id');
 
