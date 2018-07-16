@@ -79,7 +79,7 @@
 
                         {{-- Current works --}}
                         @if (count($currentWorks->works) > 0)
-                            <div class="">
+                            <div>
                                 <table class="table table-bordered table-striped table-hover table-clickable">
                                     <thead class="table-primary">
                                         <tr>
@@ -102,7 +102,7 @@
 
                         {{-- Planned works --}}
                         @if (count($plannedWorks->works) > 0)
-                            <div class="">
+                            <div>
                                 <table class="table table-bordered table-striped table-hover table-clickable">
                                     <h3 class="text-center">{{ $plannedWorks->status ?? 'Plānotie darbi' }}</h3>
 
