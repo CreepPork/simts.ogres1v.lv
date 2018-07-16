@@ -15,7 +15,6 @@ $('#image-replace-button').click(() => {
  *
  * @param {object} event jQuery event for the carousel.
  * @param {bool} updateHistory Should we update the history state.
- * @param {number} position Position where the carousel should go to.
  */
 function updateEvent(event = {}, updateHistory = true)
 {
