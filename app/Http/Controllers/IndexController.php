@@ -117,7 +117,6 @@ class IndexController extends Controller
     public function update(Request $request, Index $index)
     {
         $request->validate([
-            'section' => 'required|string|min:3|max:255',
             'section_title' => 'required|string|min:3|max:255',
             'title' => 'nullable|string|max:255',
             'body' => 'nullable|string',
@@ -144,7 +143,6 @@ class IndexController extends Controller
         }
 
         $index->update([
-            'section' => $request->section,
             'section_title' => $request->section_title,
             'title' => $request->title,
             'body' => $request->body,
