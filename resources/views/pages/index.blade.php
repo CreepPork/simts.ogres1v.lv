@@ -114,7 +114,7 @@
                                     </thead>
 
                                     <tbody>
-                                        @foreach ($currentWorks->works ?? [] as $work)
+                                        @foreach ($plannedWorks->works ?? [] as $work)
                                             <tr data-href="/work/{{ $work->id }}">
                                                 <td>{{ $work->title }}</td>
                                                 <td>{{ $work->teacher->fullName() }}</td>
