@@ -32,7 +32,7 @@ Laravel application that is designed for ZPD (Scientific Research Work) that col
 ## Requirements
 
 ### Obligatory
-- PHP >= 7.1
+- PHP >= 7.1.3
 - Somekind of Laravel accepted database (MySQL, MariaDB, etc.)
 - Composer >= 1.6.5
 - NPM >= 3.10.8
