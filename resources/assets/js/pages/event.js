@@ -28,7 +28,7 @@ function updateEvent(event = {}, updateHistory = true)
 
     $('#title').html(title);
     $('#body').html(body);
-    $('#event_at').val(event_at);
+    $('#event_at').html(event_at);
 
     $('#breadcrumb-active').html(title);
 

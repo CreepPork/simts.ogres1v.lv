@@ -60,9 +60,9 @@
             {{ $mainEvent->body }}
         </p>
 
-        <div class="form-group">
-            <input type="text" name="event_at" id="event_at" readonly class="form-control" value="{{ $mainEvent->event_at->formatLocalized('%e. %B %Y %H:%M') }}">
-        </div>
+        <p id="event_at">
+            {{ $mainEvent->event_at->formatLocalized('%e. %B %Y %H:%M') }}
+        </p>
 
         @auth
             <div class="row">
