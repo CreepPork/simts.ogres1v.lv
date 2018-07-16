@@ -79,7 +79,7 @@ Laravel application that is designed for ZPD (Scientific Research Work) that col
 9. `mkdir public/storage/recommend`
 10. `mkdir public/storage/index`
 11. `mkdir public/storage/event`
-12. `php artisan migrate`
+12. `php artisan migrate --force`
 13. `php artisan app:setup`
 14. `composer install --optimize-autoloader --no-dev`
 15. `php artisan config:cache`
