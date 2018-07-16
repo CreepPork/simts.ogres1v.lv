@@ -23,6 +23,7 @@ class IndexController extends Controller
      */
     public function index()
     {
+        // Get the 3 types of work statuses with their works
         $plannedWorks = WorkStatus::where('status', 'Plānotie darbi')->with(['works' => function ($query) {
             $query->with('teacher')->orderBy('priority', 'desc')->limit(5);
         }])->get()->first();
@@ -35,8 +36,11 @@ class IndexController extends Controller
             $query->with('teacher')->orderBy('priority', 'desc')->limit(10);
         }])->get()->first();
 
+        // Get the involve section content from the DB
         $involve = Index::where('section', 'involve')->get()->first();
 
+        // If $involve->image does exist then we get the proper storage URL for the image
+        //  if not then we just set it to null and handle the styling in the Blade view.
         if (isset($involve->image))
         {
             if (Storage::disk('public')->exists($involve->image))
@@ -49,31 +53,38 @@ class IndexController extends Controller
             }
         }
 
+        // Get all the events by their date in a ascending order
         $events = Event::orderBy('event_at', 'asc')->get();
 
+        // And foreach event we set it's image to be the proper URL for the front-end
         foreach ($events as $event)
         {
             $event->image = Storage::url($event->image);
         }
 
+        // Get the presentation and regulation section content
         $presentation = Index::where('section', 'presentation')->get()->first();
         $regulation = Index::where('section', 'regulation')->get()->first();
 
+        // Set the storage URL for the files if applicable
         $presentationURL = isset($presentation->file) ? Storage::url($presentation->file) : '';
         $regulationURL = isset($regulation->file) ? Storage::url($regulation->file) : '';
 
+        // Bundle presentation and regulation into an array so that we have to send less variables to the view via compact
         $workPresentation = [$presentation, $presentationURL];
         $workRegulation = [$regulation, $regulationURL];
 
+        // Get the parallax section
         $parallax = Index::where('section', 'parallax')->get()->first();
 
+        // If DB has a file uploaded then get the image otherwise set the default image
         $parallaxURL = isset($parallax->image) ? Storage::url($parallax->image) : '../images/parallax.jpg';
 
         return view('pages.index', compact('plannedWorks', 'currentWorks', 'completedWorks', 'involve', 'events', 'workPresentation', 'workRegulation', 'parallaxURL'));
     }
 
     /**
-     * Display the admin panel listing of all pages editable.
+     * Display the admin panel listing of all the pages that are editable (/index).
      *
      * @return \Illuminate\Http\Response
      */
