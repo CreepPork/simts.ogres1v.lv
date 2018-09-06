@@ -1,7 +1,6 @@
-<nav id="navbar" class="navbar navbar-expand-md navbar-light sticky-top">
+<nav id="navbar" class="navbar navbar-expand-md navbar-light {{-- sticky-top --}}">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{-- TODO: Replace with WEBM --}}
             <img src="{{ asset('images/logo.png') }}" id="logo" width="180" height="77" alt="Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
