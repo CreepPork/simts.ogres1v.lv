@@ -11,7 +11,7 @@ $('a[href*="#"]')
             location.hostname == this.hostname
         ) {
             // Figure out element to scroll to
-            var target = $(this.hash);
+            let target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 
             // Does a scroll target exist?
@@ -19,11 +19,11 @@ $('a[href*="#"]')
                 // Only prevent default if animation is actually gonna happen
                 event.preventDefault();
 
-                $('html, body').animate({
+                $('html').animate({
                     scrollTop: target.offset().top
                 }, 1000, () => {
                     // Set focus to parent element that is the container
-                    var targetContainer = $(target.closest('.container'));
+                    let targetContainer = $(target.closest('.container'));
                     targetContainer.addClass('container-selected').focus();
 
                     setTimeout(() => {
