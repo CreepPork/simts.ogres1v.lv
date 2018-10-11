@@ -16,7 +16,7 @@
 
         @include('inc.messages')
 
-        <div class="btn-group d-flex justify-content-center">
+        <div class="btn-group d-flex justify-content-center flex-wrap">
             <a href="/workStatus" class="btn btn-primary">Darba statusi</a>
 
             <div class="dropdown">
