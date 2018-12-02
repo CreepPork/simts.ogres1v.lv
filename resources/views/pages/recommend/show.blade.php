@@ -18,47 +18,18 @@
 
         <hr>
 
-        <div class="form-group">
-            <label for="body">Apraksts</label>
-            <textarea id="body" cols="30" rows="10" class="form-control readonly" readonly>{{ $recommendation->body }}</textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="attachment">Pievienotais fails</label><br>
-            @if (isset($recommendation->attachment))
-                <a class="btn btn-outline-secondary" target="_blank" href="{{ $attachmentURL }}">{{ __('mime.' . $attachmentMIMEType) }}</a>
-            @else
-                <input type="text" readonly class="form-control" value="Nav pieejams">
-            @endif
-        </div>
+        <p class="text-justify">{{ $recommendation->body }}</p>
 
         <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label for="email">E-pasts</label>
 
-                    <input
-                    type="text"
-                    id="email"
-                    class="form-control"
-                    value="{{ $recommendation->email ?? 'Nav pieejams' }}"
-                    readonly>
-                </div>
-            </div>
-
-            <div class="col-sm">
-                <div class="form-group">
-                    <label for="telephone">Telefons</label>
-
-                    <input
-                    type="text"
-                    id="telephone"
-                    class="form-control"
-                    value="{{ $recommendation->telephone ?? 'Nav pieejams' }}"
-                    readonly>
-                </div>
-            </div>
         </div>
+
+        @if ($recommendation->attachment)
+            <div class="form-group">
+                <label for="attachment">Pievienotais fails</label><br>
+                <a class="btn btn-outline-secondary" target="_blank" href="{{ $attachmentURL }}">{{ __('mime.' . $attachmentMIMEType) }}</a>
+            </div>
+        @endif
 
         <div class="row align-items-center justify-content-between">
             <div class="col">
@@ -66,6 +37,22 @@
                     <span class="form-text text-muted">Izveidots {{ $recommendation->created_at->diffForHumans() }}.</span>
                 </div>
             </div>
+
+            @if ($recommendation->email)
+                <div class="col">
+                    <div class="form-group text-center">
+                        <span class="form-text text-muted"><a href="mailto:{{ $recommendation->email }}">{{ $recommendation->email }}</a></span>
+                    </div>
+                </div>
+            @endif
+
+            @if ($recommendation->telephone)
+                <div class="col">
+                    <div class="form-group text-center">
+                        <span class="form-text text-muted">{{ $recommendation->telephone }}</span>
+                    </div>
+                </div>
+            @endif
 
             <div class="col">
                 <div class="form-group text-right">

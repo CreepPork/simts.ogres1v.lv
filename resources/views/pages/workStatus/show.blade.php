@@ -19,11 +19,6 @@
         <hr>
 
         <div class="form-group">
-            <label for="status">Statuss</label>
-            <input type="text" name="status" id="status" readonly value="{{ $status->status }}" class="form-control">
-        </div>
-
-        <div class="form-group">
             <label for="assignedWorks">Pievienotie darbi šim statusam</label>
 
             @if (count($status->works) > 0)

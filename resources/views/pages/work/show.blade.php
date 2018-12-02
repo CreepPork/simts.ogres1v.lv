@@ -23,37 +23,24 @@
 
         <hr>
 
-        <div class="form-group">
-            <label for="body">Apraksts</label>
-            <textarea id="body" cols="30" rows="10" class="form-control readonly" readonly>{{ $work->body }}</textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="teacher">Skolotājs</label>
-
-            <input
-            type="text"
-            id="teacher"
-            class="form-control"
-            value="{{ $work->teacher->fullName() }}"
-            readonly>
-        </div>
-
-        <div class="form-group">
-            <label for="status">Darba statuss</label>
-
-            <input
-            type="text"
-            id="status"
-            class="form-control"
-            value="{{ $work->status->status }}"
-            readonly>
-        </div>
+        <p class="text-justify">{{ $work->body }}</p>
 
         <div class="row align-items-center justify-content-between">
+            <div class="col">
+                <div class="form-group">
+                    <span class="form-text text-muted">Autors - {{ $work->teacher->fullName() }}</span>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group text-center">
+                    <span class="form-text text-muted">Statuss - {{ $work->status->status }}</span>
+                </div>
+            </div>
+
             @if ($work->completed_at != null)
                 <div class="col">
-                    <div class="form-group">
+                    <div class="form-group {{ auth()->check() ? 'text-center' : 'text-right' }}">
                         <span class="form-text text-muted">Plānots pabeigt {{ $work->completed_at->diffForHumans() }}.</span>
                     </div>
                 </div>
