@@ -81,5 +81,5 @@
 
 @section('scripts')
     <script defer src="{{ asset('js/pages/recommend.js') }}"></script>
-    <script defer src='https://www.google.com/recaptcha/api.js'></script>
+    <script defer src='https://www.google.com/recaptcha/api.js?hl=lv'></script>
 @endsection
