@@ -56,7 +56,7 @@
 
         @include('inc.messages')
 
-        <p id="body">
+        <p id="body" class="text-justify">
             {{ $mainEvent->body }}
         </p>
 
