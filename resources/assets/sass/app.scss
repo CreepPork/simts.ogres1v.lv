@@ -108,6 +108,28 @@ body {
         // Make that the card is as all other items, not rounded
         border-radius: 0;
 
+        // Make the card go fullscreen due to the lack of room on landscape mode.
+        @media (max-height: 428px) {
+            // Set it to be the full size of the parallax parent so it looks better because there isn't any room left
+            //  for all the buttons and text in 25% of the screen size
+            height: 100%;
+            width: 100%;
+
+            // Remove the minimum width requirement due to the card overflowing on mobile devices.
+            min-width: 0;
+
+            // Set the card body to center all the text on the y axis in the middle (looks better, doesn't it?)
+            .card-body {
+                display: flex;
+                align-items: center;
+
+                // Remove some padding around the colls because it looks weird
+                .col-xs-4 {
+                    padding: 0;
+                }
+            }
+        }
+
         // If the screen size is the smallest
         @include media-breakpoint-only(xs) {
             // Set it to be the full size of the parallax parent so it looks better because there isn't any room left
@@ -155,6 +177,12 @@ body {
     @include media-breakpoint-up(sm) {
         // Offset the wrapper to be on top of the parallax image but so only the text "100 labie darbi" is visible
         margin-top: -7rem;
+    }
+
+    // Hide the wrapper from the parallax image in case the height of the screen size drops below 428px.
+    // If not hidden it causes to go on top of the image when it's in landscape mode.
+    @media (max-height: 428px) {
+        margin-top: 0;
     }
 }
 
