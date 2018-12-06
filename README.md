@@ -83,13 +83,14 @@ Laravel application that is designed for ZPD (Scientific Research Work) that col
 9. `mkdir public/storage/recommend`
 10. `mkdir public/storage/index`
 11. `mkdir public/storage/event`
-12. `php artisan migrate --force`
-13. `php artisan app:setup`
-14. `composer install --optimize-autoloader --no-dev`
-15. `php artisan config:cache`
-16. `php artisan route:cache`
-17. `php artisan make:user <name> <email> <password>`
-18. Done!
+12. `mkdir public/storage/work`
+13. `php artisan migrate --force`
+14. `php artisan app:setup`
+15. `composer install --optimize-autoloader --no-dev`
+16. `php artisan config:cache`
+17. `php artisan route:cache`
+18. `php artisan make:user <name> <email> <password>`
+19. Done!
 
 
 ## Additional commands available

@@ -25,6 +25,12 @@
 
         <p class="text-justify">{{ $work->body }}</p>
 
+        @if ($work->image)
+            <div class="text-center form-group">
+                <image src="{{ asset($work->imageUrl) }}" class="img-fluid"></image>
+            </div>
+        @endif
+
         <div class="row align-items-center justify-content-between">
             <div class="col">
                 <div class="form-group">

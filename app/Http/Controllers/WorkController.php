@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 use App\Teacher;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Storage;
 
 class WorkController extends Controller
 {
@@ -60,7 +61,14 @@ class WorkController extends Controller
 
             'teacher_id' => 'required',
             'work_status_id' => 'required',
+
+            'image' => 'nullable|image|max:5000'
         ]);
+
+        if ($request->hasFile('image'))
+        {
+            $request->image = $request->image->store('work', 'public');
+        }
 
         Work::create([
             'title' => $request->title,
@@ -70,6 +78,8 @@ class WorkController extends Controller
 
             'teacher_id' => $request->teacher_id,
             'work_status_id' => $request->work_status_id,
+
+            'image' => $request->image
         ]);
 
         return redirect('/work/create')->with('success', 'Darbs pievienots.');
@@ -83,6 +93,8 @@ class WorkController extends Controller
      */
     public function show(Work $work)
     {
+        $work->imageUrl = Storage::url($work->image);
+
         return view('pages.work.show', compact('work'));
     }
 
@@ -96,6 +108,8 @@ class WorkController extends Controller
     {
         $teachers = Teacher::all();
         $statuses = WorkStatus::all();
+
+        $work->imageUrl = Storage::url($work->image);
 
         return view('pages.work.edit', compact('work', 'teachers', 'statuses'));
     }
@@ -117,7 +131,20 @@ class WorkController extends Controller
 
             'teacher_id' => 'required',
             'work_status_id' => 'required',
+
+            'image' => 'nullable|image|max:5000'
         ]);
+
+        if ($request->hasFile('image'))
+        {
+            Storage::disk('public')->delete($work->image);
+
+            $request->image = $request->image->store('work', 'public');
+        }
+        else
+        {
+            $request->image = $work->image;
+        }
 
         $work->update([
             'title' => $request->title,
@@ -127,6 +154,8 @@ class WorkController extends Controller
 
             'teacher_id' => $request->teacher_id,
             'work_status_id' => $request->work_status_id,
+
+            'image' => $request->image
         ]);
 
         return redirect('/work')->with('success', 'Darbs rediģēts.');
@@ -154,12 +183,34 @@ class WorkController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Work  $work
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function destroy(Work $work)
     {
+        if ($work->image)
+        {
+            Storage::disk('public')->delete($work->image);
+        }
+
         $work->delete();
 
-        return Session::flash('success', 'Darbs izdzēsts.');
+        Session::flash('success', 'Darbs izdzēsts.');
+    }
+
+    /**
+     * Remove the specified resource's image from storage.
+     *
+     * @param Work $work
+     * @return \Illuminate\Http\Response
+     */
+    public function imageDestroy(Work $work)
+    {
+        Storage::disk('public')->delete($work->image);
+
+        $work->update([
+            'image' => null
+        ]);
+
+        return redirect('/work/' . $work->id . '/edit')->with('success', 'Darba attēls izdzēsts.');
     }
 }

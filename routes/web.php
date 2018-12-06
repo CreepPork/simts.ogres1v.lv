@@ -19,6 +19,7 @@ Route::delete('/index/{index}/image', 'IndexController@imageDestroy');
 Route::delete('/index/{index}/file', 'IndexController@fileDestroy');
 
 Route::patch('/work/sort', 'WorkController@sort');
+Route::delete('/work/image/{work}', 'WorkController@imageDestroy');
 Route::resource('/work', 'WorkController');
 
 Route::resource('/workStatus', 'WorkStatusController');

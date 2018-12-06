@@ -20,7 +20,7 @@
 
         @include('inc.messages')
 
-        <form action="/work" method="post">
+        <form action="/work" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group required">
@@ -54,6 +54,15 @@
             <div class="form-group">
                 <label for="completed_at">Plānotais pabeigšanas datums</label>
                 <input type="date" class="form-control" value="{{ old('completed_at') }}" placeholder="Pabeigšanas datums" name="completed_at" id="completed_at">
+            </div>
+
+            <div class="form-group">
+                <div class="custom-file">
+                    <input type="file" accept="image/*" name="image" id="image" class="custom-file-label">
+                    <label for="image" class="custom-file-label">Pievienot attēlu</label>
+                </div>
+
+                <small class="form-text text-muted">Maksimums 5MB.</small>
             </div>
 
             @include('inc.required')

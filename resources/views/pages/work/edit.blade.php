@@ -21,7 +21,7 @@
 
         @include('inc.messages')
 
-        <form action="/work/{{ $work->id }}" method="post">
+        <form action="/work/{{ $work->id }}" method="post" enctype="multipart/form-data">
             @method('PATCH')
             @csrf
 
@@ -60,9 +60,39 @@
             </div>
 
             <div class="form-group">
+                <div id="image-upload" class="{{ $work->image ? 'd-none' : '' }}">
+                    <div class="custom-file">
+                        <input type="file" accept="image/*" name="image" id="image" class="custom-file-label">
+                        <label for="image" class="custom-file-label">Pievienot attēlu</label>
+                    </div>
+
+                    <small class="form-text text-muted">Maksimums 5MB.</small>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <input type="submit" value="Saglabāt" class="btn btn-outline-primary form-control">
             </div>
         </form>
+
+        @if ($work->image)
+            <div class="row">
+                <div class="col">
+                    <a id="image-view-button" class="btn btn-outline-secondary mb-2" target="_blank" href="{{ $work->imageUrl }}">Skatīt attēlu</a><br id="image-break">
+                </div>
+
+                <div class="col text-right">
+                    <form action="/work/image/{{ $work->id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-outline-danger">
+                            <i class="fas fa-trash-alt"></i> Dzēst pievienoto attēlu
+                        </button>
+                    </form>
+                </div>
+            </div>
+        @endif
     </div>
 @endsection
 
