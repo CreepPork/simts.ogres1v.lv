@@ -5,13 +5,16 @@
 
 <p align="center">
     <a href="https://github.com/CreepPork/simts.ogres1v.lv/issues">
-        <img src="https://img.shields.io/github/issues-raw/CreepPork/simts.ogres1v.lv.svg?style=flat-square&label=Issues" alt="Issues">
+        <img src="https://img.shields.io/github/issues-raw/CreepPork/simts.ogres1v.lv.svg?style=flat-square&label=issues" alt="Issues">
     </a>
     <a href="https://github.com/CreepPork/simts.ogres1v.lv/blob/develop/LICENSE">
-        <img src="https://img.shields.io/github/license/CreepPork/simts.ogres1v.lv.svg?style=flat-square" alt="License">
+        <img src="https://img.shields.io/github/license/CreepPork/simts.ogres1v.lv.svg?style=flat-square&label=license" alt="License">
     </a>
     <a href="https://www.travis-ci.com/CreepPork/simts.ogres1v.lv">
-        <img src="https://img.shields.io/travis/CreepPork/simts.ogres1v.lv.svg?style=flat-square&label=Build" alt="Travis CI">
+        <img src="https://www.travis-ci.com/CreepPork/simts.ogres1v.lv.svg?style=flat-square&token=TsdTZZVMQRx2yic71M4F&branch=develop" />
+    </a>
+    <a href="https://codecov.io/gh/CreepPork/simts.ogres1v.lv">
+      <img src="https://codecov.io/gh/CreepPork/simts.ogres1v.lv/branch/develop/graph/badge.svg?token=aIK5IPL4VT&style=flat-square" />
     </a>
 </p>
 
