@@ -155,7 +155,8 @@ return [
         'status' => 'statuss',
         'first_name' => 'vārds',
         'last_name' => 'uzvārds',
-        'priority' => 'prioritāte'
+        'priority' => 'prioritāte',
+        'event_at' => 'pasākuma datums'
     ],
 
 ];
