@@ -112,7 +112,7 @@ class EventController extends Controller
             'summary' => 'required|max:255|string',
             'body' => 'required|string',
 
-            'image' => 'required|max:10240|file|image|dimensions:width=1024,height=512',
+            'image' => 'required|max:10240|image|dimensions:width=1024,height=512',
 
             'event_at' => 'required|date|after:now'
         ]);
