@@ -127,7 +127,7 @@ class RecommendationController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Recommendation  $recommendation
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function destroy(Recommendation $recommendation)
     {
@@ -138,6 +138,6 @@ class RecommendationController extends Controller
 
         $recommendation->delete();
 
-        return Session::flash('success', 'Ieteikums izdzēsts.');
+        Session::flash('success', 'Ieteikums izdzēsts.');
     }
 }
