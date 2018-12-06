@@ -145,7 +145,7 @@ class EventController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Event  $event
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function destroy(Event $event)
     {
@@ -153,6 +153,6 @@ class EventController extends Controller
 
         $event->delete();
 
-        return Session::flash('success', 'Pasākums izdzēsts.');
+        Session::flash('success', 'Pasākums izdzēsts.');
     }
 }
