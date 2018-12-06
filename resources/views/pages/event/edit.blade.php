@@ -44,7 +44,7 @@
                 <input type="datetime-local" name="event_at" id="event_at" required placeholder="Pasākuma datums" step="1" class="form-control" value="{{ $event->event_at->format('Y-m-d\TH:i:s') }}">
             </div>
 
-            <div class="form-group required">
+            <div class="form-group">
                 <label for="image-view-button">Pievienotais attēls</label><br>
 
                 <a id="image-view-button" class="btn btn-outline-secondary mb-2" target="_blank" href="{{ $event->image }}">Skatīt attēlu</a><br id="image-break">
