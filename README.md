@@ -33,7 +33,7 @@ Laravel application that is designed for ZPD (Scientific Research Work) that col
 
 ### Obligatory
 - PHP >= 7.1.3
-- Somekind of Laravel accepted database (MySQL, MariaDB, etc.)
+- Some kind of Laravel accepted database (MySQL, MariaDB, etc.)
 - Composer >= 1.6.5
 - NPM >= 3.10.8
 - At least 300MB of storage
@@ -65,7 +65,11 @@ Laravel application that is designed for ZPD (Scientific Research Work) that col
 9. `php artisan migrate`
 10. `php artisan app:setup`
 11. `php artisan serve` (_if not running on a PHP server_)
-12. Get working!
+12. `php artisan ide-helper:generate`
+13. `php artisan ide-helper:models`
+14. `php artisan ide-helper:meta`
+15. `php artisan ide-helper:eloquent`
+16. Get working!
 
 ### Production
 1. Clone or download the repo
