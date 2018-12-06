@@ -106,10 +106,9 @@ class RecommendationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Recommendation  $recommendation
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function edit(Recommendation $recommendation)
+    public function edit()
     {
         abort(404);
     }
@@ -117,11 +116,9 @@ class RecommendationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Recommendation  $recommendation
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function update(Request $request, Recommendation $recommendation)
+    public function update()
     {
         abort(404);
     }
