@@ -1,6 +1,3 @@
-import { textareaHeight } from '../helpers/textareaHeight';
-textareaHeight();
-
 import Sortable from 'sortablejs';
 
 $('tbody').each(function () {

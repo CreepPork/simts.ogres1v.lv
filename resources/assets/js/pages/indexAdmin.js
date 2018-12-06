@@ -1,7 +1,3 @@
-import { textareaHeight } from '../helpers/textareaHeight';
-
-textareaHeight();
-
 let pageID = document.location.href.substr().split('/')[4];
 
 $('#imageDestroyButton').click(e => {
