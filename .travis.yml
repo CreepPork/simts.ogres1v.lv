@@ -13,10 +13,15 @@ script:
 - php artisan key:generate
 - php artisan storage:link
 - mkdir public/storage/recommend
-- vendor/bin/phpunit
+- mkdir public/storage/work
+- mkdir public/storage/event
+- vendor/bin/phpunit --coverage-clover=coverage.xml
 notifications:
   email: false
   slack:
     rooms:
       - secure: aGTryKMAR6e/TrqOF+I/e+U113wLl74KgNvBSUVA2uuTMgJMJGZ80Yv4oePbWwoNHPNp9j6af1oibfXr1a9uu7SFM0ZsIT40NfMVV6gkJJBChmwytk5PsKdv7alUwHyCg15GXGU9lgmzHbcZOJZDTSgWKU88a3RBaJb0OxpX9TV1iC/Nf3shoGbo5PdJcxSQqXM4lFrKc0p5nBLoOznWaVMpWTdn+vVhnRToOFGQHVdJ6jUJA5p/VQHoVk3eosmQWY7kBDUF66NwVisEyjOD+DznmIEFVq11z7fVmZPnwjnlBSV0E33kuDK8Of8sFEK6f7SliN+9kN4ekag9Vx6njy+CPd6iO4S/nH6d6/vULQc0l1GuvPihsYEOPwaUohkCHQ4dY9YsIkASUT1Bg6n8PAvx4GoHXhI1pL1Yh8iOhdStBqAzaX905k3bF+0dCOzqSovUmpw8AmRZYsaZQwgbEtwAPhp0yQdEKcVFLmNJebNLtSO8rJhM/cZEF6Pap/Eui/Qc0BBrDqcjJzaEWQKTBAq0GpnZEZg8rFQMw0f9YDX2nFzNqaGb1L0oOQquWdPTT1rHBBI6LlZponP7WNsdwL+IO9DfGJ44B1Fog79D6ZqLf2XhZai4FPS3RS2rZP0LeoVKc8273blfKxiTFChMCvvUzxWYORplXRrpdYWW/tk=
     on_success: change
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -t CODECOV_TOKEN
