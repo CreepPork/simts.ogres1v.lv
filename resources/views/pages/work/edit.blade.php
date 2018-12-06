@@ -7,7 +7,8 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/dashboard">Informācijas panelis</a></li>
             <li class="breadcrumb-item"><a href="/work">100 labie darbi</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ $work->title }}</li>
+            <li class="breadcrumb-item"><a href="/work/{{ $work->id }}">{{ $work->title }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit</li>
         </ol>
     </li>
 @endsection
