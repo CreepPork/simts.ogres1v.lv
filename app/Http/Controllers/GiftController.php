@@ -59,10 +59,9 @@ class GiftController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Gift  $gift
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function show(Gift $gift)
+    public function show()
     {
         abort(404);
     }
@@ -103,13 +102,14 @@ class GiftController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Gift  $gift
-     * @return \Illuminate\Http\Response
+     * @param  \App\Gift $gift
+     * @return void
+     * @throws \Exception
      */
     public function destroy(Gift $gift)
     {
         $gift->delete();
 
-        return Session::flash('success', 'Apraksts izdzēsts.');
+        Session::flash('success', 'Apraksts izdzēsts.');
     }
 }

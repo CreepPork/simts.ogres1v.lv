@@ -1,8 +1,10 @@
-let pageID = document.location.href.substr().split('/')[4];
+let pageID = document.location.href.substr(0).split('/')[4];
 
 $('#imageDestroyButton').click(e => {
     e.preventDefault();
 
+    // noinspection ES6ModulesDependencies
+    // noinspection ES6ModulesDependencies
     axios.delete(`/index/${pageID}/image`)
         .then(() => window.location.reload(true))
         .catch(() => $('#failModal').modal());
@@ -11,6 +13,8 @@ $('#imageDestroyButton').click(e => {
 $('#fileDestroyButton').click(e => {
     e.preventDefault();
 
+    // noinspection ES6ModulesDependencies
+    // noinspection ES6ModulesDependencies
     axios.delete(`/index/${pageID}/file`)
         .then(() => window.location.reload(true))
         .catch(() => $('#failModal').modal());

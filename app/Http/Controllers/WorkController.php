@@ -8,7 +8,6 @@ use App\WorkStatus;
 use Illuminate\Support\Facades\Session;
 use App\Teacher;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
 
 class WorkController extends Controller
@@ -164,8 +163,8 @@ class WorkController extends Controller
     /**
      * Sort the specified resource by priority in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request $request
+     * @return void
      */
     public function sort(Request $request)
     {
@@ -182,8 +181,9 @@ class WorkController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Work  $work
+     * @param  \App\Work $work
      * @return void
+     * @throws \Exception
      */
     public function destroy(Work $work)
     {

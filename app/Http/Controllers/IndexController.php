@@ -178,7 +178,7 @@ class IndexController extends Controller
             'image' => null
         ]);
 
-        return Session::flash('success', 'Pievienotais attēls izdzēsts.');
+        Session::flash('success', 'Pievienotais attēls izdzēsts.');
     }
 
     /**
@@ -195,6 +195,6 @@ class IndexController extends Controller
             'file' => null
         ]);
 
-        return Session::flash('success', 'Pievienotais fails izdzēsts.');
+        Session::flash('success', 'Pievienotais fails izdzēsts.');
     }
 }

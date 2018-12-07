@@ -1,5 +1,5 @@
 // Checks if either telephone or email is entered and removes the required tag
-var $inputs = $('input[name=telephone],input[name=email]');
+const $inputs = $('input[name=telephone],input[name=email]');
 
 $inputs.on('input', function () {
     // Set the required property of the other input to false if this input is not empty.

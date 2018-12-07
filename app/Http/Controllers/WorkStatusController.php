@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\WorkStatus;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class WorkStatusController extends Controller
@@ -28,7 +27,7 @@ class WorkStatusController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function create()
     {
@@ -38,10 +37,9 @@ class WorkStatusController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function store(Request $request)
+    public function store()
     {
         abort(404);
     }
@@ -60,10 +58,9 @@ class WorkStatusController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\WorkStatus  $workStatus
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function edit(WorkStatus $workStatus)
+    public function edit()
     {
         abort(404);
     }
@@ -71,11 +68,9 @@ class WorkStatusController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\WorkStatus  $workStatus
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function update(Request $request, WorkStatus $workStatus)
+    public function update()
     {
         abort(404);
     }
@@ -83,13 +78,15 @@ class WorkStatusController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\WorkStatus  $workStatus
-     * @return \Illuminate\Http\Response
+     * @param  \App\WorkStatus $workStatus
+     * @return void
+     * @throws \Exception
+     * @throws \Exception
      */
     public function destroy(WorkStatus $workStatus)
     {
         $workStatus->delete();
 
-        return Session::flash('success', 'Darba statuss izdzēsts.');
+        Session::flash('success', 'Darba statuss izdzēsts.');
     }
 }

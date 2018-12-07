@@ -21,9 +21,7 @@ $('tbody').each(function () {
 
             $(parent).children().each(function () {
                 let id = this.dataset.id;
-                let priority = allElementCount - $(this).index();
-
-                beforeMovementElementPriorities[id] = priority;
+                beforeMovementElementPriorities[id] = allElementCount - $(this).index();
             });
         },
 
@@ -40,7 +38,7 @@ $('tbody').each(function () {
                 let id = this.dataset.id;
                 let priority = allElementCount - $(this).index();
 
-                if (beforeMovementElementPriorities[id] != priority)
+                if (beforeMovementElementPriorities[id] !== priority)
                 {
                     elementPriorities[id] = priority;
                 }
@@ -48,6 +46,8 @@ $('tbody').each(function () {
 
             if (! _.isEmpty(elementPriorities))
             {
+                // noinspection ES6ModulesDependencies
+                // noinspection ES6ModulesDependencies
                 axios.patch('/work/sort', elementPriorities)
                     .catch(() => $('#failModal').modal());
             }

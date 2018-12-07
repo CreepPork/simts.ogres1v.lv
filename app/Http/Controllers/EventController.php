@@ -144,8 +144,9 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Event  $event
+     * @param  \App\Event $event
      * @return void
+     * @throws \Exception
      */
     public function destroy(Event $event)
     {

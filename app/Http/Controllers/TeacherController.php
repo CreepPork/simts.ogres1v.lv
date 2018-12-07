@@ -103,13 +103,14 @@ class TeacherController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
+     * @param  \App\Teacher $teacher
+     * @return void
+     * @throws \Exception
      */
     public function destroy(Teacher $teacher)
     {
         $teacher->delete();
 
-        return Session::flash('success', 'Skolotājs izdzēsts.');
+        Session::flash('success', 'Skolotājs izdzēsts.');
     }
 }

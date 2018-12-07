@@ -22,7 +22,7 @@ class RecommendationCreated extends Mailable implements ShouldQueue
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param Recommendation $recommendation
      */
     public function __construct(Recommendation $recommendation)
     {
@@ -36,10 +36,6 @@ class RecommendationCreated extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        // Create new variables because $this is not the correct scope in that array below
-        $title = $this->recommendation->title;
-        $body = $this->recommendation->body;
-
         return $this
             ->from('no-reply@ogresnovads.lv')
             ->subject('Ieteikums Izveidots')

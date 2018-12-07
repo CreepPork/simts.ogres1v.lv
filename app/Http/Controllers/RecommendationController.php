@@ -42,7 +42,8 @@ class RecommendationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     * @param Recaptcha $recaptcha
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Recaptcha $recaptcha)
@@ -126,8 +127,9 @@ class RecommendationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Recommendation  $recommendation
+     * @param  \App\Recommendation $recommendation
      * @return void
+     * @throws \Exception
      */
     public function destroy(Recommendation $recommendation)
     {

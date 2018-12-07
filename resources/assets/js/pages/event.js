@@ -10,7 +10,7 @@ $('#image-replace-button').click(() => {
  * Updates the event page from data that the carousel has.
  *
  * @param {object} event jQuery event for the carousel.
- * @param {bool} updateHistory Should we update the history state.
+ * @param {boolean} updateHistory Should we update the history state.
  */
 function updateEvent(event = {}, updateHistory = true)
 {
@@ -41,7 +41,6 @@ function updateEvent(event = {}, updateHistory = true)
         else
         {
             window.history.pushState('event', title, `/event/${itemID}`);
-            pushed = true;
         }
     }
 }
