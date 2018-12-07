@@ -56,7 +56,7 @@ class RecommendationTest extends TestCase
     {
         Storage::fake('public');
 
-        $response = $this->post('/recommend', [
+        $this->post('/recommend', [
             'title' => 'Attachment Title.',
             'body' => 'This is a attachment test.',
             'email' => 'tester@example.com',
@@ -82,7 +82,7 @@ class RecommendationTest extends TestCase
     {
         $title = 'Both Title.';
 
-        $response = $this->post('/recommend', [
+        $this->post('/recommend', [
             'title' => $title,
             'body' => 'This is a body.',
             'email' => 'tester@example.com',
@@ -101,7 +101,7 @@ class RecommendationTest extends TestCase
     {
         $email = 'tester@example.com';
 
-        $response = $this->post('/recommend', [
+        $this->post('/recommend', [
             'title' => 'Email title.',
             'body' => 'This is a body.',
             'email' => $email,
@@ -120,7 +120,7 @@ class RecommendationTest extends TestCase
     {
         $phone = '12345678';
 
-        $response = $this->post('/recommend', [
+        $this->post('/recommend', [
             'title' => 'Email title.',
             'body' => 'This is a body.',
             'email' => '',
@@ -177,5 +177,17 @@ class RecommendationTest extends TestCase
         ]);
 
         Mail::assertQueued(RecommendationCreated::class);
+    }
+
+    /** @test */
+    public function edit_and_update_methods_return_404_error()
+    {
+        $this->signIn();
+
+        $recommendation = $this->create(Recommendation::class);
+
+        $this->get('/recommend/' . $recommendation->id . '/edit')->assertNotFound();
+
+        $this->patch('/recommend/' . $recommendation->id)->assertNotFound();
     }
 }
