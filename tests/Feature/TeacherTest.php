@@ -3,8 +3,6 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TeacherTest extends TestCase
 {
@@ -53,6 +51,8 @@ class TeacherTest extends TestCase
     /** @test */
     public function a_new_teacher_can_be_created()
     {
+        $this->get('/teacher/create')->assertSuccessful();
+
         $this->post('/teacher', [
             'first_name' => 'Name',
             'last_name' => 'Surname'
@@ -106,6 +106,8 @@ class TeacherTest extends TestCase
         $this->assertDatabaseHas('teachers', ['id' => $teacher->id]);
 
         $this->get('/teacher')->assertSee($teacher->first_name);
+
+        $this->get('/teacher/' . $teacher->id . '/edit')->assertSee($teacher->first_name);
 
         $this->patch('/teacher/' . $teacher->id, [
             'first_name' => 'New Name',
