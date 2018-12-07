@@ -15,6 +15,7 @@ script:
 - mkdir public/storage/recommend
 - mkdir public/storage/work
 - mkdir public/storage/event
+- mkdir public/storage/index
 - vendor/bin/phpunit --coverage-clover=coverage.xml
 notifications:
   email: false
