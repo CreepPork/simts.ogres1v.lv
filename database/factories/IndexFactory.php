@@ -8,5 +8,6 @@ $factory->define(App\Index::class, function (Faker $faker) {
         'section_title' => $faker->text,
         'title' => $faker->text,
         'body' => $faker->paragraph,
+        'image' => $faker->image('public/storage/index', 256, 256, null, false),
     ];
 });

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Index;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
@@ -67,5 +68,53 @@ class IndexTest extends TestCase
         ])->assertSessionHas('success');
 
         $this->get('/index')->assertSee('New Section Title');
+    }
+
+    /** @test */
+    public function a_image_can_be_uploaded()
+    {
+        $this->signIn();
+
+        Storage::fake('public');
+
+        $index = $this->create(Index::class, ['image' => null]);
+
+        $this->patch('/index/' . $index->id, [
+            'section' => $index->section,
+            'section_title' => $index->section_title,
+            'title' => $index->title,
+            'body' => $index->body,
+            'image' => $image = UploadedFile::fake()->image('image.jpg')
+        ]);
+
+        $index = Index::find($index->id);
+
+        $this->assertEquals('index/' . $image->hashName(), $index->image);
+
+        Storage::disk('public')->assertExists('index/' . $image->hashName());
+    }
+
+    /** @test */
+    public function a_file_can_be_uploaded()
+    {
+        $this->signIn();
+
+        Storage::fake('public');
+
+        $index = $this->create(Index::class, ['file' => null]);
+
+        $this->patch('/index/' . $index->id, [
+            'section' => $index->section,
+            'section_title' => $index->section_title,
+            'title' => $index->title,
+            'body' => $index->body,
+            'file' => $file = UploadedFile::fake()->create('document.pdf', 256)
+        ]);
+
+        $index = Index::find($index->id);
+
+        $this->assertEquals('index/' . $file->hashName(), $index->file);
+
+        Storage::disk('public')->assertExists('index/' . $file->hashName());
     }
 }

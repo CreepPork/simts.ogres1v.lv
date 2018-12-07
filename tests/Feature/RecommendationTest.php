@@ -152,7 +152,7 @@ class RecommendationTest extends TestCase
         // If this test fails and returns that resource is temporarily unavailable
         // that means that the image failed to generate and the image is generated
         // by http://lorempixel.com which is down and the image generated is empty.
-        $recommendation = $this->create('App\Recommendation', ['attachment' => '']);
+        $recommendation = $this->create('App\Recommendation');
 
         $this->delete('/recommend/' . $recommendation->id);
 
