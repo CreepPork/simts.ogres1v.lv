@@ -1,0 +1,44 @@
+@extends('layouts.app')
+
+@section('title', 'Skolotāji')
+
+@section('navbar-links')
+    <li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard">Informācijas panelis</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Skolotāji</li>
+        </ol>
+    </li>
+@endsection
+
+@section('content')
+    <div class="wrapper container">
+        <h1 class="text-center">Skolotāji</h1>
+
+        <hr>
+
+        @include('inc.messages')
+
+        @if (count($teachers) > 0)
+            <table class="table table-hover table-clickable table-striped">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Skolotājs</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach ($teachers as $teacher)
+                        <tr data-href="/teacher/{{ $teacher->id }}">
+                            <td>{{ $teacher->fullName() }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <div class="alert alert-info">Sistēmā nav pievienotu skolotāju!</div>
+        @endif
+
+        <a href="/teacher/create" class="btn btn-outline-primary">Pievienot</a>
+    </div>
+@endsection

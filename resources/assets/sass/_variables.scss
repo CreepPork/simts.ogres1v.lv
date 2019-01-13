@@ -1,8 +1,34 @@
 
 // Body
-$body-bg: #f5f8fa;
+$body-bg: #FCFCFC;
 
 // Typography
 $font-family-sans-serif: "Raleway", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+// Theme Colors
+$theme-colors: (
+    // Bootstrap 4 theme colors
+    "primary": #F15C22,
+    "info": #004777,
+    "danger": #A30000,
+    "warning": #EFD28D,
+    "success": #00AFB5,
+
+    // Custom colors taken from the actual school building
+    "blue": #116CB7,
+    "green": #A8CD87,
+    "white": #DCDFD7,
+    "gray": #868B87,
+
+    // Colors inspired from the school's building
+    "middle-green-yellow": #A5B452,
+    "dark-imperial-blue": #0B4F6C
+);
+
+// Respective footer sizes for xs and >=sm breakpoints
+$footer-sizes: (
+    "xs": 85.02px,
+    "sm": 60.02px
+);

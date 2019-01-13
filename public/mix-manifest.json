@@ -1,0 +1,11 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/pages/index.js": "/js/pages/index.js",
+    "/js/pages/work.js": "/js/pages/work.js",
+    "/js/pages/recommend.js": "/js/pages/recommend.js",
+    "/js/pages/indexAdmin.js": "/js/pages/indexAdmin.js",
+    "/js/pages/gift.js": "/js/pages/gift.js",
+    "/js/pages/event.js": "/js/pages/event.js",
+    "/js/helpers/deleteModal.js": "/js/helpers/deleteModal.js"
+}

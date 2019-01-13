@@ -8,7 +8,324 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
+// Lightbox 2
+@import '~lightbox2/dist/css/lightbox.min.css';
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background: $body-bg;
+
+    // Height of the footer
+    margin-bottom: map-get($map: $footer-sizes, $key: 'sm');
+
+    @include media-breakpoint-up(sm) {
+        background: linear-gradient(
+            to bottom right,
+            map-get($map: $theme-colors, $key: 'blue'),
+            map-get($map: $theme-colors, $key: 'dark-imperial-blue')
+        ) fixed;
+    }
+}
+
+.navbar {
+  background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+  ul.navbar-nav {
+        li {
+            // Increase the anchor tag texts just a tiny bit due to the logo size
+            font-size: $font-size-base + 0.15;
+        }
+    }
+
+    .breadcrumb {
+        background-color: inherit;
+        margin-bottom: 0;
+    }
+}
+
+// Make all the buttons have no rounding on them
+.btn {
+    border-radius: 0;
+}
+
+.parallax {
+    background-image: url('../images/parallax.jpg');
+
+    // Make the image fully fit the screen (doesn't care about the actual screen size, will always fit)
+    height: 91vh;
+
+    // Make it look parallaxy
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    // Create a flex box for the card that is centered on the x and y axes
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // To give some more breathing room between the image and the next section
+    margin-bottom: 1rem;
+
+    // If the screen size > sm then show the shadow if not then we don't want to show it because it doesn't look good
+    @include media-breakpoint-up(sm) {
+        box-shadow: 0 3px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    // Styling for the card that goes in the center of the image
+    .card {
+        // Make it transparent so it looks better
+        background-color: rgba(255, 255, 255, 0.8);
+
+        // Make it so it doesn't fill the whole image, we still want to see image, right?
+        width: 25%;
+
+        // As the device scales down don't squish the card
+        min-width: 25em;
+
+        // Add some padding around it to make it not so squished
+        padding: 0.8em;
+
+        // Styling for the two buttons inside the card
+        .card-buttons {
+            // Set a flex box for them to be centered inside that card
+            display: flex;
+            justify-content: center;
+
+            // Add some spacing between the buttons and the sides
+            .btn {
+                margin-left: 3px;
+                margin-right: 3px;
+            }
+        }
+
+        // Make that the card is as all other items, not rounded
+        border-radius: 0;
+
+        // Make the card go fullscreen due to the lack of room on landscape mode.
+        @media (max-height: 428px) {
+            // Set it to be the full size of the parallax parent so it looks better because there isn't any room left
+            //  for all the buttons and text in 25% of the screen size
+            height: 100%;
+            width: 100%;
+
+            // Remove the minimum width requirement due to the card overflowing on mobile devices.
+            min-width: 0;
+
+            // Set the card body to center all the text on the y axis in the middle (looks better, doesn't it?)
+            .card-body {
+                display: flex;
+                align-items: center;
+
+                // Remove some padding around the colls because it looks weird
+                .col-xs-4 {
+                    padding: 0;
+                }
+            }
+        }
+
+        // If the screen size is the smallest
+        @include media-breakpoint-only(xs) {
+            // Set it to be the full size of the parallax parent so it looks better because there isn't any room left
+            //  for all the buttons and text in 25% of the screen size
+            height: 100%;
+            width: 100%;
+
+            // Remove the minimum width requirement due to the card overflowing on mobile devices.
+            min-width: 0;
+
+            // Set the card body to center all the text on the y axis in the middle (looks better, doesn't it?)
+            .card-body {
+                display: flex;
+                align-items: center;
+
+                // Remove some padding around the colls because it looks weird
+                .col-xs-4 {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+// Wrapper inside the main element to be on top of the gradient so you can actually read something
+.wrapper {
+    background-color: $body-bg;
+
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+    min-height: 100%;
+
+    // Give some room between the footer and the wrapper (from 4em it starts moving)
+    margin-bottom: 6em;
+
+    @include media-breakpoint-up(sm) {
+        // Add a shadow to the wrapper to give that feel that it's not a part of the gradient itself
+        box-shadow: 0 4px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+}
+
+// Additional class for .wrapper for the index page that moves the wrapper up into the parallax image
+.wrapper-index {
+    @include media-breakpoint-up(sm) {
+        // Offset the wrapper to be on top of the parallax image but so only the text "100 labie darbi" is visible
+        margin-top: -7rem;
+    }
+
+    // Hide the wrapper from the parallax image in case the height of the screen size drops below 428px.
+    // If not hidden it causes to go on top of the image when it's in landscape mode.
+    @media (max-height: 428px) {
+        margin-top: 0;
+    }
+}
+
+// Class used to highlight selected container using the buttons.
+// Note: should not be applied constantly but only via JS for a moment otherwise the user can interact with it
+//  and it looks and feels weird to the user.
+.container-selected {
+    // Transition when the container is focused (in and out)
+    transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+
+    // Add a shadow to the container when it is focused
+    &:focus {
+        box-shadow: 0 0 0.8rem 0.2rem rgba(241, 92, 34, 0.5);
+    }
+}
+
+.footer {
+    // Make the footer stick to the end of the page
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: map-get($map: $footer-sizes, $key: 'sm');
+
+    // Add some padding to the top to make the footer look fatter so it isn't right at the bottom of the page
+    padding-top: 0.8em;
+
+    margin-bottom: 1em;
+
+    .col-copyright {
+        @include media-breakpoint-only(xs) {
+            // Whem the screen size is so low that the text and the social icons cannot be on the same line
+            //  then make it centered, same applies to the social icons.
+            text-align: center !important;
+        }
+
+        // Increase the font size so it is more visible
+        a.school-link {
+            font-size: 1rem;
+        }
+    }
+
+    // Set the SVG to a bigger size (fa-2x and fa-3x are not a good fit for this one).
+    // Note: using a selector for the i.fab doesn't work because it comments out the actual i element and replaces it
+    //  with an SVG element (probably using a different class would have worked, but I couldn't come up a good name for it).
+    svg.svg-inline--fa {
+        font-size: 2.7em;
+    }
+
+    // Set the anchor tags to white (default: primary, which you guessed, is invisible on the background)
+    a {
+        color: #e5e5e5;
+
+        // Make the tags have a smooth transition
+        transition: color 0.25s ease-in-out;
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    // Align the footer icons maximum to the right incase there is some extra room between the col's
+    .footer-icons {
+        text-align: right;
+
+        // Aforementioned text centering for the smaller screen sizes
+        @include media-breakpoint-only(xs) {
+            text-align: center;
+        }
+    }
+}
+
+// When the footer goes in to xs mode, make the footer the actual height it is and move all other elements according to it's new height
+@include media-breakpoint-only(xs) {
+    .footer {
+        height: map-get($map: $footer-sizes, $key: 'xs');
+
+        // As we are in the xs view and the gradient isn't rendered, we'll make a new one
+        background: linear-gradient(
+            to bottom right,
+            map-get($map: $theme-colors, $key: 'blue'),
+            map-get($map: $theme-colors, $key: 'dark-imperial-blue')
+        ) fixed;
+
+        padding-bottom: 0.8em;
+        margin-bottom: 0;
+    }
+
+    body {
+        margin-bottom: map-get($map: $footer-sizes, $key: 'xs');
+    }
+}
+
+table.table-clickable {
+    tbody>tr {
+        cursor: pointer;
+    }
+}
+
+.great-works-buttons {
+    @include media-breakpoint-up(lg) {
+        text-align: right;
+    }
+}
+
+@include media-breakpoint-only(xs) {
+    .works-button-left {
+        margin-bottom: 0.5rem;
+    }
+
+    .works-button-center {
+        margin-bottom: 0.5rem;
+        text-align: left !important;
+    }
+
+    .works-button-right {
+        margin-bottom: 0.5rem;
+        text-align: left !important;
+    }
+}
+
+textarea.readonly {
+    overflow: hidden;
+    resize: none;
+}
+
+.required label:after {
+  content: "*";
+  color: red;
+}
+
+.required-show span {
+    color: red;
+    font-size: $font-size-base + 0.6 // takes into account that base is 0.9rem
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.btn.btn-link {
+    white-space: normal;
+}
+
+.td-draggable {
+    cursor: move !important;
 }

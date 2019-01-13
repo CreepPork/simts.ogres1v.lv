@@ -1,2 +1,3 @@
 User-agent: *
 Disallow:
+Sitemap: https://simts.ogres1v.lv/sitemap.xml
