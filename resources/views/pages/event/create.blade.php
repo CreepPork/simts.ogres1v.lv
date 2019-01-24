@@ -45,7 +45,7 @@
 
             <div class="form-group">
                 <div class="custom-file">
-                    <input required type="file" accept="image/*" name="image" id="image" class="custom-file-label">
+                    <input type="file" accept="image/*" name="image" id="image" class="custom-file-label">
                     <label for="image" class="custom-file-label">Pievienot attēlu</label>
                 </div>
 
