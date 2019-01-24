@@ -81,13 +81,12 @@ class RecommendationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Recommendation  $recommendation
+     * @param $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Recommendation $recommendation)
+    public function show($id)
     {
-        // For some reason this returns a collection ¯\_(ツ)_/¯
-        $recommendation = $recommendation->first();
+        $recommendation = Recommendation::find($id);
 
         $attachmentURL = null;
         $attachmentMIMEType = null;
@@ -127,14 +126,14 @@ class RecommendationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Recommendation $recommendation
+     * @param $id
      * @return void
      * @throws \Exception
      */
-    public function destroy(Recommendation $recommendation)
+    public function destroy($id)
     {
         // Again it's returned in a collection for some magical reason
-        $recommendation = $recommendation->first();
+        $recommendation = Recommendation::find($id);
 
         Storage::disk('public')->delete($recommendation->attachment);
 
