@@ -18,7 +18,7 @@
 
         <hr>
 
-        <p class="text-justify">{{ $recommendation->body }}</p>
+        <p class="text-justify preserve-formatting">{{ $recommendation->body }}</p>
 
         <div class="row">
 
