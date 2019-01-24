@@ -47,7 +47,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="events">
                     <a class="dropdown-item" href="/event">Skatīt visus</a>
-                    <a class="dropdown-item" href="/event">Pievienot jaunu</a>
+                    <a class="dropdown-item" href="/event/create">Pievienot jaunu</a>
                 </div>
             </div>
 
