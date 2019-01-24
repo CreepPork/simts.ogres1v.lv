@@ -23,7 +23,7 @@
 
         <hr>
 
-        <p class="text-justify">{{ $work->body }}</p>
+        <p class="text-justify preserve-formatting">{{ $work->body }}</p>
 
         @if ($work->image)
             <div class="text-center form-group">

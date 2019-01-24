@@ -329,3 +329,7 @@ textarea.readonly {
 .td-draggable {
     cursor: move !important;
 }
+
+.preserve-formatting {
+    white-space: pre-wrap;
+}
