@@ -55,6 +55,13 @@ class EventController extends Controller
             'event_at' => 'required|date|after:now'
         ]);
 
+        $event_at = $request->event_at;
+        // Does not have seconds (2020-01-01T01:00)
+        if (strlen($event_at) == 16)
+        {
+            $event_at = $event_at . ":00";
+        }
+
         Event::create([
             'title' => $request->title,
             'summary' => $request->summary,
@@ -62,7 +69,7 @@ class EventController extends Controller
 
             'image' => $request->image->store('event', 'public'),
 
-            'event_at' => Carbon::createFromFormat('Y-m-d\TH:i:s', $request->event_at)
+            'event_at' => Carbon::createFromFormat('Y-m-d\TH:i:s', $event_at)
         ]);
 
         return redirect('/event/create')->with('success', 'Pasākums pievienots.');
@@ -128,6 +135,13 @@ class EventController extends Controller
             $request->image = $event->image;
         }
 
+        $event_at = $request->event_at;
+        // Does not have seconds (2020-01-01T01:00)
+        if (strlen($event_at) == 16)
+        {
+            $event_at = $event_at . ":00";
+        }
+
         $event->update([
             'title' => $request->title,
             'summary' => $request->summary,
@@ -135,7 +149,7 @@ class EventController extends Controller
 
             'image' => $request->image,
 
-            'event_at' => Carbon::createFromFormat('Y-m-d\TH:i:s', $request->event_at)
+            'event_at' => Carbon::createFromFormat('Y-m-d\TH:i:s', $event_at)
         ]);
 
         return redirect('/event')->with('success', 'Pasākums rediģēts.');
