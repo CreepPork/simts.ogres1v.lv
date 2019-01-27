@@ -34,7 +34,7 @@
         <div class="row align-items-center justify-content-between">
             <div class="col">
                 <div class="form-group">
-                    <span class="form-text text-muted">Autors - {{ $work->teacher->fullName() }}</span>
+                    <span class="form-text text-muted">Vadītājs - {{ $work->teacher->fullName() }}</span>
                 </div>
             </div>
 
