@@ -1,20 +1,20 @@
 <p align="center">
-    <img src="https://github.com/CreepPork/simts.ogres1v.lv/blob/develop/resources/assets/images/logo.png" width="140" alt="Logo">
+    <img src="https://github.com/ogres-1-vidusskola/simts.ogres1v.lv/blob/develop/resources/assets/images/logo.png" width="140" alt="Logo">
     <h1 align="center">100 Labie Darbi - Ogres 1. vidusskola</h1>
 </p>
 
 <p align="center">
-    <a href="https://github.com/CreepPork/simts.ogres1v.lv/issues">
-        <img src="https://img.shields.io/github/issues-raw/CreepPork/simts.ogres1v.lv.svg?style=flat-square&label=issues" alt="Issues">
+    <a href="https://github.com/ogres-1-vidusskola/simts.ogres1v.lv/issues">
+        <img src="https://img.shields.io/github/issues-raw/ogres-1-vidusskola/simts.ogres1v.lv.svg?style=flat-square&label=issues" alt="Issues">
     </a>
-    <a href="https://github.com/CreepPork/simts.ogres1v.lv/blob/develop/LICENSE">
-        <img src="https://img.shields.io/github/license/CreepPork/simts.ogres1v.lv.svg?style=flat-square&label=license" alt="License">
+    <a href="https://github.com/ogres-1-vidusskola/simts.ogres1v.lv/blob/develop/LICENSE">
+        <img src="https://img.shields.io/github/license/ogres-1-vidusskola/simts.ogres1v.lv.svg?style=flat-square&label=license" alt="License">
     </a>
-    <a href="https://www.travis-ci.com/CreepPork/simts.ogres1v.lv">
-        <img src="https://www.travis-ci.com/CreepPork/simts.ogres1v.lv.svg?style=flat-square&token=TsdTZZVMQRx2yic71M4F&branch=develop" />
+    <a href="https://www.travis-ci.com/ogres-1-vidusskola/simts.ogres1v.lv">
+        <img src="https://img.shields.io/travis/com/ogres-1-vidusskola/simts.ogres1v.lv/master.svg?style=flat-square" />
     </a>
-    <a href="https://codecov.io/gh/CreepPork/simts.ogres1v.lv">
-      <img src="https://codecov.io/gh/CreepPork/simts.ogres1v.lv/branch/develop/graph/badge.svg?token=aIK5IPL4VT&style=flat-square" />
+    <a href="https://codecov.io/gh/ogres-1-vidusskola/simts.ogres1v.lv">
+        <img src="https://img.shields.io/codecov/c/github/ogres-1-vidusskola/simts.ogres1v.lv/master.svg?style=flat-square" />
     </a>
 </p>
 
