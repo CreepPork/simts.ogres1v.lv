@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         Carbon::setLocale(config('app.locale'));
-        setlocale(LC_TIME, 'Latvian');
+        setlocale(LC_TIME, 'lv_LV');
         Carbon::setUtf8(true);
     }
 
